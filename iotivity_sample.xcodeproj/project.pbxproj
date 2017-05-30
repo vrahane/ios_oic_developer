@@ -1,0 +1,686 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
+		72366ED71ED5EF1C00BD1D28 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */; };
+		72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */; };
+		72366EDC1ED7748C00BD1D28 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EDA1ED7748C00BD1D28 /* LightViewController.m */; };
+		72366EDD1ED7748C00BD1D28 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EDB1ED7748C00BD1D28 /* LightViewController.xib */; };
+		72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */; };
+		72366EE21ED7B52700BD1D28 /* PeripheralResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EE11ED7B52700BD1D28 /* PeripheralResource.m */; };
+		72366EE61ED8D4D400BD1D28 /* HumidityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */; };
+		72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */; };
+		AD2297BB1ECA2A8200467CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BA1ECA2A8200467CF0 /* main.m */; };
+		AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */; };
+		AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C21ECA2A8200467CF0 /* Main.storyboard */; };
+		AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C51ECA2A8200467CF0 /* Assets.xcassets */; };
+		AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */; };
+		AD2297D41ECA2A8200467CF0 /* iotivity_sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297D31ECA2A8200467CF0 /* iotivity_sampleTests.m */; };
+		AD2297DF1ECA2A8200467CF0 /* iotivity_sampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297DE1ECA2A8200467CF0 /* iotivity_sampleUITests.m */; };
+		AD2297F51ECA3FEB00467CF0 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = AD2297F41ECA3FEB00467CF0 /* ios */; };
+		AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2298011ECA467600467CF0 /* DeviceListViewController.m */; };
+		AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD22980B1ECA4CA600467CF0 /* DeviceCell.m */; };
+		AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */; };
+		AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2298101ECA50B500467CF0 /* iotivity_itf.m */; };
+		AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2298121ECA554F00467CF0 /* CoreBluetooth.framework */; };
+		ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE0E1ECBA7360084364C /* Peripheral.m */; };
+		ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */; };
+		ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */; };
+		ADE3DE221ECBD6C80084364C /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE201ECBD6C80084364C /* DeviceViewController.m */; };
+		ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AD2297D01ECA2A8200467CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD2297AE1ECA2A8200467CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD2297B51ECA2A8200467CF0;
+			remoteInfo = iotivity_sample;
+		};
+		AD2297DB1ECA2A8200467CF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD2297AE1ECA2A8200467CF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD2297B51ECA2A8200467CF0;
+			remoteInfo = iotivity_sample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		72366ED41ED5EF1C00BD1D28 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		72366ED91ED7748C00BD1D28 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
+		72366EDA1ED7748C00BD1D28 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
+		72366EDB1ED7748C00BD1D28 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
+		72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceListViewController.xib; sourceTree = "<group>"; };
+		72366EE01ED7B52700BD1D28 /* PeripheralResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralResource.h; sourceTree = "<group>"; };
+		72366EE11ED7B52700BD1D28 /* PeripheralResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralResource.m; sourceTree = "<group>"; };
+		72366EE31ED8D4D400BD1D28 /* HumidityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumidityViewController.h; sourceTree = "<group>"; };
+		72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumidityViewController.m; sourceTree = "<group>"; };
+		72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumidityViewController.xib; sourceTree = "<group>"; };
+		AD2297B61ECA2A8200467CF0 /* iotivity_sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iotivity_sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD2297BA1ECA2A8200467CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AD2297BC1ECA2A8200467CF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AD2297C31ECA2A8200467CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD2297C51ECA2A8200467CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD2297C81ECA2A8200467CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AD2297CA1ECA2A8200467CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD2297CF1ECA2A8200467CF0 /* iotivity_sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iotivity_sampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD2297D31ECA2A8200467CF0 /* iotivity_sampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iotivity_sampleTests.m; sourceTree = "<group>"; };
+		AD2297D51ECA2A8200467CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD2297DA1ECA2A8200467CF0 /* iotivity_sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iotivity_sampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD2297DE1ECA2A8200467CF0 /* iotivity_sampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iotivity_sampleUITests.m; sourceTree = "<group>"; };
+		AD2297E01ECA2A8200467CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD2297F41ECA3FEB00467CF0 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/ios; sourceTree = "<group>"; };
+		AD2298001ECA467600467CF0 /* DeviceListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceListViewController.h; sourceTree = "<group>"; };
+		AD2298011ECA467600467CF0 /* DeviceListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceListViewController.m; sourceTree = "<group>"; };
+		AD22980A1ECA4CA600467CF0 /* DeviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceCell.h; sourceTree = "<group>"; };
+		AD22980B1ECA4CA600467CF0 /* DeviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceCell.m; sourceTree = "<group>"; };
+		AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
+		AD22980F1ECA50B500467CF0 /* iotivity_itf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iotivity_itf.h; sourceTree = "<group>"; };
+		AD2298101ECA50B500467CF0 /* iotivity_itf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iotivity_itf.m; sourceTree = "<group>"; };
+		AD2298121ECA554F00467CF0 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "iotivity-csdk.framework"; path = "iotivity_sample/iotivity/out/ios/iotivity-csdk.framework"; sourceTree = "<group>"; };
+		ADE3DE0D1ECBA7360084364C /* Peripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Peripheral.h; sourceTree = "<group>"; };
+		ADE3DE0E1ECBA7360084364C /* Peripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Peripheral.m; sourceTree = "<group>"; };
+		ADE3DE1A1ECBD2FD0084364C /* ResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceCell.h; sourceTree = "<group>"; };
+		ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceCell.m; sourceTree = "<group>"; };
+		ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
+		ADE3DE1F1ECBD6C80084364C /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
+		ADE3DE201ECBD6C80084364C /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AD2297B31ECA2A8200467CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */,
+				AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297CC1ECA2A8200467CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297D71ECA2A8200467CF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD2297AD1ECA2A8200467CF0 = {
+			isa = PBXGroup;
+			children = (
+				AD2297F41ECA3FEB00467CF0 /* ios */,
+				AD2297B81ECA2A8200467CF0 /* iotivity_sample */,
+				AD2297D21ECA2A8200467CF0 /* iotivity_sampleTests */,
+				AD2297DD1ECA2A8200467CF0 /* iotivity_sampleUITests */,
+				AD2297B71ECA2A8200467CF0 /* Products */,
+				AD2297F61ECA427800467CF0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AD2297B71ECA2A8200467CF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AD2297B61ECA2A8200467CF0 /* iotivity_sample.app */,
+				AD2297CF1ECA2A8200467CF0 /* iotivity_sampleTests.xctest */,
+				AD2297DA1ECA2A8200467CF0 /* iotivity_sampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD2297B81ECA2A8200467CF0 /* iotivity_sample */ = {
+			isa = PBXGroup;
+			children = (
+				ADE3DE1F1ECBD6C80084364C /* DeviceViewController.h */,
+				ADE3DE201ECBD6C80084364C /* DeviceViewController.m */,
+				ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */,
+				ADE3DE1A1ECBD2FD0084364C /* ResourceCell.h */,
+				ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */,
+				ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */,
+				AD2297BC1ECA2A8200467CF0 /* AppDelegate.h */,
+				AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */,
+				AD2297C21ECA2A8200467CF0 /* Main.storyboard */,
+				AD2297C51ECA2A8200467CF0 /* Assets.xcassets */,
+				AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */,
+				AD2297CA1ECA2A8200467CF0 /* Info.plist */,
+				AD2297B91ECA2A8200467CF0 /* Supporting Files */,
+				AD2298001ECA467600467CF0 /* DeviceListViewController.h */,
+				AD2298011ECA467600467CF0 /* DeviceListViewController.m */,
+				72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */,
+				AD22980F1ECA50B500467CF0 /* iotivity_itf.h */,
+				AD2298101ECA50B500467CF0 /* iotivity_itf.m */,
+				ADE3DE0D1ECBA7360084364C /* Peripheral.h */,
+				ADE3DE0E1ECBA7360084364C /* Peripheral.m */,
+				AD22980A1ECA4CA600467CF0 /* DeviceCell.h */,
+				AD22980B1ECA4CA600467CF0 /* DeviceCell.m */,
+				AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */,
+				72366ED41ED5EF1C00BD1D28 /* DetailViewController.h */,
+				72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */,
+				72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */,
+				72366ED91ED7748C00BD1D28 /* LightViewController.h */,
+				72366EDA1ED7748C00BD1D28 /* LightViewController.m */,
+				72366EDB1ED7748C00BD1D28 /* LightViewController.xib */,
+				72366EE01ED7B52700BD1D28 /* PeripheralResource.h */,
+				72366EE11ED7B52700BD1D28 /* PeripheralResource.m */,
+				72366EE31ED8D4D400BD1D28 /* HumidityViewController.h */,
+				72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */,
+				72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */,
+			);
+			path = iotivity_sample;
+			sourceTree = "<group>";
+		};
+		AD2297B91ECA2A8200467CF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AD2297BA1ECA2A8200467CF0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD2297D21ECA2A8200467CF0 /* iotivity_sampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				AD2297D31ECA2A8200467CF0 /* iotivity_sampleTests.m */,
+				AD2297D51ECA2A8200467CF0 /* Info.plist */,
+			);
+			path = iotivity_sampleTests;
+			sourceTree = "<group>";
+		};
+		AD2297DD1ECA2A8200467CF0 /* iotivity_sampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AD2297DE1ECA2A8200467CF0 /* iotivity_sampleUITests.m */,
+				AD2297E01ECA2A8200467CF0 /* Info.plist */,
+			);
+			path = iotivity_sampleUITests;
+			sourceTree = "<group>";
+		};
+		AD2297F61ECA427800467CF0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */,
+				AD2298121ECA554F00467CF0 /* CoreBluetooth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AD2297B51ECA2A8200467CF0 /* iotivity_sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD2297E31ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sample" */;
+			buildPhases = (
+				AD2297B21ECA2A8200467CF0 /* Sources */,
+				AD2297B31ECA2A8200467CF0 /* Frameworks */,
+				AD2297B41ECA2A8200467CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iotivity_sample;
+			productName = iotivity_sample;
+			productReference = AD2297B61ECA2A8200467CF0 /* iotivity_sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AD2297CE1ECA2A8200467CF0 /* iotivity_sampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD2297E61ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sampleTests" */;
+			buildPhases = (
+				AD2297CB1ECA2A8200467CF0 /* Sources */,
+				AD2297CC1ECA2A8200467CF0 /* Frameworks */,
+				AD2297CD1ECA2A8200467CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD2297D11ECA2A8200467CF0 /* PBXTargetDependency */,
+			);
+			name = iotivity_sampleTests;
+			productName = iotivity_sampleTests;
+			productReference = AD2297CF1ECA2A8200467CF0 /* iotivity_sampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AD2297D91ECA2A8200467CF0 /* iotivity_sampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AD2297E91ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sampleUITests" */;
+			buildPhases = (
+				AD2297D61ECA2A8200467CF0 /* Sources */,
+				AD2297D71ECA2A8200467CF0 /* Frameworks */,
+				AD2297D81ECA2A8200467CF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD2297DC1ECA2A8200467CF0 /* PBXTargetDependency */,
+			);
+			name = iotivity_sampleUITests;
+			productName = iotivity_sampleUITests;
+			productReference = AD2297DA1ECA2A8200467CF0 /* iotivity_sampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AD2297AE1ECA2A8200467CF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Marko Kiiskila";
+				TargetAttributes = {
+					AD2297B51ECA2A8200467CF0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3Z39VX985L;
+						ProvisioningStyle = Automatic;
+					};
+					AD2297CE1ECA2A8200467CF0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AD2297B51ECA2A8200467CF0;
+					};
+					AD2297D91ECA2A8200467CF0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AD2297B51ECA2A8200467CF0;
+					};
+				};
+			};
+			buildConfigurationList = AD2297B11ECA2A8200467CF0 /* Build configuration list for PBXProject "iotivity_sample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AD2297AD1ECA2A8200467CF0;
+			productRefGroup = AD2297B71ECA2A8200467CF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AD2297B51ECA2A8200467CF0 /* iotivity_sample */,
+				AD2297CE1ECA2A8200467CF0 /* iotivity_sampleTests */,
+				AD2297D91ECA2A8200467CF0 /* iotivity_sampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AD2297B41ECA2A8200467CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */,
+				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
+				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
+				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
+				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
+				72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */,
+				AD2297F51ECA3FEB00467CF0 /* ios in Resources */,
+				72366EDD1ED7748C00BD1D28 /* LightViewController.xib in Resources */,
+				AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */,
+				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
+				72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297CD1ECA2A8200467CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297D81ECA2A8200467CF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AD2297B21ECA2A8200467CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADE3DE221ECBD6C80084364C /* DeviceViewController.m in Sources */,
+				72366EDC1ED7748C00BD1D28 /* LightViewController.m in Sources */,
+				AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */,
+				72366EE61ED8D4D400BD1D28 /* HumidityViewController.m in Sources */,
+				72366ED71ED5EF1C00BD1D28 /* DetailViewController.m in Sources */,
+				ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */,
+				AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */,
+				AD2297BB1ECA2A8200467CF0 /* main.m in Sources */,
+				ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */,
+				AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */,
+				AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */,
+				72366EE21ED7B52700BD1D28 /* PeripheralResource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297CB1ECA2A8200467CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD2297D41ECA2A8200467CF0 /* iotivity_sampleTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD2297D61ECA2A8200467CF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AD2297DF1ECA2A8200467CF0 /* iotivity_sampleUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD2297D11ECA2A8200467CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD2297B51ECA2A8200467CF0 /* iotivity_sample */;
+			targetProxy = AD2297D01ECA2A8200467CF0 /* PBXContainerItemProxy */;
+		};
+		AD2297DC1ECA2A8200467CF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AD2297B51ECA2A8200467CF0 /* iotivity_sample */;
+			targetProxy = AD2297DB1ECA2A8200467CF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AD2297C21ECA2A8200467CF0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD2297C31ECA2A8200467CF0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AD2297C81ECA2A8200467CF0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AD2297E11ECA2A8200467CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AD2297E21ECA2A8200467CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AD2297E41ECA2A8200467CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				DEVELOPMENT_TEAM = 3Z39VX985L;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios",
+				);
+				INFOPLIST_FILE = iotivity_sample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DROUTING_EP",
+					"-DTB_LOG",
+					"-DIP_ADAPTER",
+					"-DNO_EDR_ADAPTER",
+					"-DLE_ADAPTER",
+					"-DWITH_POSIX",
+					"-D_DARWIN_C_SOURCE",
+					"-DWITH_BWT",
+					"-DWITH_TCP",
+					"-DTB_LOG",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-v";
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		AD2297E51ECA2A8200467CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				DEVELOPMENT_TEAM = 3Z39VX985L;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios",
+				);
+				INFOPLIST_FILE = iotivity_sample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				"OTHER_CFLAGS[arch=*]" = (
+					"-DROUTING_EP",
+					"-DTB_LOG",
+					"-DIP_ADAPTER",
+					"-DNO_EDR_ADAPTER",
+					"-DLE_ADAPTER",
+					"-DWITH_POSIX",
+					"-D_DARWIN_C_SOURCE",
+					"-DWITH_BWT",
+					"-DWITH_TCP",
+					"-DTB_LOG",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sample";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		AD2297E71ECA2A8200467CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iotivity_sampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iotivity_sample.app/iotivity_sample";
+			};
+			name = Debug;
+		};
+		AD2297E81ECA2A8200467CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = iotivity_sampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sampleTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iotivity_sample.app/iotivity_sample";
+			};
+			name = Release;
+		};
+		AD2297EA1ECA2A8200467CF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iotivity_sampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iotivity_sample;
+			};
+			name = Debug;
+		};
+		AD2297EB1ECA2A8200467CF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = iotivity_sampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sampleUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = iotivity_sample;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD2297B11ECA2A8200467CF0 /* Build configuration list for PBXProject "iotivity_sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD2297E11ECA2A8200467CF0 /* Debug */,
+				AD2297E21ECA2A8200467CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD2297E31ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD2297E41ECA2A8200467CF0 /* Debug */,
+				AD2297E51ECA2A8200467CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD2297E61ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD2297E71ECA2A8200467CF0 /* Debug */,
+				AD2297E81ECA2A8200467CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AD2297E91ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AD2297EA1ECA2A8200467CF0 /* Debug */,
+				AD2297EB1ECA2A8200467CF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AD2297AE1ECA2A8200467CF0 /* Project object */;
+}
