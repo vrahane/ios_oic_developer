@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
 		72366ED71ED5EF1C00BD1D28 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */; };
 		72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */; };
 		72366EDC1ED7748C00BD1D28 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EDA1ED7748C00BD1D28 /* LightViewController.m */; };
@@ -18,17 +17,17 @@
 		72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */; };
 		AD2297BB1ECA2A8200467CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BA1ECA2A8200467CF0 /* main.m */; };
 		AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */; };
-		AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C21ECA2A8200467CF0 /* Main.storyboard */; };
 		AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C51ECA2A8200467CF0 /* Assets.xcassets */; };
 		AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */; };
 		AD2297D41ECA2A8200467CF0 /* iotivity_sampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297D31ECA2A8200467CF0 /* iotivity_sampleTests.m */; };
 		AD2297DF1ECA2A8200467CF0 /* iotivity_sampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297DE1ECA2A8200467CF0 /* iotivity_sampleUITests.m */; };
-		AD2297F51ECA3FEB00467CF0 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = AD2297F41ECA3FEB00467CF0 /* ios */; };
 		AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2298011ECA467600467CF0 /* DeviceListViewController.m */; };
 		AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD22980B1ECA4CA600467CF0 /* DeviceCell.m */; };
 		AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */; };
 		AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2298101ECA50B500467CF0 /* iotivity_itf.m */; };
 		AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2298121ECA554F00467CF0 /* CoreBluetooth.framework */; };
+		AD2A52B91EDF86AA004CC38E /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
+		AD2A52BA1EDF8A43004CC38E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C21ECA2A8200467CF0 /* Main.storyboard */; };
 		ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE0E1ECBA7360084364C /* Peripheral.m */; };
 		ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */; };
 		ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */; };
@@ -105,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */,
+				AD2A52B91EDF86AA004CC38E /* iotivity-csdk.framework in Frameworks */,
 				AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,11 +287,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Marko Kiiskila";
 				TargetAttributes = {
 					AD2297B51ECA2A8200467CF0 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 3Z39VX985L;
 						ProvisioningStyle = Automatic;
 					};
 					AD2297CE1ECA2A8200467CF0 = {
@@ -332,15 +329,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD2A52BA1EDF8A43004CC38E /* Main.storyboard in Resources */,
 				ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */,
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
 				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
 				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
 				72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */,
-				AD2297F51ECA3FEB00467CF0 /* ios in Resources */,
 				72366EDD1ED7748C00BD1D28 /* LightViewController.xib in Resources */,
-				AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */,
 				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
 				72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */,
 			);
@@ -455,8 +451,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -505,8 +501,8 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -533,16 +529,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				DEVELOPMENT_TEAM = 3Z39VX985L;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T3HQ5H667Z;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios",
 				);
 				INFOPLIST_FILE = iotivity_sample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios/iotivity-csdk.framework/Versions/A",
+				);
 				"OTHER_CFLAGS[arch=*]" = (
 					"-DROUTING_EP",
 					"-DTB_LOG",
@@ -556,9 +556,10 @@
 					"-DTB_LOG",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-v";
-				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkiiskila.iotivity-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -567,16 +568,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				DEVELOPMENT_TEAM = 3Z39VX985L;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = T3HQ5H667Z;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios",
 				);
 				INFOPLIST_FILE = iotivity_sample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/iotivity_sample/iotivity/out/ios/iotivity-csdk.framework/Versions/A",
+				);
 				"OTHER_CFLAGS[arch=*]" = (
 					"-DROUTING_EP",
 					"-DTB_LOG",
@@ -589,9 +594,10 @@
 					"-DWITH_TCP",
 					"-DTB_LOG",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "runtime.io.iotivity-sample";
+				PRODUCT_BUNDLE_IDENTIFIER = "mkiiskila.iotivity-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
