@@ -49,6 +49,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     [[iotivity_itf shared] discovery_end];
 }
 
