@@ -124,7 +124,7 @@
 
 - (void)putclicked : (UIButton *)sender {
     
-    [[iotivity_itf shared] get_generic:self andURI:@"/oic/res" andDevAddr:peripheral.devAddr];
+    //[[iotivity_itf shared] get_generic:self andURI:@"/oic/res" andDevAddr:peripheral.devAddr];
     
     self.valueTextField.text = @"";
     [self.backgroundPopup setFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, 200)];
