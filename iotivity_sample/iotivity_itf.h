@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Peripheral.h"
 #import "PeripheralResource.h"
+#include <iotivity-csdk/octypes.h>
+#include <iotivity-csdk/ocstack.h>
 
 @interface iotivity_itf : NSObject
 
@@ -18,6 +20,16 @@
 - (int) discovery_resource:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 - (int) discovery_humidity:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 - (int) discovery_temperature:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
+
+- (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
+
+- (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
+
+
+- (int) observe_light:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr;
+
+- (int) cancel_observer:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andHandle:(OCDoHandle)handle;
+
 - (void)discovery_end;
 
 - (NSUInteger)device_count;
@@ -26,6 +38,8 @@
 - (Peripheral *)statusDetails;
 - (Peripheral *)humidityDetails;
 - (Peripheral *)temperatureDetails;
+- (Peripheral *)lightDetails;
+- (Peripheral *)resourceDetails;
 
 @end
 

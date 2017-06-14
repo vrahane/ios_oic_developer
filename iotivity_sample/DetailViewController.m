@@ -30,6 +30,7 @@
 }
 - (IBAction)getAction:(id)sender {
     self.displayTextView.text = @"{status : true}";
+    [[iotivity_itf shared] get_generic:self andURI:self.navigationTitle andDevAddr:self.peripheral.devAddr];
 }
 - (IBAction)putAction:(id)sender {
     NSString *myString = self.displayTextView.text;

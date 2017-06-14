@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, strong) NSMutableArray *resources;
 @property (nonatomic) OCDevAddr devAddr;
+@property (nonatomic) OCDoHandle handle;
 @property (nonatomic, copy) NSString *platformID;
 @property (nonatomic, copy) NSString *manufacturerName;
 

@@ -25,6 +25,7 @@
 - (void)addPeripheralResource:(PeripheralResource *)resource
 {
     [_resources addObject:resource];
+    NSLog(@"%lu",(unsigned long)[_resources count]);
 }
 @end
 

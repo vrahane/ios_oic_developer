@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Peripheral.h"
 
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextView *displayTextView;
@@ -17,5 +18,5 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBar;
 
 @property (strong, nonatomic) NSString *navigationTitle;
-
+@property (strong, nonatomic) Peripheral *peripheral;
 @end

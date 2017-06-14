@@ -7,11 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <iotivity-csdk/octypes.h>
+#include <iotivity-csdk/ocstack.h>
 
 @interface PeripheralResource : NSObject
 
+@property (nonatomic) OCDevAddr devAddr;
+@property (nonatomic) OCRepPayloadPropType type;
 @property (nonatomic, copy) NSString *uri;
-@property (nonatomic, copy) NSString *statusName;
-@property (nonatomic) bool resState;
+@property (nonatomic, copy) NSString *resourceName;
+@property (nonatomic) bool resourceBoolValue;
+@property (nonatomic) int64_t resourceIntegerValue;
+@property (nonatomic) double resourceDoubleValue;
+@property (nonatomic) NSString *resourceStringValue;
+@property (nonatomic) NSMutableArray *resourceArrayValue;
 
 @end

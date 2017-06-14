@@ -10,15 +10,15 @@
 
 @implementation PeripheralResource
 
-- (instancetype)init
+- (instancetype)initWithURI:(NSString *)uri
 {
     self = [super init];
+    
     if (self) {
-        _uri = [[NSString alloc] init];
-        _resState = false;
-        _statusName = [[NSString alloc] init];
+        _uri = uri;
     }
     return self;
 }
+
 
 @end

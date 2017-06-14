@@ -11,7 +11,8 @@
 #import "LightViewController.h"
 #import "ResourceCell.h"
 #import "HumidityViewController.h"
-
+#import "ResourceDetailsViewController.h"
+#import "iotivity_itf.h"
 #include <iotivity-csdk/octypes.h>
 #include <iotivity-csdk/ocstack.h>
 
@@ -25,6 +26,7 @@ UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *resourceList;
 @property (strong, nonatomic) NSMutableArray *peripheralResources;
 
+@property (nonatomic, strong) NSString *uri;
 @end
 
 OCDevAddr *devAddr;
@@ -47,9 +49,8 @@ OCDevAddr *devAddr;
     _peripheralResources = [[NSMutableArray alloc] initWithArray:peripheral.resources];
     NSLog(@"%s", peripheral.devAddr.addr);
     
-    
     for(PeripheralResource *pr in peripheral.resources){
-        if([pr.uri containsString:@"oic"]){
+        if([pr.uri containsString:@"omgr"]){
             [_peripheralResources removeObject:pr];
         }
     }
@@ -88,6 +89,9 @@ OCDevAddr *devAddr;
     // Dispose of any resources that can be recreated.
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+}
+
 - (IBAction)backButtonPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -123,30 +127,34 @@ OCDevAddr *devAddr;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    
     PeripheralResource *pr = _peripheralResources[indexPath.row];
-    
-    if ([pr.uri containsString:@"compass"]) {
-        NSLog(@"string contains compass!");
-        LightViewController *lvc = [[LightViewController alloc]initWithNibName:@"LightViewController" bundle:nil];
-        [self.navigationController pushViewController:lvc animated:YES];
-        lvc.peripheral = peripheral;
-        lvc.uri = pr.uri;
-        
-    } else if ([pr.uri containsString:@"humidity"] || [pr.uri containsString:@"temp"] || [pr.uri containsString:@"tmp"] || [pr.uri containsString:@"hmty"]){
-        NSLog(@"string contains h or t!");
-        HumidityViewController *hvc = [[HumidityViewController alloc]initWithNibName:@"HumidityViewController" bundle:nil];
-        [self.navigationController pushViewController:hvc animated:YES];
-        hvc.peripheral = peripheral;
-        hvc.uri = pr.uri;
-        
-    }else {
-        NSLog(@"string does not contain light");
-        DetailViewController *dvc = [[DetailViewController alloc] init];
-        [self.navigationController pushViewController:dvc animated:YES];
-        dvc.navigationTitle = pr.uri;
+    self.uri = pr.uri;
+    [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr: peripheral.devAddr];
+}
+
+-(void) getResourceDetails {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self receiveData];
+    }];
+}
+
+-(void) receiveData {
+    Peripheral *pr;
+    pr = [[iotivity_itf shared] resourceDetails];
+    for (PeripheralResource *pres in pr.resources) {
+        NSLog(@"%@",pres.resourceName);
     }
-    
+    NSLog(@"AAAAAAA L: %lu",(unsigned long)[pr.resources count]);
+    pr.devAddr = peripheral.devAddr;
+    ResourceDetailsViewController *rvc = [[ResourceDetailsViewController alloc] initWithNibName:@"ResourceDetailsViewController" bundle:nil];
+    [self.navigationController pushViewController:rvc animated:YES];
+    NSLog(@"%lu",(unsigned long)[peripheral.resources count]);
+    if([rvc.peripheral.resources count] > 0){
+        [rvc.peripheral.resources removeAllObjects];
+    }
+    rvc.peripheral = pr;
+    rvc.navigationTitle = self.uri;
+
 }
 
 

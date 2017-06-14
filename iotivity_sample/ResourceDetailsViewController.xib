@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResourceDetailsViewController">
+            <connections>
+                <outlet property="backButton" destination="BNQ-vC-9uV" id="5bF-XI-40n"/>
+                <outlet property="backgroundPopup" destination="YbP-HD-PAy" id="9br-Kf-zfg"/>
+                <outlet property="cancelButton" destination="H4G-Ah-D0V" id="Jkn-Nv-Tfd"/>
+                <outlet property="navBar" destination="aUc-kt-hHw" id="HHU-EA-Jhx"/>
+                <outlet property="okButton" destination="leu-Jz-dWh" id="gKR-vy-vlO"/>
+                <outlet property="resourceList" destination="zTx-uk-1vE" id="Vpr-1p-ah2"/>
+                <outlet property="valueTextField" destination="eb2-oE-vKC" id="YU3-6Y-TGL"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YpI-Wh-jK0">
+                    <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <items>
+                        <navigationItem title="URI" id="aUc-kt-hHw">
+                            <barButtonItem key="leftBarButtonItem" title="Back" id="BNQ-vC-9uV">
+                                <connections>
+                                    <action selector="backButtonAction:" destination="-1" id="OHZ-Th-3pV"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="106" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="zTx-uk-1vE">
+                    <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="6c4-DY-8n4"/>
+                        <outlet property="delegate" destination="-1" id="5KS-Jd-bCG"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <point key="canvasLocation" x="-723" y="-303"/>
+        </view>
+        <view contentMode="scaleToFill" id="YbP-HD-PAy">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="naI-u3-Lnz">
+                    <rect key="frame" x="46" y="39" width="282" height="143"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4G-Ah-D0V">
+                            <rect key="frame" x="8" y="89" width="124" height="34"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="Cancel"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="leu-Jz-dWh">
+                            <rect key="frame" x="150" y="89" width="124" height="34"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="OK"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8O-gF-kAS">
+                            <rect key="frame" x="8" y="8" width="274" height="32"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the value" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eb2-oE-vKC">
+                            <rect key="frame" x="8" y="48" width="266" height="30"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666669999997" alpha="0.40598719420000001" colorSpace="calibratedWhite"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-322" y="-404"/>
+        </view>
+    </objects>
+</document>

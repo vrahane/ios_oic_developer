@@ -8,18 +8,32 @@
 
 #import <UIKit/UIKit.h>
 #import "Peripheral.h"
+#import "PeripheralResource.h"
 
 @interface HumidityViewController : UIViewController
 
 @property (nonatomic, strong) Peripheral *peripheral;
+@property (nonatomic, strong) PeripheralResource *ph;
 @property (nonatomic, strong) NSString *uri;
 
 -(void)populateHumidityData;
+
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *unitsLabel;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *getButton;
+@property (weak, nonatomic) IBOutlet UIButton *setButton;
+@property (weak, nonatomic) IBOutlet UISwitch *observeSwitch;
+
+//PopOver view Details
+@property (strong, nonatomic) IBOutlet UIView *backgroundPopup;
+@property (weak, nonatomic) IBOutlet UIView *mainView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITextField *valueField;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *okButton;
+
 
 @end
