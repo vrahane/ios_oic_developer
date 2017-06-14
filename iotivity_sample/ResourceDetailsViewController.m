@@ -40,6 +40,7 @@
 
 - (void) viewWillAppear:(BOOL)animated {
  
+    [super viewWillAppear:true];
     navBar.title = navigationTitle;
     self.devAddr = peripheral.devAddr;
 }
@@ -51,6 +52,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     
+    [super viewDidAppear:true];
    NSLog(@"%lu",(unsigned long)[self.peripheral.resources count]);
 }
 

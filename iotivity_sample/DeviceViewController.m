@@ -90,6 +90,7 @@ OCDevAddr *devAddr;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:true];
 }
 
 - (IBAction)backButtonPressed:(id)sender {

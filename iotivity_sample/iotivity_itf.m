@@ -116,13 +116,17 @@ static OCStackApplicationResult
 discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     iotivity_itf *itf = [iotivity_itf shared];
-    OCDiscoveryPayload *disc_rsp = (OCDiscoveryPayload *)rsp->payload;
     OCResourcePayload *resource;
 
-    if (!rsp || !disc_rsp) {
+    if (!rsp) {
         NSLog(@"discovery_cb failed\n");
+        return OC_STACK_DELETE_TRANSACTION;
     }
-    
+    OCDiscoveryPayload *disc_rsp = (OCDiscoveryPayload *)rsp->payload;
+    if (!disc_rsp) {
+        NSLog(@"discovery_cb cannot be converted\n");
+        return OC_STACK_DELETE_TRANSACTION;
+    }
     NSString *uuidStr = [[NSString alloc] initWithFormat:@"%s", rsp->devAddr.addr];
     
     [itf.mutex lock];
@@ -190,15 +194,18 @@ static OCStackApplicationResult
 deviceDetails_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     iotivity_itf *itf = [iotivity_itf shared];
-    OCPlatformPayload *device_rsp = (OCPlatformPayload *)rsp->payload;
    // OCResourcePayload *resource;
     
-    if (!rsp || !device_rsp) {
+    if (!rsp) {
         NSLog(@"device details callback failed\n");
+        return OC_STACK_DELETE_TRANSACTION;
     }
-    NSLog(@"***** %s", device_rsp->info.manufacturerName);
-    NSLog(@"***** %s", device_rsp->info.platformID);
     
+    OCPlatformPayload *device_rsp = (OCPlatformPayload *)rsp->payload;
+    if (!device_rsp) {
+        NSLog(@"device details callback payload\n");
+        return OC_STACK_DELETE_TRANSACTION;
+    }
     [itf.mutex lock];
     if(device_rsp->info.manufacturerName!=nil){
         itf.manufacturerName = [NSString stringWithUTF8String:device_rsp->info.manufacturerName];
@@ -254,13 +261,11 @@ humidity_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     OCRepPayload *resource_resp = (OCRepPayload *)rsp->payload;
     
-    OCRepPayloadValue *res = resource_resp->values;
+    OCRepPayloadValue *res;
     
     
     [itf.mutex lock];
     for (res = resource_resp->values; res; res = res->next) {
-        NSLog(@"%s", res->name);
-        NSLog(@"%s", res->str);
         
         itf.resType = [NSString stringWithUTF8String:res->name];
         itf.humidValue = [NSString stringWithUTF8String:res->str];
@@ -306,7 +311,7 @@ temperature_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     OCRepPayload *resource_resp = (OCRepPayload *)rsp->payload;
     
-    OCRepPayloadValue *res = resource_resp->values;
+    OCRepPayloadValue *res;
     
     
     [itf.mutex lock];
@@ -542,7 +547,7 @@ newt_manager_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 
 
 #pragma mark - Cancel Observe API
-
+//This is needed for debugging
 - (int) cancel_observer:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andHandle:(OCDoHandle)handle
 {
     OCStackResult rc;
