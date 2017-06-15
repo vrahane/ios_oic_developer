@@ -536,7 +536,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: pigosavi@ncsu.edu (6UHL4YQ648)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
