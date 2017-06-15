@@ -395,18 +395,9 @@ resource_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     _discovery_watcher = delegate;
     
-    if([uri  isEqual: @"/oic/res"]){
-        OCRepPayload *reprPayload = OCRepPayloadCreate();;
-        OCRepPayloadSetPropString(reprPayload, [@"if" UTF8String], [@"oic.if.w" UTF8String]);
-        rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, (OCPayload *)reprPayload,
-                          transport, OC_LOW_QOS, &cb, NULL, 0);
-    }else{
-    
     rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, NULL,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
-    }
     return rc;
-    
     
 }
 
