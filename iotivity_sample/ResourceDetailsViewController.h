@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *resourceList;
 
 @property (strong, nonatomic) NSString *navigationTitle;
+@property (nonatomic) uint8_t resourceIndex;
 @property (strong, nonatomic) Peripheral *peripheral;
 
 -(void) getResourceDetails;

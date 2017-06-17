@@ -27,6 +27,7 @@ UIAlertViewDelegate>
 @property (strong, nonatomic) NSMutableArray *peripheralResources;
 
 @property (nonatomic, strong) NSString *uri;
+@property (nonatomic) uint8_t index;
 @end
 
 OCDevAddr *devAddr;
@@ -48,12 +49,6 @@ OCDevAddr *devAddr;
     _resourceList.dataSource = self;
     _peripheralResources = [[NSMutableArray alloc] initWithArray:peripheral.resources];
     NSLog(@"%s", peripheral.devAddr.addr);
-    
-    for(PeripheralResource *pr in peripheral.resources){
-        if([pr.uri containsString:@"omgr"]){
-            [_peripheralResources removeObject:pr];
-        }
-    }
     
     NSLog(@"%lu",(unsigned long)[_peripheralResources count]);
     
@@ -130,6 +125,7 @@ OCDevAddr *devAddr;
 {
     PeripheralResource *pr = _peripheralResources[indexPath.row];
     self.uri = pr.uri;
+    self.index = (uint8_t) indexPath.row;
     [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr: peripheral.devAddr];
 }
 
@@ -147,6 +143,7 @@ OCDevAddr *devAddr;
     }
     NSLog(@"AAAAAAA L: %lu",(unsigned long)[pr.resources count]);
     pr.devAddr = peripheral.devAddr;
+    
     ResourceDetailsViewController *rvc = [[ResourceDetailsViewController alloc] initWithNibName:@"ResourceDetailsViewController" bundle:nil];
     [self.navigationController pushViewController:rvc animated:YES];
     NSLog(@"%lu",(unsigned long)[peripheral.resources count]);
@@ -155,6 +152,7 @@ OCDevAddr *devAddr;
     }
     rvc.peripheral = pr;
     rvc.navigationTitle = self.uri;
+    rvc.resourceIndex = self.index;
 
 }
 

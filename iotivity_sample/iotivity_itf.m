@@ -395,22 +395,31 @@ resource_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     _discovery_watcher = delegate;
     
-    rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, NULL,
+    OCRepPayload *reprPayload = OCRepPayloadCreate();
+    
+    OCRepPayloadSetPropString(reprPayload, [@"if" UTF8String], [@"oic.if.baseline" UTF8String]);
+//    
+//    if([uri isEqualToString: @"/oic/res"]){
+//        rc = OCDoResource(NULL, OC_REST_GET, [@"/light/1" UTF8String], &devAddr, (OCPayload *)reprPayload, transport, OC_LOW_QOS, &cb, NULL, 0);
+//    }
+//    else
+        rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, (OCPayload *)reprPayload,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
+//    }
+    
     return rc;
     
 }
-
 
 static OCStackApplicationResult
 generic_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     iotivity_itf *itf = [iotivity_itf shared];
     [itf.mutex lock];
-    
     itf.peripheralObject = [[Peripheral alloc] initWithUuid:@"ITF Object"];
     
     if (rsp -> payload->type == PAYLOAD_TYPE_REPRESENTATION) {
+        itf.observeHandle = handle;
         OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
         OCRepPayloadValue *res;
         NSMutableArray *arr = [[NSMutableArray alloc] init];

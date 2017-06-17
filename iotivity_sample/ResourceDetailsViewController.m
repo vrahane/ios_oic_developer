@@ -12,6 +12,7 @@
 #import "PeripheralResource.h"
 #import "Peripheral.h"
 #import "iotivity_itf.h"
+#import <iotivity-csdk/ocstack.h>
 
 @interface ResourceDetailsViewController ()
 @property (nonatomic) Peripheral *pr;
@@ -43,6 +44,9 @@
     [super viewWillAppear:true];
     navBar.title = navigationTitle;
     self.devAddr = peripheral.devAddr;
+   
+    self.handle = OCGetResourceHandle(3);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -125,8 +129,6 @@
 }
 
 - (void)putclicked : (UIButton *)sender {
-    
-    //[[iotivity_itf shared] get_generic:self andURI:@"/oic/res" andDevAddr:peripheral.devAddr];
     
     self.valueTextField.text = @"";
     [self.backgroundPopup setFrame:CGRectMake(10, 10, self.view.bounds.size.width - 20, 200)];

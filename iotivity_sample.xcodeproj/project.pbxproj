@@ -20,9 +20,9 @@
 		7256CB8A1EE70AAD00B7722C /* ResourceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7256CB881EE70AAD00B7722C /* ResourceDetailsViewController.xib */; };
 		725A13FA1EE6317F000E6617 /* ResourceDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725A13F81EE6317F000E6617 /* ResourceDetailsTableViewCell.m */; };
 		725A13FB1EE6317F000E6617 /* ResourceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725A13F91EE6317F000E6617 /* ResourceDetailsTableViewCell.xib */; };
-		728E295A1EF0614800DB2369 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 728E29591EF0614800DB2369 /* ios */; };
 		72908EAD1EEB02B1000CB642 /* NewtManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72908EAB1EEB02B1000CB642 /* NewtManagerViewController.m */; };
 		72908EAE1EEB02B1000CB642 /* NewtManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72908EAC1EEB02B1000CB642 /* NewtManagerViewController.xib */; };
+		72C5F8F21EF31C5E00CC20D5 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 72C5F8F11EF31C5E00CC20D5 /* ios */; };
 		AD2297BB1ECA2A8200467CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BA1ECA2A8200467CF0 /* main.m */; };
 		AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */; };
 		AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C21ECA2A8200467CF0 /* Main.storyboard */; };
@@ -78,10 +78,10 @@
 		725A13F71EE6317F000E6617 /* ResourceDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsTableViewCell.h; sourceTree = "<group>"; };
 		725A13F81EE6317F000E6617 /* ResourceDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailsTableViewCell.m; sourceTree = "<group>"; };
 		725A13F91EE6317F000E6617 /* ResourceDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceDetailsTableViewCell.xib; sourceTree = "<group>"; };
-		728E29591EF0614800DB2369 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
 		72908EAA1EEB02B1000CB642 /* NewtManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtManagerViewController.h; sourceTree = "<group>"; };
 		72908EAB1EEB02B1000CB642 /* NewtManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewtManagerViewController.m; sourceTree = "<group>"; };
 		72908EAC1EEB02B1000CB642 /* NewtManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewtManagerViewController.xib; sourceTree = "<group>"; };
+		72C5F8F11EF31C5E00CC20D5 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
 		AD2297B61ECA2A8200467CF0 /* iotivity_sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iotivity_sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD2297BA1ECA2A8200467CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AD2297BC1ECA2A8200467CF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		AD2297AD1ECA2A8200467CF0 = {
 			isa = PBXGroup;
 			children = (
-				728E29591EF0614800DB2369 /* ios */,
+				72C5F8F11EF31C5E00CC20D5 /* ios */,
 				AD2297B81ECA2A8200467CF0 /* iotivity_sample */,
 				AD2297D21ECA2A8200467CF0 /* iotivity_sampleTests */,
 				AD2297DD1ECA2A8200467CF0 /* iotivity_sampleUITests */,
@@ -316,6 +316,7 @@
 				TargetAttributes = {
 					AD2297B51ECA2A8200467CF0 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3Z39VX985L;
 						ProvisioningStyle = Automatic;
 					};
 					AD2297CE1ECA2A8200467CF0 = {
@@ -359,7 +360,7 @@
 				ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */,
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
-				728E295A1EF0614800DB2369 /* ios in Resources */,
+				72C5F8F21EF31C5E00CC20D5 /* ios in Resources */,
 				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
 				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
 				72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */,
@@ -563,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T3HQ5H667Z;
+				DEVELOPMENT_TEAM = 3Z39VX985L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -598,7 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = T3HQ5H667Z;
+				DEVELOPMENT_TEAM = 3Z39VX985L;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
