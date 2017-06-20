@@ -112,8 +112,12 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 
     if (!rsp || !disc_rsp) {
         NSLog(@"discovery_cb failed\n");
+        return OC_STACK_DELETE_TRANSACTION;
     }
-    
+    if (rsp->result == OC_STACK_ERROR) {
+        NSLog(@"discovery_cb got error parsing response\n");
+        return OC_STACK_KEEP_TRANSACTION;
+    }
     NSString *uuidStr = [[NSString alloc] initWithFormat:@"%s", rsp->devAddr.addr];
     
     [itf.mutex lock];
@@ -122,7 +126,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     for (item in itf.peripherals) {
         if ([uuidStr caseInsensitiveCompare:item.uuid] == NSOrderedSame) {
             [itf.mutex unlock];
-            return OC_STACK_DELETE_TRANSACTION;
+            return OC_STACK_KEEP_TRANSACTION;
         }
     }
     
@@ -155,7 +159,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
         [itf.discovery_watcher listUpdated];
     }*/
     
-    return OC_STACK_DELETE_TRANSACTION;
+    return OC_STACK_KEEP_TRANSACTION;
 }
 
 #pragma mark - Obtain Manufacturer using "/oic/p"
