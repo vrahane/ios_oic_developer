@@ -7,7 +7,6 @@
 //
 
 #import "PeripheralResource.h"
-
 #import <Foundation/Foundation.h>
 #include <iotivity-csdk/octypes.h>
 #include <iotivity-csdk/ocstack.h>

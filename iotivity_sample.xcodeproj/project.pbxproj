@@ -8,21 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
-		72366ED71ED5EF1C00BD1D28 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */; };
-		72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */; };
-		72366EDC1ED7748C00BD1D28 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EDA1ED7748C00BD1D28 /* LightViewController.m */; };
-		72366EDD1ED7748C00BD1D28 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EDB1ED7748C00BD1D28 /* LightViewController.xib */; };
 		72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */; };
-		72366EE21ED7B52700BD1D28 /* PeripheralResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EE11ED7B52700BD1D28 /* PeripheralResource.m */; };
-		72366EE61ED8D4D400BD1D28 /* HumidityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */; };
-		72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */; };
-		7256CB891EE70AAD00B7722C /* ResourceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7256CB871EE70AAD00B7722C /* ResourceDetailsViewController.m */; };
-		7256CB8A1EE70AAD00B7722C /* ResourceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7256CB881EE70AAD00B7722C /* ResourceDetailsViewController.xib */; };
-		725A13FA1EE6317F000E6617 /* ResourceDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 725A13F81EE6317F000E6617 /* ResourceDetailsTableViewCell.m */; };
-		725A13FB1EE6317F000E6617 /* ResourceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725A13F91EE6317F000E6617 /* ResourceDetailsTableViewCell.xib */; };
-		72908EAD1EEB02B1000CB642 /* NewtManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72908EAB1EEB02B1000CB642 /* NewtManagerViewController.m */; };
-		72908EAE1EEB02B1000CB642 /* NewtManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72908EAC1EEB02B1000CB642 /* NewtManagerViewController.xib */; };
 		72C5F8F21EF31C5E00CC20D5 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 72C5F8F11EF31C5E00CC20D5 /* ios */; };
+		72CE410D1EFB26E600640431 /* ResourceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */; };
+		72CE410E1EFB26E600640431 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE40FD1EFB26E600640431 /* DetailViewController.m */; };
+		72CE410F1EFB26E600640431 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE40FE1EFB26E600640431 /* DetailViewController.xib */; };
+		72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE40FF1EFB26E600640431 /* DeviceViewController.xib */; };
+		72CE41111EFB26E600640431 /* HumidityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE41011EFB26E600640431 /* HumidityViewController.m */; };
+		72CE41121EFB26E600640431 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE41021EFB26E600640431 /* HumidityViewController.xib */; };
+		72CE41131EFB26E600640431 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE41041EFB26E600640431 /* LightViewController.m */; };
+		72CE41141EFB26E600640431 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE41051EFB26E600640431 /* LightViewController.xib */; };
+		72CE41151EFB26E600640431 /* NewtManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE41071EFB26E600640431 /* NewtManagerViewController.m */; };
+		72CE41161EFB26E600640431 /* NewtManagerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE41081EFB26E600640431 /* NewtManagerViewController.xib */; };
+		72CE41171EFB26E600640431 /* PeripheralResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE41091EFB26E600640431 /* PeripheralResource.m */; };
+		72CE41181EFB26E600640431 /* ResourceDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE410B1EFB26E600640431 /* ResourceDetailsTableViewCell.m */; };
+		72CE41191EFB26E600640431 /* ResourceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE410C1EFB26E600640431 /* ResourceDetailsViewController.xib */; };
+		72CE411B1EFB277F00640431 /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE411A1EFB277F00640431 /* DeviceViewController.m */; };
+		72CE411D1EFB27BA00640431 /* ResourceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE411C1EFB27BA00640431 /* ResourceDetailsViewController.m */; };
 		AD2297BB1ECA2A8200467CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BA1ECA2A8200467CF0 /* main.m */; };
 		AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */; };
 		AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2297C21ECA2A8200467CF0 /* Main.storyboard */; };
@@ -38,8 +40,6 @@
 		ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE0E1ECBA7360084364C /* Peripheral.m */; };
 		ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */; };
 		ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */; };
-		ADE3DE221ECBD6C80084364C /* DeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE201ECBD6C80084364C /* DeviceViewController.m */; };
-		ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,28 +60,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		72366ED41ED5EF1C00BD1D28 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
-		72366ED91ED7748C00BD1D28 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
-		72366EDA1ED7748C00BD1D28 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
-		72366EDB1ED7748C00BD1D28 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
 		72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceListViewController.xib; sourceTree = "<group>"; };
-		72366EE01ED7B52700BD1D28 /* PeripheralResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralResource.h; sourceTree = "<group>"; };
-		72366EE11ED7B52700BD1D28 /* PeripheralResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralResource.m; sourceTree = "<group>"; };
-		72366EE31ED8D4D400BD1D28 /* HumidityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumidityViewController.h; sourceTree = "<group>"; };
-		72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumidityViewController.m; sourceTree = "<group>"; };
-		72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumidityViewController.xib; sourceTree = "<group>"; };
-		7256CB861EE70AAD00B7722C /* ResourceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsViewController.h; sourceTree = "<group>"; };
-		7256CB871EE70AAD00B7722C /* ResourceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailsViewController.m; sourceTree = "<group>"; };
-		7256CB881EE70AAD00B7722C /* ResourceDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceDetailsViewController.xib; sourceTree = "<group>"; };
-		725A13F71EE6317F000E6617 /* ResourceDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsTableViewCell.h; sourceTree = "<group>"; };
-		725A13F81EE6317F000E6617 /* ResourceDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailsTableViewCell.m; sourceTree = "<group>"; };
-		725A13F91EE6317F000E6617 /* ResourceDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceDetailsTableViewCell.xib; sourceTree = "<group>"; };
-		72908EAA1EEB02B1000CB642 /* NewtManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtManagerViewController.h; sourceTree = "<group>"; };
-		72908EAB1EEB02B1000CB642 /* NewtManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewtManagerViewController.m; sourceTree = "<group>"; };
-		72908EAC1EEB02B1000CB642 /* NewtManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewtManagerViewController.xib; sourceTree = "<group>"; };
 		72C5F8F11EF31C5E00CC20D5 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
+		72CE40F91EFB26E600640431 /* ResourceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsViewController.h; sourceTree = "<group>"; };
+		72CE40FA1EFB26E600640431 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
+		72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		72CE40FC1EFB26E600640431 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		72CE40FD1EFB26E600640431 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		72CE40FE1EFB26E600640431 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		72CE40FF1EFB26E600640431 /* DeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewController.xib; sourceTree = "<group>"; };
+		72CE41001EFB26E600640431 /* HumidityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumidityViewController.h; sourceTree = "<group>"; };
+		72CE41011EFB26E600640431 /* HumidityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumidityViewController.m; sourceTree = "<group>"; };
+		72CE41021EFB26E600640431 /* HumidityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumidityViewController.xib; sourceTree = "<group>"; };
+		72CE41031EFB26E600640431 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
+		72CE41041EFB26E600640431 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
+		72CE41051EFB26E600640431 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
+		72CE41061EFB26E600640431 /* NewtManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtManagerViewController.h; sourceTree = "<group>"; };
+		72CE41071EFB26E600640431 /* NewtManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewtManagerViewController.m; sourceTree = "<group>"; };
+		72CE41081EFB26E600640431 /* NewtManagerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewtManagerViewController.xib; sourceTree = "<group>"; };
+		72CE41091EFB26E600640431 /* PeripheralResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralResource.m; sourceTree = "<group>"; };
+		72CE410A1EFB26E600640431 /* ResourceDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsTableViewCell.h; sourceTree = "<group>"; };
+		72CE410B1EFB26E600640431 /* ResourceDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailsTableViewCell.m; sourceTree = "<group>"; };
+		72CE410C1EFB26E600640431 /* ResourceDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceDetailsViewController.xib; sourceTree = "<group>"; };
+		72CE411A1EFB277F00640431 /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
+		72CE411C1EFB27BA00640431 /* ResourceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceDetailsViewController.m; sourceTree = "<group>"; };
 		AD2297B61ECA2A8200467CF0 /* iotivity_sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iotivity_sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD2297BA1ECA2A8200467CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AD2297BC1ECA2A8200467CF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -110,9 +112,6 @@
 		ADE3DE1A1ECBD2FD0084364C /* ResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceCell.h; sourceTree = "<group>"; };
 		ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceCell.m; sourceTree = "<group>"; };
 		ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
-		ADE3DE1F1ECBD6C80084364C /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
-		ADE3DE201ECBD6C80084364C /* DeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceViewController.m; sourceTree = "<group>"; };
-		ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,8 +176,30 @@
 				AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */,
 				AD2297CA1ECA2A8200467CF0 /* Info.plist */,
 				AD2297B91ECA2A8200467CF0 /* Supporting Files */,
+				72CE411A1EFB277F00640431 /* DeviceViewController.m */,
 				AD2298001ECA467600467CF0 /* DeviceListViewController.h */,
 				AD2298011ECA467600467CF0 /* DeviceListViewController.m */,
+				72CE411C1EFB27BA00640431 /* ResourceDetailsViewController.m */,
+				72CE40F91EFB26E600640431 /* ResourceDetailsViewController.h */,
+				72CE40FA1EFB26E600640431 /* DeviceViewController.h */,
+				72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */,
+				72CE40FC1EFB26E600640431 /* DetailViewController.h */,
+				72CE40FD1EFB26E600640431 /* DetailViewController.m */,
+				72CE40FE1EFB26E600640431 /* DetailViewController.xib */,
+				72CE40FF1EFB26E600640431 /* DeviceViewController.xib */,
+				72CE41001EFB26E600640431 /* HumidityViewController.h */,
+				72CE41011EFB26E600640431 /* HumidityViewController.m */,
+				72CE41021EFB26E600640431 /* HumidityViewController.xib */,
+				72CE41031EFB26E600640431 /* LightViewController.h */,
+				72CE41041EFB26E600640431 /* LightViewController.m */,
+				72CE41051EFB26E600640431 /* LightViewController.xib */,
+				72CE41061EFB26E600640431 /* NewtManagerViewController.h */,
+				72CE41071EFB26E600640431 /* NewtManagerViewController.m */,
+				72CE41081EFB26E600640431 /* NewtManagerViewController.xib */,
+				72CE41091EFB26E600640431 /* PeripheralResource.m */,
+				72CE410A1EFB26E600640431 /* ResourceDetailsTableViewCell.h */,
+				72CE410B1EFB26E600640431 /* ResourceDetailsTableViewCell.m */,
+				72CE410C1EFB26E600640431 /* ResourceDetailsViewController.xib */,
 				72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */,
 				AD22980F1ECA50B500467CF0 /* iotivity_itf.h */,
 				AD2298101ECA50B500467CF0 /* iotivity_itf.m */,
@@ -187,29 +208,6 @@
 				AD22980A1ECA4CA600467CF0 /* DeviceCell.h */,
 				AD22980B1ECA4CA600467CF0 /* DeviceCell.m */,
 				AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */,
-				72366ED41ED5EF1C00BD1D28 /* DetailViewController.h */,
-				72366ED51ED5EF1C00BD1D28 /* DetailViewController.m */,
-				72366ED61ED5EF1C00BD1D28 /* DetailViewController.xib */,
-				72366ED91ED7748C00BD1D28 /* LightViewController.h */,
-				72366EDA1ED7748C00BD1D28 /* LightViewController.m */,
-				72366EDB1ED7748C00BD1D28 /* LightViewController.xib */,
-				ADE3DE1F1ECBD6C80084364C /* DeviceViewController.h */,
-				ADE3DE201ECBD6C80084364C /* DeviceViewController.m */,
-				ADE3DE211ECBD6C80084364C /* DeviceViewController.xib */,
-				72366EE01ED7B52700BD1D28 /* PeripheralResource.h */,
-				72366EE11ED7B52700BD1D28 /* PeripheralResource.m */,
-				7256CB861EE70AAD00B7722C /* ResourceDetailsViewController.h */,
-				7256CB871EE70AAD00B7722C /* ResourceDetailsViewController.m */,
-				7256CB881EE70AAD00B7722C /* ResourceDetailsViewController.xib */,
-				72366EE31ED8D4D400BD1D28 /* HumidityViewController.h */,
-				72366EE41ED8D4D400BD1D28 /* HumidityViewController.m */,
-				72366EE51ED8D4D400BD1D28 /* HumidityViewController.xib */,
-				725A13F71EE6317F000E6617 /* ResourceDetailsTableViewCell.h */,
-				725A13F81EE6317F000E6617 /* ResourceDetailsTableViewCell.m */,
-				725A13F91EE6317F000E6617 /* ResourceDetailsTableViewCell.xib */,
-				72908EAA1EEB02B1000CB642 /* NewtManagerViewController.h */,
-				72908EAB1EEB02B1000CB642 /* NewtManagerViewController.m */,
-				72908EAC1EEB02B1000CB642 /* NewtManagerViewController.xib */,
 			);
 			path = iotivity_sample;
 			sourceTree = "<group>";
@@ -356,20 +354,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72908EAE1EEB02B1000CB642 /* NewtManagerViewController.xib in Resources */,
-				ADE3DE231ECBD6C80084364C /* DeviceViewController.xib in Resources */,
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
+				72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */,
+				72CE41141EFB26E600640431 /* LightViewController.xib in Resources */,
 				72C5F8F21EF31C5E00CC20D5 /* ios in Resources */,
 				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
+				72CE410F1EFB26E600640431 /* DetailViewController.xib in Resources */,
+				72CE41161EFB26E600640431 /* NewtManagerViewController.xib in Resources */,
+				72CE410D1EFB26E600640431 /* ResourceDetailsTableViewCell.xib in Resources */,
 				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
-				72366ED81ED5EF1C00BD1D28 /* DetailViewController.xib in Resources */,
-				72366EDD1ED7748C00BD1D28 /* LightViewController.xib in Resources */,
-				725A13FB1EE6317F000E6617 /* ResourceDetailsTableViewCell.xib in Resources */,
-				7256CB8A1EE70AAD00B7722C /* ResourceDetailsViewController.xib in Resources */,
 				AD2297C41ECA2A8200467CF0 /* Main.storyboard in Resources */,
 				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
-				72366EE71ED8D4D400BD1D28 /* HumidityViewController.xib in Resources */,
+				72CE41121EFB26E600640431 /* HumidityViewController.xib in Resources */,
+				72CE41191EFB26E600640431 /* ResourceDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,21 +392,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADE3DE221ECBD6C80084364C /* DeviceViewController.m in Sources */,
-				72366EDC1ED7748C00BD1D28 /* LightViewController.m in Sources */,
 				AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */,
-				72366EE61ED8D4D400BD1D28 /* HumidityViewController.m in Sources */,
-				72366ED71ED5EF1C00BD1D28 /* DetailViewController.m in Sources */,
+				72CE41131EFB26E600640431 /* LightViewController.m in Sources */,
 				ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */,
+				72CE41151EFB26E600640431 /* NewtManagerViewController.m in Sources */,
 				AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */,
-				72908EAD1EEB02B1000CB642 /* NewtManagerViewController.m in Sources */,
-				725A13FA1EE6317F000E6617 /* ResourceDetailsTableViewCell.m in Sources */,
+				72CE410E1EFB26E600640431 /* DetailViewController.m in Sources */,
 				AD2297BB1ECA2A8200467CF0 /* main.m in Sources */,
+				72CE41181EFB26E600640431 /* ResourceDetailsTableViewCell.m in Sources */,
 				ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */,
+				72CE41111EFB26E600640431 /* HumidityViewController.m in Sources */,
 				AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */,
-				7256CB891EE70AAD00B7722C /* ResourceDetailsViewController.m in Sources */,
 				AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */,
-				72366EE21ED7B52700BD1D28 /* PeripheralResource.m in Sources */,
+				72CE411D1EFB27BA00640431 /* ResourceDetailsViewController.m in Sources */,
+				72CE411B1EFB277F00640431 /* DeviceViewController.m in Sources */,
+				72CE41171EFB26E600640431 /* PeripheralResource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

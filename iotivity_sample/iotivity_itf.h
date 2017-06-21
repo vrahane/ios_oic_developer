@@ -25,6 +25,7 @@
 
 - (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
 
+- (int) get_interfaces:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 
 - (int) observe_light:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr;
 
@@ -40,6 +41,7 @@
 - (Peripheral *)temperatureDetails;
 - (Peripheral *)lightDetails;
 - (Peripheral *)resourceDetails;
+- (Peripheral *)interfaceDetails;
 
 @end
 

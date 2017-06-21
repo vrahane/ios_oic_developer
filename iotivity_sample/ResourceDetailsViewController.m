@@ -45,7 +45,8 @@
     navBar.title = navigationTitle;
     self.devAddr = peripheral.devAddr;
    
-    self.handle = OCGetResourceHandle(3);
+    
+    [[iotivity_itf shared] get_interfaces:self andURI:@"/oic/res" andDevAddr:peripheral.devAddr];
     
 }
 
@@ -79,8 +80,7 @@
     cell.uri = self.navigationTitle;
     cell.devAddr = peripheral.devAddr;
     PeripheralResource *pres = peripheral.resources[indexPath.row];
-    NSString *booleanValue = pres.resourceBoolValue ? @"true" : @"false";
-    NSLog(@"%@ - %@", pres.resourceName, booleanValue);
+
     cell.typeLabel.text = pres.resourceName;
     if(pres.type == OCREP_PROP_INT){
         cell.valueLabel.text = [[NSNumber numberWithLongLong:pres.resourceIntegerValue] stringValue];
@@ -127,6 +127,35 @@
     peripheral.handle = pr.handle;
     [resourceList reloadData];
 }
+
+-(void)getInterfaceData {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self interfaceData];
+    }];
+}
+
+-(void)interfaceData {
+    Peripheral *pr;
+    pr = [[iotivity_itf shared] interfaceDetails];
+
+    for (int i = 0; i < [pr.resources count]; i++) {
+        PeripheralResource *per = pr.resources[i];
+        for (int j = 0;j < [peripheral.resources count]; j++) {
+            PeripheralResource *p = peripheral.resources[j];
+            if([p.resourceName isEqualToString:per.resourceName]){
+                p.resourceInterface = per.resourceInterface;
+                [peripheral.resources replaceObjectAtIndex:j withObject:p];
+            }
+        }
+    }
+    for(int i = 0; i < [peripheral.resources count]; i++){
+        PeripheralResource *pr = peripheral.resources[i];
+        NSLog(@"%@",pr.resourceInterface);
+    }
+}
+
+
+
 
 - (void)putclicked : (UIButton *)sender {
     
