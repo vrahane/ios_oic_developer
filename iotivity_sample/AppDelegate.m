@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "DeviceListViewController.h"
 #import "iotivity_itf.h"
+#import "HomeViewController.h"
+#import "GraphViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,13 +23,15 @@
     // Override point for customization after application launch.
     // Application launch.
 
-    DeviceListViewController *dlvc = [[DeviceListViewController alloc] init];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dlvc];
+    GraphViewController *gvc = [[GraphViewController alloc] initWithNibName:@"GraphViewController" bundle:nil];
+    
+    //DeviceListViewController *dlvc = [[DeviceListViewController alloc] init];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:hvc];
     [nvc setNavigationBarHidden:YES];
     self.window.rootViewController = nvc;
-
-    //[iotivity_itf shared];
     [iotivity_itf performSelectorInBackground:@selector(shared) withObject:nil];
     return YES;
 }

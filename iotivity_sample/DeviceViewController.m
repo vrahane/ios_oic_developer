@@ -7,11 +7,7 @@
 //
 
 #import "DeviceViewController.h"
-#import "DetailViewController.h"
-#import "LightViewController.h"
 #import "ResourceCell.h"
-#import "HumidityViewController.h"
-#import "ResourceDetailsViewController.h"
 #import "iotivity_itf.h"
 #include <iotivity-csdk/octypes.h>
 #include <iotivity-csdk/ocstack.h>
@@ -139,21 +135,10 @@ OCDevAddr *devAddr;
     Peripheral *pr;
     pr = [[iotivity_itf shared] resourceDetails];
     for (PeripheralResource *pres in pr.resources) {
-        NSLog(@"%@",pres.resourceName);
+        NSLog(@"%@",pres.uri);
     }
     NSLog(@"AAAAAAA L: %lu",(unsigned long)[pr.resources count]);
     pr.devAddr = peripheral.devAddr;
-    
-    ResourceDetailsViewController *rvc = [[ResourceDetailsViewController alloc] initWithNibName:@"ResourceDetailsViewController" bundle:nil];
-    [self.navigationController pushViewController:rvc animated:YES];
-    NSLog(@"%lu",(unsigned long)[peripheral.resources count]);
-    if([rvc.peripheral.resources count] > 0){
-        [rvc.peripheral.resources removeAllObjects];
-    }
-    rvc.peripheral = pr;
-    rvc.navigationTitle = self.uri;
-    rvc.resourceIndex = self.index;
-
 }
 
 -(void)interfaceData {
@@ -164,7 +149,7 @@ OCDevAddr *devAddr;
         PeripheralResource *per = pr.resources[i];
         for (int j = 0;j < [peripheral.resources count]; j++) {
             PeripheralResource *p = peripheral.resources[j];
-            if([p.resourceName isEqualToString:per.resourceName]){
+            if([p.uri isEqualToString:per.uri]){
                 p.resourceInterface = per.resourceInterface;
                 [peripheral.resources replaceObjectAtIndex:j withObject:p];
             }

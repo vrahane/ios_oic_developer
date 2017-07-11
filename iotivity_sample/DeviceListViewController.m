@@ -27,7 +27,7 @@
     // Do any additional setup after loading the view from its nib.
     
     // Notify controller of item being selected, and be source of data.
-   
+    
     self.deviceList.delegate = self;
     self.deviceList.dataSource = self;
     
@@ -90,7 +90,7 @@
                                      forIndexPath:indexPath];
     
     Peripheral *p;
-    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
+    //p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
     
     
     cell.deviceNameLabel.text = p.uuid;
@@ -125,7 +125,7 @@
     dvc.manufacturerName = p.manufacturerName;
     dvc.platformId = p.platformID;
     
-    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
+    //p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
     
     
     

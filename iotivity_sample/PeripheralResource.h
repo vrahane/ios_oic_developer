@@ -13,6 +13,7 @@
 @interface PeripheralResource : NSObject
 
 @property (nonatomic) OCDevAddr devAddr;
+@property (nonatomic, strong) NSString *carrierType;
 @property (nonatomic) OCRepPayloadPropType type;
 @property (nonatomic, copy) NSString *uri;
 @property (nonatomic, copy) NSString *resourceName;
@@ -21,9 +22,6 @@
 @property (nonatomic) double resourceDoubleValue;
 @property (nonatomic) NSString *resourceStringValue;
 @property (nonatomic) NSMutableArray *resourceArrayValue;
-
 @property (nonatomic, copy) NSString *resourceInterface;
-
-@property (nonatomic) OCResourceHandle resourceHandle;
 
 @end
