@@ -52,7 +52,6 @@
 		AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2298101ECA50B500467CF0 /* iotivity_itf.m */; };
 		AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD2298121ECA554F00467CF0 /* CoreBluetooth.framework */; };
 		ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE3DE0E1ECBA7360084364C /* Peripheral.m */; };
-		B40352D9F3F8E9DB160E0B67 /* Pods_iotivity_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74E53CE13F452423D0C18AB0 /* Pods_iotivity_sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,7 +228,6 @@
 				723CB0E01F15630200585A70 /* iotivity-csdk.framework in Frameworks */,
 				723E92EE1F101B7800C5C1DB /* Charts.framework in Frameworks */,
 				AD2298131ECA554F00467CF0 /* CoreBluetooth.framework in Frameworks */,
-				B40352D9F3F8E9DB160E0B67 /* Pods_iotivity_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,12 +494,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AD2297E31ECA2A8200467CF0 /* Build configuration list for PBXNativeTarget "iotivity_sample" */;
 			buildPhases = (
-				7099C7F498FDC78601865CD6 /* [CP] Check Pods Manifest.lock */,
 				AD2297B21ECA2A8200467CF0 /* Sources */,
 				AD2297B31ECA2A8200467CF0 /* Frameworks */,
 				AD2297B41ECA2A8200467CF0 /* Resources */,
-				4A2DC0CD089D275C7337507B /* [CP] Embed Pods Frameworks */,
-				F1E71732318281E0F9E9079D /* [CP] Copy Pods Resources */,
 				723E92F21F101B7800C5C1DB /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -700,54 +695,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		4A2DC0CD089D275C7337507B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iotivity_sample/Pods-iotivity_sample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7099C7F498FDC78601865CD6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F1E71732318281E0F9E9079D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iotivity_sample/Pods-iotivity_sample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AD2297B21ECA2A8200467CF0 /* Sources */ = {
