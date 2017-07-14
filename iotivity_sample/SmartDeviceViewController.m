@@ -67,7 +67,7 @@ float x = 0.0;
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
-
+    [[iotivity_itf shared] discovery_end];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

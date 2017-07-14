@@ -61,7 +61,7 @@
 - (IBAction)scanButtonPressed:(id)sender {
     NSLog(@"scanButtonPressed\n");
     
-    [[iotivity_itf shared] discovery_start:self];
+   // [[iotivity_itf shared] discovery_start:self];
 }
 
 
