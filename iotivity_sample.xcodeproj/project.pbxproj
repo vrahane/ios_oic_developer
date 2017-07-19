@@ -32,6 +32,13 @@
 		724D4F591F0F013C00869151 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724D4F571F0F013C00869151 /* HumidityViewController.xib */; };
 		725280121F06EB7B00E43D5A /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725280101F06EB7B00E43D5A /* GraphViewController.m */; };
 		725280131F06EB7B00E43D5A /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725280111F06EB7B00E43D5A /* GraphViewController.xib */; };
+		727104F91F1D466600A43DBF /* lightimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 727104F71F1D466600A43DBF /* lightimg.png */; };
+		727104FA1F1D466600A43DBF /* sensorimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 727104F81F1D466600A43DBF /* sensorimg.png */; };
+		727104FF1F1D69AE00A43DBF /* SensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727104FD1F1D69AE00A43DBF /* SensorViewController.m */; };
+		727105001F1D69AE00A43DBF /* SensorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727104FE1F1D69AE00A43DBF /* SensorViewController.xib */; };
+		727105041F1D71E000A43DBF /* SensorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 727105021F1D71E000A43DBF /* SensorTableViewCell.m */; };
+		727105051F1D71E000A43DBF /* SensorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 727105031F1D71E000A43DBF /* SensorTableViewCell.xib */; };
+		727105081F1D76A600A43DBF /* linechart.png in Resources */ = {isa = PBXBuildFile; fileRef = 727105071F1D76A600A43DBF /* linechart.png */; };
 		728E0B3F1F0173940022F03F /* SmartDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 728E0B3D1F0173940022F03F /* SmartDeviceViewController.m */; };
 		728E0B401F0173940022F03F /* SmartDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 728E0B3E1F0173940022F03F /* SmartDeviceViewController.xib */; };
 		72C2817D1EFC37A400127D9A /* PeripheralResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C2817C1EFC37A400127D9A /* PeripheralResource.m */; };
@@ -142,9 +149,18 @@
 		72562F011F06DC6900ADC5D4 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../Library/Developer/Xcode/DerivedData/iotivity_sample-bydqnbpyuvszzjerzvyzfkbjkdgy/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		72562F061F06E23900ADC5D4 /* iotivity_sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iotivity_sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		72562F0B1F06E57100ADC5D4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
-		728E0B3C1F0173940022F03F /* SmartDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SmartDeviceViewController.h; path = iotivity_sample/SmartDeviceViewController.h; sourceTree = "<group>"; };
-		728E0B3D1F0173940022F03F /* SmartDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SmartDeviceViewController.m; path = iotivity_sample/SmartDeviceViewController.m; sourceTree = "<group>"; };
-		728E0B3E1F0173940022F03F /* SmartDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SmartDeviceViewController.xib; path = iotivity_sample/SmartDeviceViewController.xib; sourceTree = "<group>"; };
+		727104F71F1D466600A43DBF /* lightimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lightimg.png; sourceTree = "<group>"; };
+		727104F81F1D466600A43DBF /* sensorimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sensorimg.png; sourceTree = "<group>"; };
+		727104FC1F1D69AE00A43DBF /* SensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorViewController.h; sourceTree = "<group>"; };
+		727104FD1F1D69AE00A43DBF /* SensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorViewController.m; sourceTree = "<group>"; };
+		727104FE1F1D69AE00A43DBF /* SensorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorViewController.xib; sourceTree = "<group>"; };
+		727105011F1D71E000A43DBF /* SensorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SensorTableViewCell.h; sourceTree = "<group>"; };
+		727105021F1D71E000A43DBF /* SensorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SensorTableViewCell.m; sourceTree = "<group>"; };
+		727105031F1D71E000A43DBF /* SensorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorTableViewCell.xib; sourceTree = "<group>"; };
+		727105071F1D76A600A43DBF /* linechart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = linechart.png; sourceTree = "<group>"; };
+		728E0B3C1F0173940022F03F /* SmartDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmartDeviceViewController.h; sourceTree = "<group>"; };
+		728E0B3D1F0173940022F03F /* SmartDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmartDeviceViewController.m; sourceTree = "<group>"; };
+		728E0B3E1F0173940022F03F /* SmartDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmartDeviceViewController.xib; sourceTree = "<group>"; };
 		72C2817B1EFC37A400127D9A /* PeripheralResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralResource.h; sourceTree = "<group>"; };
 		72C2817C1EFC37A400127D9A /* PeripheralResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralResource.m; sourceTree = "<group>"; };
 		72C281831EFC393C00127D9A /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -225,12 +241,21 @@
 		7208CA751F01B31500226321 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				727104FC1F1D69AE00A43DBF /* SensorViewController.h */,
+				727104FD1F1D69AE00A43DBF /* SensorViewController.m */,
+				727104FE1F1D69AE00A43DBF /* SensorViewController.xib */,
+				728E0B3C1F0173940022F03F /* SmartDeviceViewController.h */,
+				728E0B3D1F0173940022F03F /* SmartDeviceViewController.m */,
+				728E0B3E1F0173940022F03F /* SmartDeviceViewController.xib */,
 				72C281831EFC393C00127D9A /* HomeViewController.h */,
 				72C281841EFC393C00127D9A /* HomeViewController.m */,
 				72C281851EFC393C00127D9A /* HomeViewController.xib */,
 				7208CA761F01B33800226321 /* HomeTableViewCell.h */,
 				7208CA771F01B33800226321 /* HomeTableViewCell.m */,
 				7208CA781F01B33800226321 /* HomeTableViewCell.xib */,
+				727105011F1D71E000A43DBF /* SensorTableViewCell.h */,
+				727105021F1D71E000A43DBF /* SensorTableViewCell.m */,
+				727105031F1D71E000A43DBF /* SensorTableViewCell.xib */,
 			);
 			name = HomeViewController;
 			sourceTree = "<group>";
@@ -257,9 +282,6 @@
 		728E0B411F01739A0022F03F /* SmartDeviceViewController */ = {
 			isa = PBXGroup;
 			children = (
-				728E0B3C1F0173940022F03F /* SmartDeviceViewController.h */,
-				728E0B3D1F0173940022F03F /* SmartDeviceViewController.m */,
-				728E0B3E1F0173940022F03F /* SmartDeviceViewController.xib */,
 				7208CA651F0180CD00226321 /* SmartDeviceTableViewCell.h */,
 				7208CA661F0180CD00226321 /* SmartDeviceTableViewCell.m */,
 				7208CA671F0180CD00226321 /* SmartDeviceTableViewCell.xib */,
@@ -338,6 +360,7 @@
 				72C2818C1EFC3B9E00127D9A /* Constants.h */,
 			);
 			name = Constants;
+			path = iotivity_sample;
 			sourceTree = "<group>";
 		};
 		AD2297AD1ECA2A8200467CF0 = {
@@ -350,6 +373,7 @@
 				7208CA6F1F0182B600226321 /* SensorViewController */,
 				728E0B411F01739A0022F03F /* SmartDeviceViewController */,
 				AD2297B81ECA2A8200467CF0 /* iotivity_sample */,
+				72C2818D1EFC3C3500127D9A /* Constants */,
 				AD2297D21ECA2A8200467CF0 /* iotivity_sampleTests */,
 				AD2297DD1ECA2A8200467CF0 /* iotivity_sampleUITests */,
 				AD2297B71ECA2A8200467CF0 /* Products */,
@@ -370,6 +394,9 @@
 		AD2297B81ECA2A8200467CF0 /* iotivity_sample */ = {
 			isa = PBXGroup;
 			children = (
+				727105071F1D76A600A43DBF /* linechart.png */,
+				727104F71F1D466600A43DBF /* lightimg.png */,
+				727104F81F1D466600A43DBF /* sensorimg.png */,
 				AD2297BC1ECA2A8200467CF0 /* AppDelegate.h */,
 				AD2297BD1ECA2A8200467CF0 /* AppDelegate.m */,
 				AD2297C51ECA2A8200467CF0 /* Assets.xcassets */,
@@ -383,7 +410,6 @@
 				72C281801EFC37D400127D9A /* DeviceListViewController */,
 				72C281821EFC383F00127D9A /* IotivityAPIs */,
 				7208CA751F01B31500226321 /* HomeViewController */,
-				72C2818D1EFC3C3500127D9A /* Constants */,
 			);
 			path = iotivity_sample;
 			sourceTree = "<group>";
@@ -558,21 +584,26 @@
 			files = (
 				723CB0DF1F1562F300585A70 /* ios in Resources */,
 				723E92F71F10353D00C5C1DB /* PressureViewController.xib in Resources */,
+				727105081F1D76A600A43DBF /* linechart.png in Resources */,
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				7226082E1EFC33E800C057B4 /* ResourceCell.xib in Resources */,
 				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
 				7208CA7F1F01D07300226321 /* CompassViewController.xib in Resources */,
+				727105051F1D71E000A43DBF /* SensorTableViewCell.xib in Resources */,
 				72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */,
 				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
 				723E92FC1F104E5A00C5C1DB /* ColorSensorViewController.xib in Resources */,
 				724D4F591F0F013C00869151 /* HumidityViewController.xib in Resources */,
 				72C281891EFC3A1F00127D9A /* Main.storyboard in Resources */,
 				723E93011F10573000C5C1DB /* AccelerometerViewController.xib in Resources */,
+				727104F91F1D466600A43DBF /* lightimg.png in Resources */,
 				7208CA841F01E05E00226321 /* CompassTableViewCell.xib in Resources */,
 				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
 				728E0B401F0173940022F03F /* SmartDeviceViewController.xib in Resources */,
+				727105001F1D69AE00A43DBF /* SensorViewController.xib in Resources */,
 				725280131F06EB7B00E43D5A /* GraphViewController.xib in Resources */,
 				72C281871EFC393C00127D9A /* HomeViewController.xib in Resources */,
+				727104FA1F1D466600A43DBF /* sensorimg.png in Resources */,
 				7208CA691F0180CD00226321 /* SmartDeviceTableViewCell.xib in Resources */,
 				7208CA7A1F01B33800226321 /* HomeTableViewCell.xib in Resources */,
 			);
@@ -610,12 +641,14 @@
 				ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */,
 				7226082D1EFC33E800C057B4 /* ResourceCell.m in Sources */,
 				724D4F581F0F013C00869151 /* HumidityViewController.m in Sources */,
+				727105041F1D71E000A43DBF /* SensorTableViewCell.m in Sources */,
 				723E92FB1F104E5A00C5C1DB /* ColorSensorViewController.m in Sources */,
 				AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */,
 				AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */,
 				72CE411B1EFB277F00640431 /* DeviceViewController.m in Sources */,
 				7208CA831F01E05E00226321 /* CompassTableViewCell.m in Sources */,
 				72C2817D1EFC37A400127D9A /* PeripheralResource.m in Sources */,
+				727104FF1F1D69AE00A43DBF /* SensorViewController.m in Sources */,
 				7208CA681F0180CD00226321 /* SmartDeviceTableViewCell.m in Sources */,
 				723E93001F10573000C5C1DB /* AccelerometerViewController.m in Sources */,
 				7208CA7E1F01D07300226321 /* CompassViewController.m in Sources */,

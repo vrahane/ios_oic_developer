@@ -100,7 +100,7 @@ static id delegate;
 - (int) discovery_start:(id)delegate
 {
     delegate = delegate;
-    NSString *bleAddr = @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9";
+    NSString *bleAddr = @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9";//@"DB767371-B7BE-4580-A938-D8965957124B";//@"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2";
     OCDevAddr devAddr;
     strcpy(devAddr.addr,[bleAddr UTF8String]);
     OCStackResult rc;
@@ -138,6 +138,9 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     }
     NSString *uuidStr = [[NSString alloc] initWithFormat:@"%s", rsp->devAddr.addr];
     
+    NSString *resourceURI = [[NSString alloc] initWithFormat:@"%s", rsp->resourceUri];
+    NSLog(@"%@",resourceURI);
+    
     [itf.mutex lock];
     Peripheral *item;
     
@@ -160,15 +163,10 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 
     p.devAddr = *(&rsp->devAddr);
     
-    //NEW CALL
-    //[[iotivity_itf shared] discover_resources:&rsp->devAddr];
     [itf.mutex unlock];
-    //if([itf.whiteList containsObject:[NSString stringWithUTF8String:rsp->devAddr.addr]]) {
         for (resource = disc_rsp->resources; resource; resource = resource->next) {
-            
-            
-            PeripheralResource *pr = [[PeripheralResource alloc] init];
-            pr.uri = [[NSString alloc] initWithFormat:@"%s", resource->uri];
+    
+            PeripheralResource *pr = [itf parseResourcePayload:resource];
             pr.devAddr = p.devAddr;
             pr.carrierType = p.type;
             [p addPeripheralResource:pr];
@@ -184,6 +182,14 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return OC_STACK_KEEP_TRANSACTION;
 }
 
+
+- (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource {
+    PeripheralResource *pr = [[PeripheralResource alloc] init];
+    pr.uri = [NSString stringWithUTF8String:resource->uri];
+    pr.resourceType = [NSString stringWithUTF8String:resource->types->value];
+    pr.resourceInterface = [NSString stringWithUTF8String:resource->interfaces->value];
+    return pr;
+}
 
 - (int) discover_resources: (OCDevAddr *)devAddr {
     OCStackResult rc;
@@ -616,7 +622,7 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     
     [itf.mutex unlock];
     if (itf.discovery_watcher != (id)nil) {
-        [itf.discovery_watcher getResourceDetails];
+        [itf.discovery_watcher listUpdated];
     }
     
     return OC_STACK_KEEP_TRANSACTION;

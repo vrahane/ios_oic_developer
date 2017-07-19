@@ -16,6 +16,10 @@
 
 + (instancetype)shared;
 - (int)discovery_start:(id)delegate;
+
+- (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource;
+
+
 - (int) discover_deviceDetails:(OCDevAddr *)devAddr;
 
 - (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;

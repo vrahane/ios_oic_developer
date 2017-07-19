@@ -10,8 +10,7 @@
 
 @interface HomeTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-@property (weak, nonatomic) IBOutlet UITextField *uriLbl;
-@property (weak, nonatomic) IBOutlet UITextField *deviceAddr;
-@property (weak, nonatomic) IBOutlet UITextField *carrierLbl;
-
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @end

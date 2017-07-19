@@ -17,6 +17,8 @@
 
 @end
 
+double j = 0;
+
 @implementation PressureViewController
 
 - (void)viewDidLoad {
@@ -50,9 +52,8 @@
     ChartYAxis *leftAxis = _chartView.leftAxis;
     [leftAxis removeAllLimitLines];
     
-    leftAxis.axisMaximum = 101500.0;
-    leftAxis.axisMinimum = 95000.0;
-    leftAxis.gridLineDashLengths = @[@5.f, @5.f];
+    leftAxis.axisMaximum = 102.0;
+    leftAxis.axisMinimum = 101.0;
     leftAxis.drawZeroLineEnabled = YES;
     leftAxis.drawLimitLinesBehindDataEnabled = YES;
     [self.chartView setVisibleXRangeMaximum:5];
@@ -75,9 +76,25 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SmartDeviceTableViewCell *cell = (SmartDeviceTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"SmartDeviceTableViewCell"];
-    
+    SmartDeviceTableViewCell *cell = (SmartDeviceTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SmartDeviceTableViewCell"];
+    PeripheralResource *pr = _peripheral.resources[indexPath.row];
+    cell.mDataTypeLbl.text = pr.resourceName;
+    if(pr.type == OCREP_PROP_DOUBLE) {
+        cell.mValueLbl.text = [[NSNumber numberWithDouble:pr.resourceDoubleValue] stringValue];
+        if([pr.resourceName containsString:@"press"]) {
+            [_chartValues addObject:[[ChartDataEntry alloc] initWithX:j++ y:(pr.resourceDoubleValue/1000) icon: [UIImage imageNamed:@"icon"]]];
+        }
+    } else if(pr.type == OCREP_PROP_STRING) {
+        cell.mValueLbl.text = pr.resourceStringValue;
+    }else if(pr.type == OCREP_PROP_INT){
+        cell.mValueLbl.text = [[NSNumber numberWithLongLong:pr.resourceIntegerValue] stringValue];
+    }else if(pr.type == OCREP_PROP_BOOL){
+        NSString *booleanString = pr.resourceBoolValue ? @"true" : @"false";
+        cell.mValueLbl.text = booleanString;
+    }
+    [self updateChartData];
     return cell;
+
 }
 
 - (IBAction)mSwitchChanged:(id)sender {
@@ -134,30 +151,18 @@
         
         set1.drawIconsEnabled = NO;
         
-        set1.lineDashLengths = @[@5.f, @2.5f];
-        set1.highlightLineDashLengths = @[@5.f, @2.5f];
-        [set1 setColor:UIColor.blackColor];
+        [set1 setColor:UIColor.redColor];
         [set1 setCircleColor:UIColor.clearColor];
         set1.lineWidth = 1.0;
-        set1.circleRadius = 3.0;
+        set1.circleRadius = 0.0;
         set1.drawCircleHoleEnabled = NO;
         set1.valueFont = [UIFont systemFontOfSize:9.f];
-        set1.formLineDashLengths = @[@5.f, @2.5f];
-        set1.formLineWidth = 1.0;
+        
         set1.formSize = 15.0;
         
-        NSArray *gradientColors = @[
-                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
-                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
-                                    ];
-        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
-        
         set1.fillAlpha = 1.f;
-        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set1.drawFilledEnabled = YES;
         
-        CGGradientRelease(gradient);
-        
+        set1.drawFilledEnabled = NO;
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];
         

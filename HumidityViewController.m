@@ -147,11 +147,10 @@ double k = 0.0;
         
         set1.drawIconsEnabled = NO;
         
-        set1.lineDashLengths = @[@5.f, @2.5f];
-        set1.highlightLineDashLengths = @[@5.f, @2.5f];
-        [set1 setColor:UIColor.blackColor];
+
+        [set1 setColor:UIColor.blueColor];
         [set1 setCircleColor:UIColor.clearColor];
-        set1.lineWidth = 1.0;
+        set1.lineWidth = 2.0;
         set1.circleRadius = 3.0;
         set1.drawCircleHoleEnabled = NO;
         set1.valueFont = [UIFont systemFontOfSize:9.f];
@@ -159,17 +158,12 @@ double k = 0.0;
         set1.formLineWidth = 1.0;
         set1.formSize = 15.0;
         
-        NSArray *gradientColors = @[
-                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
-                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
-                                    ];
-        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
         
         set1.fillAlpha = 1.f;
-        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set1.drawFilledEnabled = YES;
+       
+        set1.drawFilledEnabled = NO;
         
-        CGGradientRelease(gradient);
+
         
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];

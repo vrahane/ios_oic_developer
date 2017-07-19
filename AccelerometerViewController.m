@@ -169,16 +169,13 @@ double f = -1.0;
         
         set1.drawIconsEnabled = NO;
         
-        set1.lineDashLengths = @[@5.f, @2.5f];
-        set1.highlightLineDashLengths = @[@5.f, @2.5f];
-        [set1 setColor:UIColor.blackColor];
+        [set1 setColor:UIColor.redColor];
         [set1 setCircleColor:UIColor.clearColor];
         set1.lineWidth = 1.0;
-        set1.circleRadius = 3.0;
+        set1.circleRadius = 0.0;
         set1.drawCircleHoleEnabled = NO;
         set1.valueFont = [UIFont systemFontOfSize:9.f];
-        set1.formLineDashLengths = @[@5.f, @2.5f];
-        set1.formLineWidth = 1.0;
+
         set1.formSize = 15.0;
         
         
@@ -186,16 +183,13 @@ double f = -1.0;
         
         set2.drawIconsEnabled = NO;
         
-        set2.lineDashLengths = @[@1.0f, @3.5f];
-        set2.highlightLineDashLengths = @[@1.0f, @3.5f];
-        [set2 setColor:UIColor.blackColor];
+        [set2 setColor:UIColor.greenColor];
         [set2 setCircleColor:UIColor.clearColor];
         set2.lineWidth = 1.0;
-        set2.circleRadius = 3.0;
+        set2.circleRadius = 0.0;
         set2.drawCircleHoleEnabled = NO;
         set2.valueFont = [UIFont systemFontOfSize:9.f];
-        set2.formLineDashLengths = @[@5.f, @2.5f];
-        set2.formLineWidth = 1.0;
+
         set2.formSize = 15.0;
       
         
@@ -203,38 +197,27 @@ double f = -1.0;
         
         set3.drawIconsEnabled = NO;
         
-        set3.lineDashLengths = @[@2.0f, @4.5f];
-        set3.highlightLineDashLengths = @[@2.0f, @4.5f];
-        [set3 setColor:UIColor.blackColor];
+        [set3 setColor:UIColor.blueColor];
         [set3 setCircleColor:UIColor.clearColor];
         set3.lineWidth = 1.0;
-        set3.circleRadius = 3.0;
+        set3.circleRadius = 0.0;
         set3.drawCircleHoleEnabled = NO;
         set3.valueFont = [UIFont systemFontOfSize:9.f];
-        set3.formLineDashLengths = @[@5.f, @2.5f];
-        set3.formLineWidth = 1.0;
         set3.formSize = 15.0;
 
         
-        NSArray *gradientColors = @[
-                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
-                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
-                                    ];
-        CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
         
         set1.fillAlpha = 1.f;
-        set1.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set1.drawFilledEnabled = YES;
+     
+        set1.drawFilledEnabled = NO;
         
         set2.fillAlpha = 1.f;
-        set2.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set2.drawFilledEnabled = YES;
+     
+        set2.drawFilledEnabled = NO;
        
         set3.fillAlpha = 1.f;
-        set3.fill = [ChartFill fillWithLinearGradient:gradient angle:90.f];
-        set3.drawFilledEnabled = YES;
-        
-        CGGradientRelease(gradient);
+     
+        set3.drawFilledEnabled = NO;
         
         NSMutableArray *dataSets = [[NSMutableArray alloc] init];
         [dataSets addObject:set1];

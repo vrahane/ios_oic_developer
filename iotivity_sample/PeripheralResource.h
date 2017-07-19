@@ -23,5 +23,5 @@
 @property (nonatomic) NSString *resourceStringValue;
 @property (nonatomic) NSMutableArray *resourceArrayValue;
 @property (nonatomic, copy) NSString *resourceInterface;
-
+@property (nonatomic, copy) NSString *resourceType;
 @end
