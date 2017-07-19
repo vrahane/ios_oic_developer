@@ -66,7 +66,9 @@ float d = -1.0;
     cell.valueLabel.text = [number stringValue];
     if ([_dict count] == 1) {
         [_chartXValues addObject:[[ChartDataEntry alloc] initWithX:++d y:[number doubleValue] icon: [UIImage imageNamed:@"icon"]]];
-    } else if ([_dict count] == 2) {
+    }
+    
+    else if ([_dict count] == 2) {
         if([key isEqualToString:@"x"] || [key isEqualToString:@"y"]) {
         [_chartXValues addObject:[[ChartDataEntry alloc] initWithX:++d y:[[_dict valueForKey:@"x"] doubleValue] icon: [UIImage imageNamed:@"icon"]]];
         [_chartYValues addObject:[[ChartDataEntry alloc] initWithX:d y:[[_dict valueForKey:@"y"] doubleValue]icon: [UIImage imageNamed:@"icon"]]];
@@ -75,7 +77,9 @@ float d = -1.0;
             [_chartYValues addObject:[[ChartDataEntry alloc] initWithX:d y:[[_dict valueForKey:@"g"] doubleValue]icon: [UIImage imageNamed:@"icon"]]];
             
         }
-    } else if ([_dict count] > 3) {
+    }
+    else if ([_dict count] > 2) {
+   
         if([key isEqualToString:@"x"] || [key isEqualToString:@"y"] || [key isEqualToString:@"z"]) {
 
         [_chartXValues addObject:[[ChartDataEntry alloc] initWithX:++d y:[[_dict valueForKey:@"x"] doubleValue] icon: [UIImage imageNamed:@"icon"]]];
@@ -105,6 +109,7 @@ float d = -1.0;
         d = -1.0;
         _observeButton.title = @"Observe";
         _isObserving = true;
+        [[iotivity_itf shared] cancel_observer:self andURI:_uri andDevAddr:_peripheral.devAddr andHandle:_peripheral.handle];
     }
     
 }
@@ -382,8 +387,8 @@ float d = -1.0;
     ChartYAxis *leftAxis = _chartView.leftAxis;
     [leftAxis removeAllLimitLines];
     
-    leftAxis.axisMaximum = MIN(10.0, _chartView.data.yMax + 1.0);
-    leftAxis.axisMinimum = MAX(0.0, _chartView.data.yMin - 1.0);
+    leftAxis.axisMaximum = _chartView.data.yMax + 1.0;
+    leftAxis.axisMinimum = _chartView.data.yMin - 1.0;
     
     
     leftAxis.drawZeroLineEnabled = NO;

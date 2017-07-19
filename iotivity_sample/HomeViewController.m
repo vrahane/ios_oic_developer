@@ -8,7 +8,6 @@
 
 #import "HomeViewController.h"
 #import "HomeTableViewCell.h"
-#import "CompassViewController.h"
 #import "SmartDeviceViewController.h"
 #import "SensorViewController.h"
 #import "HumidityViewController.h"
@@ -43,9 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-
- 
+- (void) viewWillDisappear:(BOOL)animated {
+    [[iotivity_itf shared] discovery_end];
 }
 
 - (IBAction)iScanAction:(id)sender {
