@@ -395,6 +395,7 @@ float d = -1.0;
     _chartView.legend.form = ChartLegendFormLine;
     
     [_chartView animateWithXAxisDuration:0.1];
+    [_chartView moveViewToX:_chartView.data.xMax];
 
 }
 
