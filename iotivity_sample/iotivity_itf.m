@@ -100,7 +100,7 @@ static id delegate;
 - (int) discovery_start:(id)delegate
 {
     delegate = delegate;
-    NSString *bleAddr = @"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2"; //@"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9"; //@"DB767371-B7BE-4580-A938-D8965957124B";
+    NSString *bleAddr = @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9"; //@"DB767371-B7BE-4580-A938-D8965957124B"; //@"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2";
     OCDevAddr devAddr;
     strcpy(devAddr.addr,[bleAddr UTF8String]);
     OCStackResult rc;

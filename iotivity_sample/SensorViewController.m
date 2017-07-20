@@ -92,6 +92,12 @@ float d = -1.0;
             
             [_chartZValues addObject:[[ChartDataEntry alloc] initWithX:d y:[[_dict valueForKey:@"b"] doubleValue] icon: [UIImage imageNamed:@"icon"]]];
             
+        } else if([key isEqualToString:@"ir"] || [key isEqualToString:@"full"] || [key isEqualToString:@"lux"]) {
+            [_chartXValues addObject:[[ChartDataEntry alloc] initWithX:++d y:[[_dict valueForKey:@"ir"] doubleValue] icon: [UIImage imageNamed:@"icon"]]];
+            [_chartYValues addObject:[[ChartDataEntry alloc] initWithX:d y:[[_dict valueForKey:@"full"] doubleValue]icon: [UIImage imageNamed:@"icon"]]];
+            
+            [_chartZValues addObject:[[ChartDataEntry alloc] initWithX:d y:[[_dict valueForKey:@"lux"] doubleValue] icon: [UIImage imageNamed:@"icon"]]];
+            
         }
     }
     [self updateChartValues];
@@ -115,6 +121,7 @@ float d = -1.0;
 }
 
 - (IBAction)backAction:(id)sender {
+    [[iotivity_itf shared] cancel_observer:self andURI:self.uri andDevAddr:_peripheral.devAddr andHandle:_peripheral.handle];
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -263,7 +270,22 @@ float d = -1.0;
             }
         }
 
+    } else if([resourceURI containsString:@"lt"]) {
+        for (PeripheralResource *pr in resources) {
+            NSString *uri = pr.resourceName;
+            if([uri isEqualToString:@"ir"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+            if([uri isEqualToString:@"full"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+            if([uri isEqualToString:@"lux"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+        }
+        
     }
+    
     return resourceDictionary;
 }
 

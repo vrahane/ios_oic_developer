@@ -325,6 +325,20 @@
             }
         }
         
+    }else if([resourceURI containsString:@"lt"]) {
+        for (PeripheralResource *pr in resources) {
+            NSString *uri = pr.resourceName;
+            if([uri isEqualToString:@"ir"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+            if([uri isEqualToString:@"full"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+            if([uri isEqualToString:@"lux"]) {
+                [resourceDictionary setObject:[NSNumber numberWithDouble:pr.resourceDoubleValue] forKey:uri];
+            }
+        }
+        
     }
     
     
@@ -367,6 +381,10 @@
         readableString = @"Rotation Vector (Quaternion)";
     }else if([resourceURI containsString:@"grav"]) {
         readableString = @"Gravity Sensor";
+    }else if([resourceURI containsString:@"lt"]) {
+        readableString = @"Light Sensor";
+    }else if([resourceURI containsString:@"light"]) {
+        readableString = @"Light";
     }
     
     return readableString;
