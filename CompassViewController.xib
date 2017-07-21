@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompassViewController">
             <connections>
                 <outlet property="backBtn" destination="Cud-JE-4Dj" id="lMR-hl-YZ3"/>
+                <outlet property="chartView" destination="9QY-d5-xqa" id="jDW-xK-PHm"/>
                 <outlet property="mNavigationBar" destination="aTD-an-lSQ" id="Qel-0T-6lH"/>
                 <outlet property="mSwitch" destination="wmN-tB-g8v" id="HSb-eh-Dcz"/>
                 <outlet property="mTableView" destination="8WY-Vd-Tpx" id="UJf-mZ-O2L"/>
@@ -23,9 +24,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="80" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8WY-Vd-Tpx">
-                    <rect key="frame" x="0.0" y="181" width="375" height="486"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="8WY-Vd-Tpx">
+                    <rect key="frame" x="0.0" y="181" width="375" height="172"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="5ZY-mS-aOV"/>
@@ -43,7 +44,7 @@
                     <rect key="frame" x="0.0" y="21" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem id="aTD-an-lSQ">
+                        <navigationItem title="Compass" id="aTD-an-lSQ">
                             <barButtonItem key="leftBarButtonItem" title="Back" id="Cud-JE-4Dj">
                                 <connections>
                                     <action selector="backBtnAction:" destination="-1" id="l6H-rd-HlS"/>
@@ -59,9 +60,14 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9QY-d5-xqa" customClass="LineChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="361" width="375" height="306"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="-994.5" y="-1140.5"/>
+            <point key="canvasLocation" x="-1430" y="-1629"/>
         </view>
     </objects>
 </document>

@@ -85,6 +85,9 @@ float x = 0.0;
         }
     } else if(pr.type == OCREP_PROP_STRING) {
         cell.mValueLbl.text = pr.resourceStringValue;
+        if([pr.resourceName containsString:@"temp"] || [pr.resourceName containsString:@"humid"]) {
+            [_chartValues addObject:[[ChartDataEntry alloc] initWithX:x++ y:[pr.resourceStringValue doubleValue] icon: [UIImage imageNamed:@"icon"]]];
+        }
     }else if(pr.type == OCREP_PROP_INT){
         cell.mValueLbl.text = [[NSNumber numberWithLongLong:pr.resourceIntegerValue] stringValue];
     }else if(pr.type == OCREP_PROP_BOOL){
@@ -108,7 +111,7 @@ float x = 0.0;
 
 }
 
--(void) getResourceDetails {
+-(void) listUpdated {
     [self receiveData];
 }
 

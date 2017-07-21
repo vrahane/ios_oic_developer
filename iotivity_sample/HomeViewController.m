@@ -7,12 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "CompassViewController.h"
 #import "HomeTableViewCell.h"
 #import "SmartDeviceViewController.h"
 #import "SensorViewController.h"
-#import "HumidityViewController.h"
 #import "iotivity_itf.h"
-#import "GraphViewController.h"
 
 @interface HomeViewController ()
 @property (strong, nonatomic) NSMutableArray *mResources;
@@ -20,6 +19,7 @@
 @property (strong, nonatomic) NSMutableArray *mSmartDevices;
 @property (strong, nonatomic) NSMutableArray *mSensors;
 @property (strong, nonatomic) NSString *resourceURI;
+
 @end
 
 @implementation HomeViewController
@@ -182,14 +182,24 @@
         svc.uri = self.resourceURI;
         [self.navigationController pushViewController:svc animated:true];
     }
-    else {
-        SmartDeviceViewController *svc = [[SmartDeviceViewController alloc] initWithNibName:@"SmartDeviceViewController" bundle:nil];
+    else
+    {
+
+        if ([self.uri containsString:@"oic.r.3"]) {
+            CompassViewController *cvc = [[CompassViewController alloc] initWithNibName:@"CompassViewController" bundle:nil];
+            cvc.peripheral = pr;
+            cvc.peripheral.devAddr = pr.devAddr;
+            cvc.uri = self.uri;
+            [self.navigationController pushViewController:cvc animated:true];
+
+        } else {
+            SmartDeviceViewController *svc = [[SmartDeviceViewController alloc] initWithNibName:@"SmartDeviceViewController" bundle:nil];
         
-        svc.peripheral = pr;
-        svc.peripheral.devAddr = pr.devAddr;
-        svc.uri = self.uri;
-        
-        [self.navigationController pushViewController:svc animated:true];
+            svc.peripheral = pr;
+            svc.peripheral.devAddr = pr.devAddr;
+            svc.uri = self.resourceURI;
+            [self.navigationController pushViewController:svc animated:true];
+        }
 
     }
 }
@@ -385,8 +395,9 @@
         readableString = @"Light Sensor";
     }else if([resourceURI containsString:@"light"]) {
         readableString = @"Light";
+    }else if([resourceURI containsString:@"compass"]) {
+        readableString = @"Compass";
     }
-    
     return readableString;
 }
 

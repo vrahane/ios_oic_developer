@@ -36,12 +36,9 @@
                         <rect key="frame" x="223" y="15" width="30" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                     </imageView>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t59-TN-EK6">
+                    <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t59-TN-EK6">
                         <rect key="frame" x="263" y="14" width="51" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                        <connections>
-                            <action selector="valueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="b22-aC-Zcb"/>
-                        </connections>
                     </switch>
                 </subviews>
             </tableViewCellContentView>

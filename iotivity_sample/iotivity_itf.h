@@ -20,8 +20,7 @@
 - (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource;
 
 
-- (int) discover_deviceDetails:(OCDevAddr *)devAddr;
-
+- (int) discover_allDevices: (id) delegate;
 - (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 
 - (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;

@@ -73,8 +73,6 @@ static id delegate;
         _p = [[PeripheralResource alloc] init];
         _peripheralObject = [[Peripheral alloc]initWithUuid:@"PeripheralObject"];
         _interfaceObject = [[Peripheral alloc]initWithUuid:@"InterfaceObject"];
-        _whiteList = [[NSMutableArray alloc] initWithObjects:@"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9",nil];
-
         [self performSelectorInBackground:@selector(doWork) withObject:nil];
     }
     return self;
@@ -91,16 +89,15 @@ static id delegate;
     }
     while (1) {
         OCProcess();
-        [NSThread sleepForTimeInterval:1];
+        [NSThread sleepForTimeInterval:0.01];
     }
 }
-
 
 #pragma mark - Discover Device
 - (int) discovery_start:(id)delegate
 {
     delegate = delegate;
-    NSString *bleAddr = @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9"; //@"DB767371-B7BE-4580-A938-D8965957124B"; //@"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2";
+    NSString *bleAddr =  @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9"; //@"F771AB05-6EFA-4ABE-A682-9D19F495FF20";  //@"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2" ;@"DB767371-B7BE-4580-A938-D8965957124B";
     OCDevAddr devAddr;
     strcpy(devAddr.addr,[bleAddr UTF8String]);
     OCStackResult rc;
@@ -191,31 +188,10 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return pr;
 }
 
-- (int) discover_resources: (OCDevAddr *)devAddr {
-    OCStackResult rc;
-    OCCallbackData cb = {
-        .cb = resource_details_cb
-    };
-    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
-    
-    
-    rc = OCDoResource(NULL, OC_REST_GET, OC_MULTICAST_DISCOVERY_URI, devAddr, NULL ,
-                      transport, OC_LOW_QOS, &cb, NULL, 0);
-    return rc;
-}
 
 
-static OCStackApplicationResult
-resource_details_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp) {
-
-    OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
-    OCRepPayloadValue *res;
-    
-     for (res = representation_payload ->values; res; res = res->next) {
-         NSLog(@"%@",[NSString stringWithUTF8String:res->name]);
-     }
-    
-    return OC_STACK_DELETE_TRANSACTION;
+- (int) discover_allDevices: (id) delegate {
+    return 0;
 }
 
 #pragma mark - Obtain Manufacturer using "/oic/p"

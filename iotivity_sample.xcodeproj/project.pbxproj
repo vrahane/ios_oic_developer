@@ -120,12 +120,12 @@
 		7208CA761F01B33800226321 /* HomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewCell.h; sourceTree = "<group>"; };
 		7208CA771F01B33800226321 /* HomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewCell.m; sourceTree = "<group>"; };
 		7208CA781F01B33800226321 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
-		7208CA7B1F01D07300226321 /* CompassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassViewController.h; sourceTree = "<group>"; };
-		7208CA7C1F01D07300226321 /* CompassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassViewController.m; sourceTree = "<group>"; };
-		7208CA7D1F01D07300226321 /* CompassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompassViewController.xib; sourceTree = "<group>"; };
-		7208CA801F01E05E00226321 /* CompassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompassTableViewCell.h; sourceTree = "<group>"; };
-		7208CA811F01E05E00226321 /* CompassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompassTableViewCell.m; sourceTree = "<group>"; };
-		7208CA821F01E05E00226321 /* CompassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompassTableViewCell.xib; sourceTree = "<group>"; };
+		7208CA7B1F01D07300226321 /* CompassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompassViewController.h; path = ../CompassViewController.h; sourceTree = "<group>"; };
+		7208CA7C1F01D07300226321 /* CompassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompassViewController.m; path = ../CompassViewController.m; sourceTree = "<group>"; };
+		7208CA7D1F01D07300226321 /* CompassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompassViewController.xib; path = ../CompassViewController.xib; sourceTree = "<group>"; };
+		7208CA801F01E05E00226321 /* CompassTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompassTableViewCell.h; path = ../CompassTableViewCell.h; sourceTree = "<group>"; };
+		7208CA811F01E05E00226321 /* CompassTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompassTableViewCell.m; path = ../CompassTableViewCell.m; sourceTree = "<group>"; };
+		7208CA821F01E05E00226321 /* CompassTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompassTableViewCell.xib; path = ../CompassTableViewCell.xib; sourceTree = "<group>"; };
 		7226082A1EFC33E800C057B4 /* ResourceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceCell.h; sourceTree = "<group>"; };
 		7226082B1EFC33E800C057B4 /* ResourceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceCell.m; sourceTree = "<group>"; };
 		7226082C1EFC33E800C057B4 /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
@@ -228,12 +228,6 @@
 		7208CA6F1F0182B600226321 /* SensorViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7208CA7B1F01D07300226321 /* CompassViewController.h */,
-				7208CA7C1F01D07300226321 /* CompassViewController.m */,
-				7208CA7D1F01D07300226321 /* CompassViewController.xib */,
-				7208CA801F01E05E00226321 /* CompassTableViewCell.h */,
-				7208CA811F01E05E00226321 /* CompassTableViewCell.m */,
-				7208CA821F01E05E00226321 /* CompassTableViewCell.xib */,
 			);
 			name = SensorViewController;
 			sourceTree = "<group>";
@@ -241,6 +235,12 @@
 		7208CA751F01B31500226321 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				7208CA7B1F01D07300226321 /* CompassViewController.h */,
+				7208CA7C1F01D07300226321 /* CompassViewController.m */,
+				7208CA7D1F01D07300226321 /* CompassViewController.xib */,
+				7208CA801F01E05E00226321 /* CompassTableViewCell.h */,
+				7208CA811F01E05E00226321 /* CompassTableViewCell.m */,
+				7208CA821F01E05E00226321 /* CompassTableViewCell.xib */,
 				727104FC1F1D69AE00A43DBF /* SensorViewController.h */,
 				727104FD1F1D69AE00A43DBF /* SensorViewController.m */,
 				727104FE1F1D69AE00A43DBF /* SensorViewController.xib */,

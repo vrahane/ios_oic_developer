@@ -20,14 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    // Application launch.
-
     HomeViewController *hvc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    
-    GraphViewController *gvc = [[GraphViewController alloc] initWithNibName:@"GraphViewController" bundle:nil];
-    
-    //DeviceListViewController *dlvc = [[DeviceListViewController alloc] init];
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:hvc];
     [nvc setNavigationBarHidden:YES];
