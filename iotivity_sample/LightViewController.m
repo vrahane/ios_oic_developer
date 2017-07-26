@@ -37,12 +37,12 @@
 - (IBAction)mSwitchChanged:(id)sender {
     
     OCRepPayload *reprPayload = OCRepPayloadCreate();
-    NSLog(@"%ld",(long)[sender tag]);
+    NSLog(@"%ld",(long)[sender isOn]);
     
     if ([_mSwitch isOn]) {
-            OCRepPayloadSetPropBool(reprPayload, [@"value" UTF8String] , false);
+            OCRepPayloadSetPropBool(reprPayload, [@"value" UTF8String] , true);
     } else {
-        OCRepPayloadSetPropBool(reprPayload, [@"value" UTF8String], true);
+        OCRepPayloadSetPropBool(reprPayload, [@"value" UTF8String], false);
     }
     
     [[iotivity_itf shared] set_generic:self andURI:self.uri andDevAddr: self.devAddr andPayLoad:reprPayload];
