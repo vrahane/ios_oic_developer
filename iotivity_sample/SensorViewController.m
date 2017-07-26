@@ -127,12 +127,13 @@ float d = -1.0;
 
 - (void) listUpdated {
     Peripheral *pr = [[iotivity_itf shared] resourceDetails];
-
-    self.peripheral = pr ;
-    _peripheral.devAddr = pr.devAddr;
-    _peripheral.handle = pr.handle;
-    _dict = [self sortPeripheralsForSensors:pr.resources andType:self.uri];
-    _keyArray = [_dict allKeys];
+    if (pr != nil) {
+        self.peripheral = pr ;
+        _peripheral.devAddr = pr.devAddr;
+        _peripheral.handle = pr.handle;
+        _dict = [self sortPeripheralsForSensors:pr.resources andType:self.uri];
+        _keyArray = [_dict allKeys];
+    }
 
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [_sensorData reloadData];

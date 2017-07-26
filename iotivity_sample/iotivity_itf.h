@@ -20,7 +20,8 @@
 - (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource;
 
 
-- (int) discover_allDevices: (id) delegate;
+- (int) discover_allDevices: (id) delegate andBLEAddress : (NSString *)bleAddr;
+
 - (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 
 - (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
@@ -40,6 +41,7 @@
 
 - (NSUInteger)device_count;
 - (NSMutableArray *)deviceWithIdx;//:(NSInteger)index;
+- (Peripheral *) deviceWithIdxBLE;
 - (Peripheral *)platformDetails;
 - (Peripheral *)statusDetails;
 - (Peripheral *)resourceDetails;

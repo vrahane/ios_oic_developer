@@ -89,7 +89,7 @@ static id delegate;
     }
     while (1) {
         OCProcess();
-        [NSThread sleepForTimeInterval:0.01];
+        [NSThread sleepForTimeInterval:0.025];
     }
 }
 
@@ -97,18 +97,15 @@ static id delegate;
 - (int) discovery_start:(id)delegate
 {
     delegate = delegate;
-    NSString *bleAddr =  @"FA45CAB1-AC80-4A5E-A29C-900AB3F529D9"; //@"F771AB05-6EFA-4ABE-A682-9D19F495FF20";  //@"BCC37242-B0CA-4B63-BCD8-41A6ABD138C2" ;@"DB767371-B7BE-4580-A938-D8965957124B";
-    OCDevAddr devAddr;
-    strcpy(devAddr.addr,[bleAddr UTF8String]);
     OCStackResult rc;
     OCCallbackData cb = {
         .cb = discovery_cb
     };
-    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
+    OCConnectivityType transport = CT_ADAPTER_IP;
     
     _discovery_watcher = delegate;
     
-    rc = OCDoResource(NULL, OC_REST_DISCOVER, OC_RSRVD_WELL_KNOWN_URI, &devAddr, NULL,
+    rc = OCDoResource(NULL, OC_REST_DISCOVER, OC_RSRVD_WELL_KNOWN_URI, NULL, NULL,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
     return rc;
 }
@@ -168,9 +165,9 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
             pr.carrierType = p.type;
             [p addPeripheralResource:pr];
         }
-        [itf.peripherals addObject:p];
-        
-       
+    [itf.peripherals addObject:p];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:uuidStr object:nil];
         if (itf.discovery_watcher != (id)nil) {
             [itf.discovery_watcher listUpdated];
         }
@@ -190,8 +187,88 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 
 
 
-- (int) discover_allDevices: (id) delegate {
-    return 0;
+- (int) discover_allDevices: (id) delegate andBLEAddress : (NSString *)bleAddr{
+    delegate = delegate;
+    OCDevAddr devAddr;
+    strcpy(devAddr.addr,[bleAddr UTF8String]);
+    OCStackResult rc;
+    OCCallbackData cb = {
+        .cb = discovery_ble_cb
+    };
+    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
+    
+    _discovery_watcher = delegate;
+    
+    rc = OCDoResource(NULL, OC_REST_DISCOVER, OC_RSRVD_WELL_KNOWN_URI, &devAddr, NULL,
+                      transport, OC_LOW_QOS, &cb, NULL, 0);
+    return rc;
+
+}
+
+
+static OCStackApplicationResult
+discovery_ble_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
+{
+    iotivity_itf *itf = [iotivity_itf shared];
+    OCResourcePayload *resource;
+    
+    if (!rsp) {
+        NSLog(@"discovery_cb failed\n");
+        return OC_STACK_DELETE_TRANSACTION;
+    }
+    OCDiscoveryPayload *disc_rsp = (OCDiscoveryPayload *)rsp->payload;
+    if (rsp->result == OC_STACK_ERROR) {
+        NSLog(@"discovery_cb got error parsing response\n");
+        return OC_STACK_KEEP_TRANSACTION;
+    }
+    if (!disc_rsp) {
+        NSLog(@"discovery_cb cannot be converted\n");
+        return OC_STACK_DELETE_TRANSACTION;
+    }
+    NSString *uuidStr = [[NSString alloc] initWithFormat:@"%s", rsp->devAddr.addr];
+    
+    NSString *resourceURI = [[NSString alloc] initWithFormat:@"%s", rsp->resourceUri];
+    NSLog(@"%@",resourceURI);
+    
+    [itf.mutex lock];
+    Peripheral *item;
+    
+    for (item in itf.peripherals) {
+        if ([uuidStr caseInsensitiveCompare:item.uuid] == NSOrderedSame) {
+            [itf.mutex unlock];
+            return OC_STACK_KEEP_TRANSACTION;
+        }
+    }
+    
+    Peripheral *p = [[Peripheral alloc] initWithUuid:uuidStr];
+    
+    if (rsp->devAddr.adapter == OC_ADAPTER_GATT_BTLE) {
+        p.type = @"BLE";
+    } else if (rsp->devAddr.adapter == OC_ADAPTER_IP) {
+        p.type = @"IP";
+    } else {
+        p.type = @"unkwn";
+    }
+    
+    p.devAddr = *(&rsp->devAddr);
+    
+    [itf.mutex unlock];
+    for (resource = disc_rsp->resources; resource; resource = resource->next) {
+        
+        PeripheralResource *pr = [itf parseResourcePayload:resource];
+        pr.devAddr = p.devAddr;
+        pr.carrierType = p.type;
+        [p addPeripheralResource:pr];
+    }
+    [itf.peripherals addObject:p];
+    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:uuidStr object:nil];
+    if (itf.discovery_watcher != (id)nil) {
+        [itf.discovery_watcher listUpdated];
+    }
+    
+    //}
+    return OC_STACK_KEEP_TRANSACTION;
 }
 
 #pragma mark - Obtain Manufacturer using "/oic/p"
@@ -529,72 +606,72 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     iotivity_itf *itf = [iotivity_itf shared];
     
     itf.peripheralObject = [[Peripheral alloc] initWithUuid:@"ITF Object"];
-    
-    if (rsp -> payload->type == PAYLOAD_TYPE_REPRESENTATION) {
-        OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
-        OCRepPayloadValue *res;
-        NSMutableArray *arr = [[NSMutableArray alloc] init];
-        itf.peripheralObject.devAddr = rsp->devAddr;
-        itf.observeHandle = handle;
-        
-        for (res = representation_payload ->values; res; res = res->next) {
-            PeripheralResource *pr = [[PeripheralResource alloc] init];
-            pr.uri = [[NSString alloc] initWithFormat:@"%s", res->name];
-            pr.resourceName = [NSString stringWithUTF8String:res->name];
-            NSLog(@"%@",pr.resourceName);
+    if(rsp->payload) {
+        if (rsp -> payload->type == PAYLOAD_TYPE_REPRESENTATION) {
+            OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
+            OCRepPayloadValue *res;
+            NSMutableArray *arr = [[NSMutableArray alloc] init];
+            itf.peripheralObject.devAddr = rsp->devAddr;
+            itf.observeHandle = handle;
             
-            pr.type = res->type;
-            
-            if (res->type == OCREP_PROP_INT) {
-                pr.resourceIntegerValue = res->i;
-            }else if(res->type == OCREP_PROP_BOOL){
-                pr.resourceBoolValue = res->b;
-            }else if(res->type == OCREP_PROP_DOUBLE){
-                pr.resourceDoubleValue = res->d;
-            }else if(res->type == OCREP_PROP_STRING){
-                pr.resourceStringValue = [NSString stringWithUTF8String:res->str];
-            }else if(res->type == OCREP_PROP_ARRAY){
-                if(res->arr.type == OCREP_PROP_INT){
-                    pr.resourceArrayValue = [[NSMutableArray alloc] init];
-                    
-                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
-                        int64_t x = res->arr.iArray[i];
-                        //  NSNumber *number = [NSNumber numberWithLongLong:res->arr.iArray[i]];
-                        // [arr addObject:number];
-                        [pr.resourceArrayValue addObject:[NSNumber numberWithUnsignedLongLong:x]];
-                    }
-                    //pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
-                }else if(res->arr.type == OCREP_PROP_DOUBLE){
-                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
-                        NSNumber *number = [NSNumber numberWithDouble:res->arr.dArray[i]];
-                        [arr addObject:number];
-                    }
-                    pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
-                }else if(res->arr.type == OCREP_PROP_STRING){
-                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
-                        NSString *string = [NSString stringWithUTF8String:res->arr.strArray[i]];
-                        [arr addObject:string];
-                    }
-                    pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
-                    if(res->arr.type == OCREP_PROP_BOOL){
+            for (res = representation_payload ->values; res; res = res->next) {
+                PeripheralResource *pr = [[PeripheralResource alloc] init];
+                pr.uri = [[NSString alloc] initWithFormat:@"%s", res->name];
+                pr.resourceName = [NSString stringWithUTF8String:res->name];
+                NSLog(@"%@",pr.resourceName);
+                
+                pr.type = res->type;
+                
+                if (res->type == OCREP_PROP_INT) {
+                    pr.resourceIntegerValue = res->i;
+                }else if(res->type == OCREP_PROP_BOOL){
+                    pr.resourceBoolValue = res->b;
+                }else if(res->type == OCREP_PROP_DOUBLE){
+                    pr.resourceDoubleValue = res->d;
+                }else if(res->type == OCREP_PROP_STRING){
+                    pr.resourceStringValue = [NSString stringWithUTF8String:res->str];
+                }else if(res->type == OCREP_PROP_ARRAY){
+                    if(res->arr.type == OCREP_PROP_INT){
+                        pr.resourceArrayValue = [[NSMutableArray alloc] init];
+                        
                         for(int i = 0; i < (int)res->ocByteStr.len; i++){
-                            bool b = res->arr.bArray[i];
-                            [arr addObject:[NSNumber numberWithBool:b]];
+                            int64_t x = res->arr.iArray[i];
+                            //  NSNumber *number = [NSNumber numberWithLongLong:res->arr.iArray[i]];
+                            // [arr addObject:number];
+                            [pr.resourceArrayValue addObject:[NSNumber numberWithUnsignedLongLong:x]];
+                        }
+                        //pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                    }else if(res->arr.type == OCREP_PROP_DOUBLE){
+                        for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                            NSNumber *number = [NSNumber numberWithDouble:res->arr.dArray[i]];
+                            [arr addObject:number];
                         }
                         pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                    }else if(res->arr.type == OCREP_PROP_STRING){
+                        for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                            NSString *string = [NSString stringWithUTF8String:res->arr.strArray[i]];
+                            [arr addObject:string];
+                        }
+                        pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                        if(res->arr.type == OCREP_PROP_BOOL){
+                            for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                                bool b = res->arr.bArray[i];
+                                [arr addObject:[NSNumber numberWithBool:b]];
+                            }
+                            pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                        }
+                        
                     }
                     
                 }
                 
+                
+                
+                [itf.peripheralObject addPeripheralResource:pr];
             }
             
-            
-            
-            [itf.peripheralObject addPeripheralResource:pr];
         }
-        
     }
-    
     NSLog(@"%lu",(unsigned long)[itf.peripheralObject.resources count]);
     
     [itf.mutex unlock];
@@ -644,6 +721,11 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return _peripherals;
 }
 
+- (Peripheral *)deviceWithIdxBLE
+{
+    return _peripheralObject;
+}
+
 - (Peripheral *)platformDetails
 {
     Peripheral *p = [[Peripheral alloc] init];
@@ -685,11 +767,14 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     pObj.devAddr = _peripheralObject.devAddr;
     [pObj.resources addObjectsFromArray:_peripheralObject.resources];
     NSLog(@"%lu",(unsigned long)[pObj.resources count]);
-    PeripheralResource *pr = pObj.resources[0];
-    NSString *booleanValue = pr.resourceBoolValue ? @"true" : @"false";
-    NSLog(@"%@ - %@", pr.resourceName, booleanValue);
-    pObj.handle = _observeHandle;
-    
+    if ([pObj.resources count] < 1) {
+        pObj = nil;
+    } else {
+        PeripheralResource *pr = pObj.resources[0];
+        NSString *booleanValue = pr.resourceBoolValue ? @"true" : @"false";
+        NSLog(@"%@ - %@", pr.resourceName, booleanValue);
+        pObj.handle = _observeHandle;
+    }
     [_mutex unlock];
     
     return pObj;

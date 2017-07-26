@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "DeviceListViewController.h"
 #import "iotivity_itf.h"
 #import "HomeViewController.h"
-#import "GraphViewController.h"
+#import <CoreBluetooth/CoreBluetooth.h>
 
 @interface AppDelegate ()
 
@@ -20,8 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
+    HomeViewController *hvc = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:hvc];
     [nvc setNavigationBarHidden:YES];
     self.window.rootViewController = nvc;
@@ -55,6 +54,5 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-
 
 @end
