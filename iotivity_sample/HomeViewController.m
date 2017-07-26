@@ -12,6 +12,8 @@
 #import "SmartDeviceViewController.h"
 #import "SensorViewController.h"
 #import "iotivity_itf.h"
+#import "LightViewController.h"
+
 #define CA_GATT_SERVICE_UUID "ADE3D529-C784-4F63-A987-EB69F70EE816"
 
 static CBUUID* g_OICGattServiceUUID = NULL;
@@ -318,11 +320,12 @@ int peripheralCount = 0;
             [self.navigationController pushViewController:cvc animated:true];
 
         } else {
-            SmartDeviceViewController *svc = [[SmartDeviceViewController alloc] initWithNibName:@"SmartDeviceViewController" bundle:nil];
+            LightViewController *svc = [[LightViewController alloc] initWithNibName:@"LightViewController" bundle:nil];
         
             svc.peripheral = pr;
             svc.peripheral.devAddr = pr.devAddr;
             svc.uri = self.resourceURI;
+            svc.devAddr = pr.devAddr;
             [self.navigationController pushViewController:svc animated:true];
         }
 
