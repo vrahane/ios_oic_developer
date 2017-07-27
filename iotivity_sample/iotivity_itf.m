@@ -89,7 +89,7 @@ static id delegate;
     }
     while (1) {
         OCProcess();
-        [NSThread sleepForTimeInterval:0.025];
+        [NSThread sleepForTimeInterval:0.02];
     }
 }
 
