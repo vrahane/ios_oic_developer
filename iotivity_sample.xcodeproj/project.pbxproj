@@ -24,8 +24,6 @@
 		723E92EF1F101B7800C5C1DB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72562F111F06E57100ADC5D4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7250ED951F26C18F00DB9294 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7250ED931F26C18F00DB9294 /* LightViewController.m */; };
 		7250ED961F26C18F00DB9294 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7250ED941F26C18F00DB9294 /* LightViewController.xib */; };
-		725280121F06EB7B00E43D5A /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725280101F06EB7B00E43D5A /* GraphViewController.m */; };
-		725280131F06EB7B00E43D5A /* GraphViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725280111F06EB7B00E43D5A /* GraphViewController.xib */; };
 		727104F91F1D466600A43DBF /* lightimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 727104F71F1D466600A43DBF /* lightimg.png */; };
 		727104FA1F1D466600A43DBF /* sensorimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 727104F81F1D466600A43DBF /* sensorimg.png */; };
 		727104FF1F1D69AE00A43DBF /* SensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727104FD1F1D69AE00A43DBF /* SensorViewController.m */; };
@@ -128,9 +126,6 @@
 		7250ED921F26C18F00DB9294 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		7250ED931F26C18F00DB9294 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		7250ED941F26C18F00DB9294 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
-		7252800F1F06EB7B00E43D5A /* GraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphViewController.h; sourceTree = "<group>"; };
-		725280101F06EB7B00E43D5A /* GraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphViewController.m; sourceTree = "<group>"; };
-		725280111F06EB7B00E43D5A /* GraphViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GraphViewController.xib; sourceTree = "<group>"; };
 		72562F011F06DC6900ADC5D4 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = "../../Library/Developer/Xcode/DerivedData/iotivity_sample-bydqnbpyuvszzjerzvyzfkbjkdgy/Build/Products/Debug-iphoneos/Charts/Charts.framework"; sourceTree = "<group>"; };
 		72562F061F06E23900ADC5D4 /* iotivity_sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iotivity_sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		72562F0B1F06E57100ADC5D4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
@@ -241,16 +236,6 @@
 			name = HomeViewController;
 			sourceTree = "<group>";
 		};
-		725280141F06EB8100E43D5A /* GraphViewController */ = {
-			isa = PBXGroup;
-			children = (
-				7252800F1F06EB7B00E43D5A /* GraphViewController.h */,
-				725280101F06EB7B00E43D5A /* GraphViewController.m */,
-				725280111F06EB7B00E43D5A /* GraphViewController.xib */,
-			);
-			name = GraphViewController;
-			sourceTree = "<group>";
-		};
 		72562F0C1F06E57100ADC5D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				723CB0DE1F1562F300585A70 /* ios */,
-				725280141F06EB8100E43D5A /* GraphViewController */,
 				72562F0B1F06E57100ADC5D4 /* Charts.xcodeproj */,
 				72562F061F06E23900ADC5D4 /* iotivity_sample-Bridging-Header.h */,
 				728E0B411F01739A0022F03F /* SmartDeviceViewController */,
@@ -566,7 +550,6 @@
 				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
 				728E0B401F0173940022F03F /* SmartDeviceViewController.xib in Resources */,
 				727105001F1D69AE00A43DBF /* SensorViewController.xib in Resources */,
-				725280131F06EB7B00E43D5A /* GraphViewController.xib in Resources */,
 				72C281871EFC393C00127D9A /* HomeViewController.xib in Resources */,
 				727104FA1F1D466600A43DBF /* sensorimg.png in Resources */,
 				7208CA691F0180CD00226321 /* SmartDeviceTableViewCell.xib in Resources */,
@@ -596,7 +579,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */,
-				725280121F06EB7B00E43D5A /* GraphViewController.m in Sources */,
 				7208CA791F01B33800226321 /* HomeTableViewCell.m in Sources */,
 				728E0B3F1F0173940022F03F /* SmartDeviceViewController.m in Sources */,
 				AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */,
