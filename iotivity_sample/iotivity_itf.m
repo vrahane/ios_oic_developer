@@ -16,18 +16,14 @@
 @interface iotivity_itf ()
 
 @property (strong, nonatomic) NSLock *mutex;
-
-// peripherals array should protected by mutex
 @property (nonatomic) NSMutableArray *peripherals;
 @property (nonatomic) NSMutableArray *orientationArray;
-
-//Peripheral Resource
 @property (nonatomic) Peripheral* peripheralObject;
 @property (nonatomic) OCDoHandle observeHandle;
-
 @property (atomic) id discovery_watcher;
 
 @end
+
 static id delegate;
 
 @implementation iotivity_itf
@@ -39,7 +35,7 @@ static id delegate;
     
     if (!itf) {
         itf = [[iotivity_itf alloc] initPrivate];
-
+        
     }
     return itf;
 }
@@ -48,7 +44,7 @@ static id delegate;
 {
     @throw [NSException exceptionWithName:@"Singleton"
                                    reason:@"use +[iotifity_itf shared]"
-                                   userInfo: nil];
+                                 userInfo: nil];
     return nil;
 }
 
@@ -62,12 +58,12 @@ static id delegate;
         [self performSelectorInBackground:@selector(doWork) withObject:nil];
     }
     return self;
-}  
+}
 
 - (instancetype)doWork
 {
     OCStackResult rc;
-
+    
     rc = OCInit(NULL, 0, OC_CLIENT);
     if (rc != 0) {
         NSLog(@"OCInit failed: %d\n", rc);
@@ -102,7 +98,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     iotivity_itf *itf = [iotivity_itf shared];
     OCResourcePayload *resource;
-
+    
     if (!rsp) {
         NSLog(@"discovery_cb failed\n");
         return OC_STACK_DELETE_TRANSACTION;
@@ -140,25 +136,23 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     } else {
         p.type = @"unkwn";
     }
-
+    
     p.devAddr = *(&rsp->devAddr);
     
     [itf.mutex unlock];
-        for (resource = disc_rsp->resources; resource; resource = resource->next) {
-    
-            PeripheralResource *pr = [itf parseResourcePayload:resource];
-            pr.devAddr = p.devAddr;
-            pr.carrierType = p.type;
-            [p addPeripheralResource:pr];
-        }
+    for (resource = disc_rsp->resources; resource; resource = resource->next) {
+        
+        PeripheralResource *pr = [itf parseResourcePayload:resource];
+        pr.devAddr = p.devAddr;
+        pr.carrierType = p.type;
+        [p addPeripheralResource:pr];
+    }
     [itf.peripherals addObject:p];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:uuidStr object:nil];
-        if (itf.discovery_watcher != (id)nil) {
-            [itf.discovery_watcher listUpdated];
-        }
-        
-    //}
+    if (itf.discovery_watcher != (id)nil) {
+        [itf.discovery_watcher listUpdated];
+    }
+    
     return OC_STACK_KEEP_TRANSACTION;
 }
 
@@ -189,7 +183,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     rc = OCDoResource(NULL, OC_REST_DISCOVER, OC_RSRVD_WELL_KNOWN_URI, &devAddr, NULL,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
     return rc;
-
+    
 }
 
 #pragma mark - Discover resources by BLE callback
@@ -249,12 +243,10 @@ discovery_ble_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     }
     [itf.peripherals addObject:p];
     
-    //[[NSNotificationCenter defaultCenter] postNotificationName:uuidStr object:nil];
     if (itf.discovery_watcher != (id)nil) {
         [itf.discovery_watcher listUpdated];
     }
     
-    //}
     return OC_STACK_KEEP_TRANSACTION;
 }
 
@@ -272,7 +264,7 @@ discovery_ble_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     
     rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, NULL,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
-
+    
     
     return rc;
     
@@ -315,11 +307,8 @@ get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
                     
                     for(int i = 0; i < (int)res->ocByteStr.len; i++){
                         int64_t x = res->arr.iArray[i];
-                        //  NSNumber *number = [NSNumber numberWithLongLong:res->arr.iArray[i]];
-                       // [arr addObject:number];
                         [pr.resourceArrayValue addObject:[NSNumber numberWithUnsignedLongLong:x]];
                     }
-                    //pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
                 }else if(res->arr.type == OCREP_PROP_DOUBLE){
                     for(int i = 0; i < (int)res->ocByteStr.len; i++){
                         NSNumber *number = [NSNumber numberWithDouble:res->arr.dArray[i]];
@@ -339,18 +328,11 @@ get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
                         }
                         pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
                     }
-                    
                 }
-                
             }
-            
-            
-            
             [itf.peripheralObject addPeripheralResource:pr];
         }
-        
     }
-    
     NSLog(@"%lu",(unsigned long)[itf.peripheralObject.resources count]);
     
     PeripheralResource *pr = itf.peripheralObject.resources[0];
@@ -367,7 +349,6 @@ get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
 }
 
-
 #pragma mark - Set resource Call
 - (int) set_resource_value:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload{
     OCStackResult rc;
@@ -377,7 +358,7 @@ get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
     
     _discovery_watcher = delegate;
-        
+    
     rc = OCDoResource(NULL, OC_REST_PUT, [uri UTF8String], &devAddr, (OCPayload *)payload,
                       transport, OC_LOW_QOS, &cb, NULL, 0);
     return rc;
@@ -386,15 +367,14 @@ get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 #pragma mark - Set resource Callback
 static OCStackApplicationResult
 set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
-
+    
     return OC_STACK_DELETE_TRANSACTION;
-
+    
 }
 
 
 
 #pragma mark - Cancel Observe API
-//This is needed for debugging
 - (int) cancel_observer:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andHandle:(OCDoHandle)handle
 {
     OCStackResult rc;
@@ -407,24 +387,18 @@ set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     _discovery_watcher = delegate;
     
     rc =     OCCancel(handle, OC_LOW_QOS, NULL, 0);
-    /*OCDoResource(NULL, OC_REST_CANCEL_OBSERVE, [uri UTF8String], &devAddr, NULL, transport, OC_LOW_QOS, &cb, NULL, 0);*/
-
-
     return rc;
 }
 
 #pragma mark - Cancel Observe Callback
-
+//This is needed for debugging
 static OCStackApplicationResult
 cancel_observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     return OC_STACK_DELETE_TRANSACTION;
 }
 
-
-
 #pragma mark - Observe APICall
-
 - (int) observe:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr
 {
     OCStackResult rc;
@@ -443,7 +417,6 @@ cancel_observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 }
 
 #pragma mark - Observe Cb
-
 static OCStackApplicationResult
 observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
@@ -480,11 +453,8 @@ observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
                         
                         for(int i = 0; i < (int)res->ocByteStr.len; i++){
                             int64_t x = res->arr.iArray[i];
-                            //  NSNumber *number = [NSNumber numberWithLongLong:res->arr.iArray[i]];
-                            // [arr addObject:number];
                             [pr.resourceArrayValue addObject:[NSNumber numberWithUnsignedLongLong:x]];
                         }
-                        //pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
                     }else if(res->arr.type == OCREP_PROP_DOUBLE){
                         for(int i = 0; i < (int)res->ocByteStr.len; i++){
                             NSNumber *number = [NSNumber numberWithDouble:res->arr.dArray[i]];
@@ -504,16 +474,10 @@ observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
                             }
                             pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
                         }
-                        
                     }
-                    
                 }
-                
-                
-                
                 [itf.peripheralObject addPeripheralResource:pr];
             }
-            
         }
     }
     NSLog(@"%lu",(unsigned long)[itf.peripheralObject.resources count]);
@@ -525,8 +489,6 @@ observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     
     return OC_STACK_KEEP_TRANSACTION;
 }
-
-
 
 #pragma mark - End discovery
 - (void)discovery_end
