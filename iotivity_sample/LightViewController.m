@@ -45,10 +45,10 @@
         OCRepPayloadSetPropBool(reprPayload, [@"value" UTF8String], false);
     }
     
-    [[iotivity_itf shared] set_generic:self andURI:self.uri andDevAddr: self.devAddr andPayLoad:reprPayload];
+    [[iotivity_itf shared] set_resource_value:self andURI:self.uri andDevAddr: self.devAddr andPayLoad:reprPayload];
 }
 - (IBAction)observeAction:(id)sender {
-    [[iotivity_itf shared] get_generic:self andURI:self.uri andDevAddr:self.devAddr];
+    [[iotivity_itf shared] get_resources:self andURI:self.uri andDevAddr:self.devAddr];
 }
 - (IBAction)backAction:(id)sender {
     [self.navigationController popViewControllerAnimated:true];

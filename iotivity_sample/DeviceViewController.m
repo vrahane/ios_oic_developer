@@ -122,7 +122,7 @@ OCDevAddr *devAddr;
     PeripheralResource *pr = _peripheralResources[indexPath.row];
     self.uri = pr.uri;
     self.index = (uint8_t) indexPath.row;
-    [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr: peripheral.devAddr];
+    [[iotivity_itf shared] get_resources:self andURI:pr.uri andDevAddr: peripheral.devAddr];
 }
 
 -(void) getResourceDetails {
@@ -143,7 +143,7 @@ OCDevAddr *devAddr;
 
 -(void)interfaceData {
     Peripheral *pr;
-    pr = [[iotivity_itf shared] interfaceDetails];
+    //pr = [[iotivity_itf shared] interfaceDetails];
     
     for (int i = 0; i < [pr.resources count]; i++) {
         PeripheralResource *per = pr.resources[i];

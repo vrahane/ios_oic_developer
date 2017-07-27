@@ -104,7 +104,7 @@ float x = 0.0;
 - (IBAction)mSwitchChanged:(id)sender {
     
     if ([self.mSwitch isOn]) {
-        [[iotivity_itf shared] observe_light:self andURI:self.uri andDevAddr:self.peripheral.devAddr];
+        [[iotivity_itf shared] observe:self andURI:self.uri andDevAddr:self.peripheral.devAddr];
     }else {
         [[iotivity_itf shared] cancel_observer:self andURI:self.uri andDevAddr:_peripheral.devAddr andHandle:_peripheral.handle];
     }

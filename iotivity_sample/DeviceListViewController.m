@@ -79,7 +79,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[iotivity_itf shared] device_count];
+    return 5;
 }
 
 
@@ -121,7 +121,7 @@
     DeviceViewController *dvc = [[DeviceViewController alloc] init];
     //Peripheral *
     
-    Peripheral *p = [[iotivity_itf shared] platformDetails];
+    Peripheral *p;// = [[iotivity_itf shared] platformDetails];
     dvc.manufacturerName = p.manufacturerName;
     dvc.platformId = p.platformID;
     

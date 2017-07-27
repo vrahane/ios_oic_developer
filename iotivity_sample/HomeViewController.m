@@ -274,12 +274,12 @@ int peripheralCount = 0;
         PeripheralResource *pr = _mSmartDevices[indexPath.row];
         self.resourceURI = pr.uri;
         self.uri = pr.resourceType;
-        [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr:pr.devAddr];
+        [[iotivity_itf shared] get_resources:self andURI:pr.uri andDevAddr:pr.devAddr];
     } else {
         PeripheralResource *pr = _mSensors[indexPath.row];
         self.resourceURI = pr.uri;
         self.uri = pr.resourceType;
-        [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr:pr.devAddr];
+        [[iotivity_itf shared] get_resources:self andURI:pr.uri andDevAddr:pr.devAddr];
     }
 }
 

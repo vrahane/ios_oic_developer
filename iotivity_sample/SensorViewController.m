@@ -108,7 +108,7 @@ float d = -1.0;
 - (IBAction)observeAction:(id)sender {
     
     if (_isObserving == true) {
-        [[iotivity_itf shared] observe_light:self andURI:_uri andDevAddr:_peripheral.devAddr];
+        [[iotivity_itf shared] observe:self andURI:_uri andDevAddr:_peripheral.devAddr];
         _observeButton.title = @"Stop";
         _isObserving = false;
     } else {

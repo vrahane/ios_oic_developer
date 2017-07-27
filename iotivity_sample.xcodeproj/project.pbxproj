@@ -22,14 +22,6 @@
 		723CB0E01F15630200585A70 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
 		723E92EE1F101B7800C5C1DB /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72562F111F06E57100ADC5D4 /* Charts.framework */; };
 		723E92EF1F101B7800C5C1DB /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72562F111F06E57100ADC5D4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		723E92F61F10353D00C5C1DB /* PressureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E92F41F10353D00C5C1DB /* PressureViewController.m */; };
-		723E92F71F10353D00C5C1DB /* PressureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723E92F51F10353D00C5C1DB /* PressureViewController.xib */; };
-		723E92FB1F104E5A00C5C1DB /* ColorSensorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E92F91F104E5A00C5C1DB /* ColorSensorViewController.m */; };
-		723E92FC1F104E5A00C5C1DB /* ColorSensorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723E92FA1F104E5A00C5C1DB /* ColorSensorViewController.xib */; };
-		723E93001F10573000C5C1DB /* AccelerometerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723E92FE1F10573000C5C1DB /* AccelerometerViewController.m */; };
-		723E93011F10573000C5C1DB /* AccelerometerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 723E92FF1F10573000C5C1DB /* AccelerometerViewController.xib */; };
-		724D4F581F0F013C00869151 /* HumidityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 724D4F561F0F013C00869151 /* HumidityViewController.m */; };
-		724D4F591F0F013C00869151 /* HumidityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 724D4F571F0F013C00869151 /* HumidityViewController.xib */; };
 		7250ED951F26C18F00DB9294 /* LightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7250ED931F26C18F00DB9294 /* LightViewController.m */; };
 		7250ED961F26C18F00DB9294 /* LightViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7250ED941F26C18F00DB9294 /* LightViewController.xib */; };
 		725280121F06EB7B00E43D5A /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725280101F06EB7B00E43D5A /* GraphViewController.m */; };
@@ -133,18 +125,6 @@
 		7226082C1EFC33E800C057B4 /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
 		72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceListViewController.xib; sourceTree = "<group>"; };
 		723CB0DE1F1562F300585A70 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
-		723E92F31F10353D00C5C1DB /* PressureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PressureViewController.h; sourceTree = "<group>"; };
-		723E92F41F10353D00C5C1DB /* PressureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PressureViewController.m; sourceTree = "<group>"; };
-		723E92F51F10353D00C5C1DB /* PressureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PressureViewController.xib; sourceTree = "<group>"; };
-		723E92F81F104E5A00C5C1DB /* ColorSensorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSensorViewController.h; sourceTree = "<group>"; };
-		723E92F91F104E5A00C5C1DB /* ColorSensorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSensorViewController.m; sourceTree = "<group>"; };
-		723E92FA1F104E5A00C5C1DB /* ColorSensorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorSensorViewController.xib; sourceTree = "<group>"; };
-		723E92FD1F10573000C5C1DB /* AccelerometerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccelerometerViewController.h; sourceTree = "<group>"; };
-		723E92FE1F10573000C5C1DB /* AccelerometerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccelerometerViewController.m; sourceTree = "<group>"; };
-		723E92FF1F10573000C5C1DB /* AccelerometerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccelerometerViewController.xib; sourceTree = "<group>"; };
-		724D4F551F0F013C00869151 /* HumidityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumidityViewController.h; sourceTree = "<group>"; };
-		724D4F561F0F013C00869151 /* HumidityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumidityViewController.m; sourceTree = "<group>"; };
-		724D4F571F0F013C00869151 /* HumidityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HumidityViewController.xib; sourceTree = "<group>"; };
 		7250ED921F26C18F00DB9294 /* LightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightViewController.h; sourceTree = "<group>"; };
 		7250ED931F26C18F00DB9294 /* LightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightViewController.m; sourceTree = "<group>"; };
 		7250ED941F26C18F00DB9294 /* LightViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LightViewController.xib; sourceTree = "<group>"; };
@@ -230,13 +210,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7208CA6F1F0182B600226321 /* SensorViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SensorViewController;
-			sourceTree = "<group>";
-		};
 		7208CA751F01B31500226321 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,18 +266,6 @@
 				7208CA651F0180CD00226321 /* SmartDeviceTableViewCell.h */,
 				7208CA661F0180CD00226321 /* SmartDeviceTableViewCell.m */,
 				7208CA671F0180CD00226321 /* SmartDeviceTableViewCell.xib */,
-				724D4F551F0F013C00869151 /* HumidityViewController.h */,
-				724D4F561F0F013C00869151 /* HumidityViewController.m */,
-				724D4F571F0F013C00869151 /* HumidityViewController.xib */,
-				723E92F31F10353D00C5C1DB /* PressureViewController.h */,
-				723E92F41F10353D00C5C1DB /* PressureViewController.m */,
-				723E92F51F10353D00C5C1DB /* PressureViewController.xib */,
-				723E92F81F104E5A00C5C1DB /* ColorSensorViewController.h */,
-				723E92F91F104E5A00C5C1DB /* ColorSensorViewController.m */,
-				723E92FA1F104E5A00C5C1DB /* ColorSensorViewController.xib */,
-				723E92FD1F10573000C5C1DB /* AccelerometerViewController.h */,
-				723E92FE1F10573000C5C1DB /* AccelerometerViewController.m */,
-				723E92FF1F10573000C5C1DB /* AccelerometerViewController.xib */,
 			);
 			name = SmartDeviceViewController;
 			sourceTree = "<group>";
@@ -378,7 +339,6 @@
 				725280141F06EB8100E43D5A /* GraphViewController */,
 				72562F0B1F06E57100ADC5D4 /* Charts.xcodeproj */,
 				72562F061F06E23900ADC5D4 /* iotivity_sample-Bridging-Header.h */,
-				7208CA6F1F0182B600226321 /* SensorViewController */,
 				728E0B411F01739A0022F03F /* SmartDeviceViewController */,
 				AD2297B81ECA2A8200467CF0 /* iotivity_sample */,
 				72C2818D1EFC3C3500127D9A /* Constants */,
@@ -591,7 +551,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				723CB0DF1F1562F300585A70 /* ios in Resources */,
-				723E92F71F10353D00C5C1DB /* PressureViewController.xib in Resources */,
 				727105081F1D76A600A43DBF /* linechart.png in Resources */,
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				7226082E1EFC33E800C057B4 /* ResourceCell.xib in Resources */,
@@ -600,11 +559,8 @@
 				727105051F1D71E000A43DBF /* SensorTableViewCell.xib in Resources */,
 				72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */,
 				AD2297C61ECA2A8200467CF0 /* Assets.xcassets in Resources */,
-				723E92FC1F104E5A00C5C1DB /* ColorSensorViewController.xib in Resources */,
-				724D4F591F0F013C00869151 /* HumidityViewController.xib in Resources */,
 				7250ED961F26C18F00DB9294 /* LightViewController.xib in Resources */,
 				72C281891EFC3A1F00127D9A /* Main.storyboard in Resources */,
-				723E93011F10573000C5C1DB /* AccelerometerViewController.xib in Resources */,
 				727104F91F1D466600A43DBF /* lightimg.png in Resources */,
 				7208CA841F01E05E00226321 /* CompassTableViewCell.xib in Resources */,
 				AD22980E1ECA4CA600467CF0 /* DeviceCell.xib in Resources */,
@@ -642,16 +598,13 @@
 				AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */,
 				725280121F06EB7B00E43D5A /* GraphViewController.m in Sources */,
 				7208CA791F01B33800226321 /* HomeTableViewCell.m in Sources */,
-				723E92F61F10353D00C5C1DB /* PressureViewController.m in Sources */,
 				728E0B3F1F0173940022F03F /* SmartDeviceViewController.m in Sources */,
 				AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */,
 				AD2297BB1ECA2A8200467CF0 /* main.m in Sources */,
 				72C281861EFC393C00127D9A /* HomeViewController.m in Sources */,
 				ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */,
 				7226082D1EFC33E800C057B4 /* ResourceCell.m in Sources */,
-				724D4F581F0F013C00869151 /* HumidityViewController.m in Sources */,
 				727105041F1D71E000A43DBF /* SensorTableViewCell.m in Sources */,
-				723E92FB1F104E5A00C5C1DB /* ColorSensorViewController.m in Sources */,
 				AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */,
 				AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */,
 				7250ED951F26C18F00DB9294 /* LightViewController.m in Sources */,
@@ -660,7 +613,6 @@
 				72C2817D1EFC37A400127D9A /* PeripheralResource.m in Sources */,
 				727104FF1F1D69AE00A43DBF /* SensorViewController.m in Sources */,
 				7208CA681F0180CD00226321 /* SmartDeviceTableViewCell.m in Sources */,
-				723E93001F10573000C5C1DB /* AccelerometerViewController.m in Sources */,
 				7208CA7E1F01D07300226321 /* CompassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

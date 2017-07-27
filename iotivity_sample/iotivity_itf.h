@@ -2,7 +2,7 @@
 //  iotivity_itf.h
 //  iotivity_sample
 //
-//  Created by Marko Kiiskila on 5/15/17.
+//  Created by Pooja Gosavi on 6/16/17.
 //  Copyright © 2017 Marko Kiiskila. All rights reserved.
 //
 
@@ -14,41 +14,41 @@
 
 @interface iotivity_itf : NSObject
 
+/*Creates a single instance of iotivity-itf*/
 + (instancetype)shared;
+
+/* Starts discovery using IP*/
 - (int)discovery_start:(id)delegate;
 
 - (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource;
 
-
+/*Unicast BLE resource discovery after scanning*/
 - (int) discover_allDevices: (id) delegate andBLEAddress : (NSString *)bleAddr;
 
-- (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
+/*Get Resources from the devices discovered*/
+- (int) get_resources:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 
-- (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
+/*Set Resource values*/
+- (int) set_resource_value:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
 
-- (int) get_interfaces:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
+/*Observe Resource values*/
+- (int) observe:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr;
 
-- (int) observe_light:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr;
-
+/* cancel observe on the resource value*/
 - (int) cancel_observer:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andHandle:(OCDoHandle)handle;
 
-
-- (int) discover_resources: (OCDevAddr *)devAddr;
-
+/* end of dicovery*/
 - (void)discovery_end;
 
-@property (nonatomic, strong) NSMutableArray *whiteList;
+/*Returns the devices after the view controller asks for it*/
+- (NSMutableArray *)deviceWithIdx;
 
-- (NSUInteger)device_count;
-- (NSMutableArray *)deviceWithIdx;//:(NSInteger)index;
-- (Peripheral *) deviceWithIdxBLE;
-- (Peripheral *)platformDetails;
-- (Peripheral *)statusDetails;
+/*Returns the resources with details after the view controller asks for it*/
 - (Peripheral *)resourceDetails;
-- (Peripheral *)interfaceDetails;
 
 @end
 
+/*Return Method After the Callback of discovery*/
 @interface NSObject(DeviceListChangeMethods)
 - (void)listUpdated;
 @end

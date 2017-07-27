@@ -19,24 +19,11 @@
 
 // peripherals array should protected by mutex
 @property (nonatomic) NSMutableArray *peripherals;
-@property (nonatomic, retain) NSString *platformId;
-@property (nonatomic, retain) NSString *manufacturerName;
-@property (nonatomic) bool resourceStatus;
-@property (nonatomic, retain) NSString *resName;
 @property (nonatomic) NSMutableArray *orientationArray;
 
-//HumidityData and TempData
-@property (nonatomic, retain) NSString *resType;
-@property (nonatomic, retain) NSString *humidValue;
-@property (nonatomic, retain) NSString *tempValue;
-@property (nonatomic, retain) NSString *tempUnit;
-
 //Peripheral Resource
-@property (nonatomic) PeripheralResource *p;
 @property (nonatomic) Peripheral* peripheralObject;
-@property (nonatomic) Peripheral* interfaceObject;
 @property (nonatomic) OCDoHandle observeHandle;
-//@property (nonatomic) OCDevAddr *devAddr;
 
 @property (atomic) id discovery_watcher;
 
@@ -45,6 +32,7 @@ static id delegate;
 
 @implementation iotivity_itf
 
+#pragma mark - Initializations
 + (instancetype)shared
 {
     static iotivity_itf *itf;
@@ -70,9 +58,7 @@ static id delegate;
     if (self) {
         _mutex = [[NSLock alloc] init];
         _peripherals = [[NSMutableArray alloc] init];
-        _p = [[PeripheralResource alloc] init];
         _peripheralObject = [[Peripheral alloc]initWithUuid:@"PeripheralObject"];
-        _interfaceObject = [[Peripheral alloc]initWithUuid:@"InterfaceObject"];
         [self performSelectorInBackground:@selector(doWork) withObject:nil];
     }
     return self;
@@ -89,11 +75,11 @@ static id delegate;
     }
     while (1) {
         OCProcess();
-        [NSThread sleepForTimeInterval:0.02];
+        [NSThread sleepForTimeInterval:0.02]; /*This is used to change the time of observations*/
     }
 }
 
-#pragma mark - Discover Device
+#pragma mark - Discover Device by IP
 - (int) discovery_start:(id)delegate
 {
     delegate = delegate;
@@ -110,7 +96,7 @@ static id delegate;
     return rc;
 }
 
-#pragma mark - Discover Device Callback
+#pragma mark - Discover Device by IP Callback
 static OCStackApplicationResult
 discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
@@ -177,6 +163,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 }
 
 
+#pragma mark - Parse the obtained Resource Payload
 - (PeripheralResource *) parseResourcePayload : (OCResourcePayload *) resource {
     PeripheralResource *pr = [[PeripheralResource alloc] init];
     pr.uri = [NSString stringWithUTF8String:resource->uri];
@@ -186,7 +173,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 }
 
 
-
+#pragma mark - Discover resources by BLE
 - (int) discover_allDevices: (id) delegate andBLEAddress : (NSString *)bleAddr{
     delegate = delegate;
     OCDevAddr devAddr;
@@ -205,7 +192,7 @@ discovery_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 
 }
 
-
+#pragma mark - Discover resources by BLE callback
 static OCStackApplicationResult
 discovery_ble_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
@@ -271,72 +258,13 @@ discovery_ble_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return OC_STACK_KEEP_TRANSACTION;
 }
 
-#pragma mark - Obtain Manufacturer using "/oic/p"
-- (int) discover_deviceDetails:(OCDevAddr *)devAddr
-{
-    OCStackResult rc;
-    OCCallbackData cb = {
-        .cb = deviceDetails_cb
-        //Write a new Callback
-    };
-    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
-    
-    //_discovery_watcher = delegate;
-    
-    rc = OCDoResource(NULL, OC_REST_DISCOVER, OC_RSRVD_PLATFORM_URI, devAddr, NULL ,
-                      transport, OC_LOW_QOS, &cb, NULL, 0);
-    return rc;
-}
-
-
-#pragma mark - Obtain Manufacturer using "/oic/p" callback
-static OCStackApplicationResult
-deviceDetails_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
-{
-    iotivity_itf *itf = [iotivity_itf shared];
-   // OCResourcePayload *resource;
-    
-    if (!rsp) {
-        NSLog(@"device details callback failed\n");
-        return OC_STACK_DELETE_TRANSACTION;
-    }
-    
-    OCPlatformPayload *device_rsp = (OCPlatformPayload *)rsp->payload;
-    if (!device_rsp) {
-        NSLog(@"device details callback payload\n");
-        return OC_STACK_DELETE_TRANSACTION;
-    }
-    [itf.mutex lock];
-    if(device_rsp->info.manufacturerName!=nil){
-        itf.manufacturerName = [NSString stringWithUTF8String:device_rsp->info.manufacturerName];
-    }
-    if(device_rsp->info.platformID!=nil){
-        itf.platformId = [NSString stringWithUTF8String:device_rsp->info.platformID];
-    }
-    [itf.mutex unlock];
-
-    for(int i = 0;i < [itf.peripherals count]; i++)
-    {
-        Peripheral *p = itf.peripherals[i];
-        p.manufacturerName = itf.manufacturerName;
-        p.platformID = itf.platformId;
-    }
-    
-    
-    if (itf.discovery_watcher != (id)nil) {
-        [itf.discovery_watcher listUpdated];
-    }
-    
-    return OC_STACK_DELETE_TRANSACTION;
-}
-
-#pragma mark - Generic Get Call
-- (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr
+#pragma mark - Get resource Call
+- (int) get_resources:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr
 {
     
     OCStackResult rc;
     OCCallbackData cb = {
-        .cb = generic_cb
+        .cb = get_cb
     };
     OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
     
@@ -350,8 +278,9 @@ deviceDetails_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     
 }
 
+#pragma mark - get resource Callback
 static OCStackApplicationResult
-generic_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
+get_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
     iotivity_itf *itf = [iotivity_itf shared];
     [itf.mutex lock];
@@ -438,95 +367,9 @@ generic_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     
 }
 
-#pragma mark - Interfaces Get Call
-- (int) get_interfaces:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr
-{
-    
-    OCStackResult rc;
-    OCCallbackData cb = {
-        .cb = interfaces_cb
-    };
-    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
-    
-    _discovery_watcher = delegate;
-    
-    rc = OCDoResource(NULL, OC_REST_GET, [uri UTF8String], &devAddr, NULL,
-                      transport, OC_LOW_QOS, &cb, NULL, 0);
-    
-    
-    return rc;
-    
-}
 
-static OCStackApplicationResult
-interfaces_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
-    
-    iotivity_itf *itf = [iotivity_itf shared];
-    [itf.mutex lock];
-    itf.interfaceObject = [[Peripheral alloc] initWithUuid:@"ITF Object"];
-    
-    NSString *resourceName = [[NSString alloc] init];
-    NSString *resourceInterface = [[NSString alloc] init];
-    
-    if (rsp -> payload->type == PAYLOAD_TYPE_REPRESENTATION) {
-        itf.observeHandle = handle;
-        OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
-        OCRepPayloadValue *res;
-        
-        for (res = representation_payload ->values; res; res = res->next) {
-            
-            if([[NSString stringWithUTF8String:res -> name] isEqualToString:@"links"]) {
-            
-                if(res->type == OCREP_PROP_ARRAY){
-                    
-                    OCRepPayloadValueArray *arr = &res->arr;
-                    if(arr->type == OCREP_PROP_OBJECT) {
-                        OCRepPayload **payload = arr->objArray;
-                        for(int i = 0;i < *arr->dimensions; i++){
-                            NSLog(@"%d",i);
-                            OCRepPayload *innerPayload = payload[i];
-                            PeripheralResource *pres = [[PeripheralResource alloc] init];
-                            while (innerPayload->values->next != NULL) {
-                                OCRepPayloadValue *resValue = innerPayload->values;
-                                NSString *resName = [NSString stringWithUTF8String:resValue->name];
-                                if ([resName isEqualToString:@"href"]) {
-                                    resourceName = [NSString stringWithUTF8String:resValue->str];
-                                    pres.resourceName = resourceName;
-                                }
-                                if([resName isEqualToString:@"if"]) {
-                                    OCRepPayloadValueArray arr = resValue->arr;
-                                    resourceInterface = [NSString stringWithUTF8String:*(arr.strArray)];
-                                    NSLog(@"%@",resourceInterface);
-                                    pres.resourceInterface = resourceInterface;
-                                }
-
-                                innerPayload->values = innerPayload->values->next;
-                                
-                            }
-                            [itf.interfaceObject addPeripheralResource:pres];
-
-                        }
-                    }
-                }
-            }
-            
-        }
-        
-    }
-    
-    NSLog(@"%lu",(unsigned long)[itf.interfaceObject.resources count]);
-    
-//    [itf.mutex unlock];
-//    if (itf.discovery_watcher != (id)nil) {
-//        [itf.discovery_watcher getInterfaceData];
-//    }
-    
-    return OC_STACK_DELETE_TRANSACTION;
-    
-}
-
-#pragma mark - Set Light Call
-- (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload{
+#pragma mark - Set resource Call
+- (int) set_resource_value:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload{
     OCStackResult rc;
     OCCallbackData cb = {
         .cb = set_cb
@@ -540,6 +383,7 @@ interfaces_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
     return rc;
 }
 
+#pragma mark - Set resource Callback
 static OCStackApplicationResult
 set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 
@@ -579,14 +423,14 @@ cancel_observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 
 
 
-#pragma mark - Observe Light APICall
+#pragma mark - Observe APICall
 
-- (int) observe_light:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr
+- (int) observe:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr
 {
     OCStackResult rc;
     
     OCCallbackData cb = {
-        .cb = observe_light_cb
+        .cb = observe_cb
     };
     OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
     
@@ -598,10 +442,10 @@ cancel_observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return rc;
 }
 
-#pragma mark - Observe Light Cb
+#pragma mark - Observe Cb
 
 static OCStackApplicationResult
-observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
+observe_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     iotivity_itf *itf = [iotivity_itf shared];
     
@@ -682,22 +526,6 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return OC_STACK_KEEP_TRANSACTION;
 }
 
-//#pragma mark - Newt Manager Calls
-//- (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload{
-//    OCStackResult rc;
-//    OCCallbackData cb = {
-//        .cb = set_cb
-//    };
-//    OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
-//    
-//    _discovery_watcher = delegate;
-//    
-//    rc = OCDoResource(NULL, OC_REST_PUT, [uri UTF8String], &devAddr, (OCPayload *)payload,
-//                      transport, OC_LOW_QOS, &cb, NULL, 0);
-//    return rc;
-//}
-
-
 
 
 #pragma mark - End discovery
@@ -705,61 +533,14 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
 {
     _discovery_watcher = (id)nil;
 }
-- (NSUInteger) device_count
-{
-    NSUInteger cnt;
-    
-    [_mutex lock];
-    cnt = [_peripherals count];
-    [_mutex unlock];
-    
-    return cnt;
-}
 
+/*Function to return the discovered Peripherals*/
 - (NSMutableArray *)deviceWithIdx
 {
     return _peripherals;
 }
 
-- (Peripheral *)deviceWithIdxBLE
-{
-    return _peripheralObject;
-}
-
-- (Peripheral *)platformDetails
-{
-    Peripheral *p = [[Peripheral alloc] init];
-    
-    [_mutex lock];
-    iotivity_itf *itf = [iotivity_itf shared];
-    NSLog(@"%@", itf.manufacturerName);
-    p.manufacturerName = itf.manufacturerName;
-    p.platformID = itf.platformId;
-    [_mutex unlock];
-    return p;
-    
-}
-
-- (Peripheral *)statusDetails
-{
-    
-    Peripheral *pr1 = [[Peripheral alloc] init];
-    
-    [_mutex lock];
-    
-    NSLog(@"%lu",(unsigned long)[_orientationArray count]);
-    
-    for (int i = 0; i < [_orientationArray count]; i++) {
-        NSLog(@"%lld", [_orientationArray[i] longLongValue]);
-    }
-    pr1.orientations = _orientationArray;
-    
-    NSLog(@"%@",pr1.orientations);
-    
-    [_mutex unlock];
-    return pr1;
-}
-
+/*Function to receive Data from the resources - used after the get call*/
 - (Peripheral *)resourceDetails
 {
     Peripheral *pObj = [[Peripheral alloc] initWithUuid:@"PeripheralObject"];;
@@ -780,19 +561,5 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     return pObj;
     
 }
-
--(Peripheral *)interfaceDetails
-{
-    Peripheral *pObj = [[Peripheral alloc] initWithUuid:@"PeripheralObject"];;
-    [_mutex lock];
-    
-    [pObj.resources addObjectsFromArray:_interfaceObject.resources];
-    
-    [_mutex unlock];
-    return pObj;
-    
-}
-
-
 
 @end

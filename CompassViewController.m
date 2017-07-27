@@ -94,7 +94,7 @@ float e = -1.0;
 - (IBAction)mSwitchMethod:(id)sender {
     
     if ([self.mSwitch isOn]) {
-        [[iotivity_itf shared] observe_light:self andURI:@"/compass" andDevAddr:self.peripheral.devAddr];
+        [[iotivity_itf shared] observe:self andURI:@"/compass" andDevAddr:self.peripheral.devAddr];
     }else {
         [[iotivity_itf shared] cancel_observer:self andURI:@"/compass" andDevAddr:_peripheral.devAddr andHandle:_peripheral.handle];
     }
