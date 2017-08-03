@@ -88,7 +88,6 @@ OCDevAddr *devAddr;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:true];
-    [[iotivity_itf shared] discover_deviceDetails:self and:peripheral.devAddr];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -186,13 +185,6 @@ OCDevAddr *devAddr;
         PeripheralResource *pr = peripheral.resources[i];
         NSLog(@"%@",pr.resourceInterface);
     }
-}
-
-- (void) listUpdated {
-    
-    Peripheral *p = [[iotivity_itf shared] platformDetails];
-    _manufacturerLabel.text = p.manufacturerName;
-    _nameLabel.text = p.platformID;
 }
 
 @end

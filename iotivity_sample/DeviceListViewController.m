@@ -71,12 +71,6 @@
     [[iotivity_itf shared] discovery_start:self];
 }
 
-
-- (void)getResourceDetails
-{
-   
-}
-
 #pragma mark - DeviceList Table Methods
 
 
@@ -119,21 +113,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    DeviceViewController *dvc = [[DeviceViewController alloc] init];
-//    //Peripheral *
-//    
-//    Peripheral *p = [[iotivity_itf shared] platformDetails];
-//    dvc.manufacturerName = p.manufacturerName;
-//    dvc.platformId = p.platformID;
-//    
-//    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
-//    
-//    
-//    
-//    dvc.peripheral = p;
-//    
-//    [self.navigationController pushViewController:dvc animated:YES];
-    
     DeviceCell *cell = [_deviceList cellForRowAtIndexPath:indexPath];
     _uuid = cell.deviceNameLabel.text;
     
@@ -146,9 +125,7 @@
     }
     
     if (_isFromIP == true) {
-        DeviceViewController *dvc = [[DeviceViewController alloc] initWithNibName:@"DeviceViewController" bundle:nil];
-        dvc.peripheral = _peripheralPassed;
-        [self.navigationController pushViewController:dvc animated:true];
+        [[iotivity_itf shared] obtain_platform_details:self andAddress:_peripheralPassed.devAddr];
     } else {
         [[iotivity_itf shared] discover_allDevices:self andAddress:_uuid];
     }
@@ -168,13 +145,24 @@
         }
     }
     
-    DeviceViewController *dvc = [[DeviceViewController alloc] initWithNibName:@"DeviceViewController" bundle:nil];
-    dvc.peripheral = _peripheralPassed;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:dvc animated:true];
-    });
+    [[iotivity_itf shared] obtain_platform_details:self andAddress:_peripheralPassed.devAddr];
     
 
 }
+
+- (void) platformDetailsForDevice {
+    Peripheral *p = [[iotivity_itf shared] platformDetails];
+    NSLog(@"%@", p.platformID);
+    
+    DeviceDetailsViewController *dvc = [[DeviceDetailsViewController alloc] initWithNibName:@"DeviceDetailsViewController" bundle:nil];
+    dvc.peripheral = _peripheralPassed;
+    
+   dvc.manufacturerName = p.manufacturerName;
+    dvc.platformId = p.platformID;
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:dvc animated:true];
+    });
+    }
 
 @end

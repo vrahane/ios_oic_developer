@@ -40,15 +40,10 @@
 
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void) viewDidDisappear:(BOOL)animated {
  
     [super viewWillAppear:true];
-    navBar.title = navigationTitle;
-    self.devAddr = peripheral.devAddr;
-   
-    
-    [[iotivity_itf shared] get_interfaces:self andURI:@"/oic/res" andDevAddr:peripheral.devAddr];
-    
+    [[iotivity_itf shared] cancel_observer:self andURI:self.navigationTitle andDevAddr:self.devAddr andHandle:peripheral.handle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,16 +54,25 @@
 - (void) viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:true];
+        navBar.title = navigationTitle;
    NSLog(@"%lu",(unsigned long)[self.peripheral.resources count]);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-      return [self.peripheral.resources count];
+    if ([peripheral.uuid containsString:@"Platform"]) {
+        return 1;
+    } else if ([peripheral.uuid containsString:@"Device"]) {
+        return 1;
+    }else {
+        return [self.peripheral.resources count];
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ResourceDetailsTableViewCell *cell = (ResourceDetailsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ResourceDetailsTableViewCell" forIndexPath:indexPath];
+    
     
     if ([self.interface containsString:@"rw"]) {
         
@@ -92,18 +96,33 @@
 
     cell.uri = self.navigationTitle;
     cell.devAddr = peripheral.devAddr;
-    PeripheralResource *pres = peripheral.resources[indexPath.row];
+    
+    if ([peripheral.uuid containsString:@"Platform"]) {
+        cell.typeLabel.text = @"Platform ID";
+        cell.valueLabel.text = peripheral.platformID;
+        cell.observeSwitch.hidden = true;
 
-    cell.typeLabel.text = pres.resourceName;
-    if(pres.type == OCREP_PROP_INT){
-        cell.valueLabel.text = [[NSNumber numberWithLongLong:pres.resourceIntegerValue] stringValue];
-    }else if(pres.type == OCREP_PROP_BOOL){
-        NSString *booleanString = pres.resourceBoolValue ? @"true" : @"false";
-        cell.valueLabel.text = booleanString;
-    }else if(pres.type == OCREP_PROP_DOUBLE){
-        cell.valueLabel.text = [[NSNumber numberWithDouble:pres.resourceDoubleValue] stringValue];
-    }else if(pres.type == OCREP_PROP_STRING){
-        cell.valueLabel.text = pres.resourceStringValue;
+    } else if ([peripheral.uuid containsString:@"Device"]) {
+        cell.observeSwitch.hidden = true;
+        cell.typeLabel.text = @"Device Details";
+        NSString *devicename = [peripheral.resStateName stringByAppendingString:@" "];
+        devicename = [devicename stringByAppendingString:peripheral.resType];
+        cell.valueLabel.text = devicename;
+    }else {
+        PeripheralResource *pres = peripheral.resources[indexPath.row];
+        
+        cell.typeLabel.text = pres.resourceName;
+        if(pres.type == OCREP_PROP_INT){
+            cell.valueLabel.text = [[NSNumber numberWithLongLong:pres.resourceIntegerValue] stringValue];
+        }else if(pres.type == OCREP_PROP_BOOL){
+            NSString *booleanString = pres.resourceBoolValue ? @"true" : @"false";
+            cell.valueLabel.text = booleanString;
+        }else if(pres.type == OCREP_PROP_DOUBLE){
+            cell.valueLabel.text = [[NSNumber numberWithDouble:pres.resourceDoubleValue] stringValue];
+        }else if(pres.type == OCREP_PROP_STRING){
+            cell.valueLabel.text = pres.resourceStringValue;
+        }
+
     }
     return cell;
 }
@@ -225,9 +244,9 @@
     NSString *title = [segment titleForSegmentAtIndex:segment.selectedSegmentIndex];
 
     if ([title  isEqual: @"Observe"]) {
-        [[iotivity_itf shared] observe_light:self andURI:self.navigationTitle andDevAddr:peripheral.devAddr];
+        [[iotivity_itf shared] observe_light:self andURI:self.navigationTitle andDevAddr:self.devAddr];
     }else if([title  isEqual: @"Stop"]){
-        [[iotivity_itf shared] cancel_observer:self andURI:self.navigationTitle andDevAddr:peripheral.devAddr andHandle:peripheral.handle];
+        [[iotivity_itf shared] cancel_observer:self andURI:self.navigationTitle andDevAddr:self.devAddr andHandle:peripheral.handle];
     }
 }
 

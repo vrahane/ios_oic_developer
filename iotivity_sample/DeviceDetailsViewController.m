@@ -7,6 +7,7 @@
 //
 
 #import "DeviceDetailsViewController.h"
+#import "ResourceDetailsViewController.h"
 #import "ResourceCell.h"
 #import "Peripheral.h"
 #import "iotivity_itf.h"
@@ -32,6 +33,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     _uuidLbl.text = _peripheral.uuid;
     _carrierLbl.text = _peripheral.type;
+    _manufacturerLbl.text = _manufacturerName;
+    _platformIdLbl.text = _platformId;
     
     //Background View Customization
     self.backgroundView.clipsToBounds = true;
@@ -53,7 +56,6 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [[iotivity_itf shared] obtain_platform_details:self andAddress:_peripheral.devAddr];
 }
 
 - (IBAction)backAction:(id)sender {
@@ -84,11 +86,27 @@
     return cell;
 }
 
-- (void) platformDetailsForDevice {
-    Peripheral *p = [[iotivity_itf shared] platformDetails];
-    NSLog(@"%@", p.platformID);
-    _manufacturerLbl.text = p.manufacturerName;
-    _platformIdLbl.text = p.platformID;
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ResourceCell *cell = [_resourceList cellForRowAtIndexPath:indexPath];
+    NSLog(@"%@",cell.uriLabel.text);
+    _pResource = _peripheralResources[indexPath.row];
+
+    [[iotivity_itf shared] get_generic:self andURI:cell.uriLabel.text andDevAddr:_peripheral.devAddr];
 }
 
+- (void) getResourceDetails {
+    
+    Peripheral *p = [[iotivity_itf shared] resourceDetails];
+    NSLog(@"Resource Details");
+    ResourceDetailsViewController *rvc = [[ResourceDetailsViewController alloc] initWithNibName:@"ResourceDetailsViewController" bundle:nil];
+    rvc.resourceType = _pResource.resourceType;
+    rvc.interface = _pResource.resourceInterface;
+    rvc.peripheral = p;
+    rvc.devAddr = _pResource.devAddr;
+    rvc.navigationTitle = _pResource.uri;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:rvc animated:true];
+    });
+}
 @end

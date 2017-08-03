@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *platformIdLbl;
 @property (weak, nonatomic) IBOutlet UILabel *uuidLbl;
 @property (nonatomic, strong) Peripheral *peripheral;
-
--(void) platformDetailsForDevice;
+@property (nonatomic, strong) NSString *manufacturerName;
+@property (nonatomic, strong) NSString *platformId;
+- (void) getResourceDetails;
 @end
