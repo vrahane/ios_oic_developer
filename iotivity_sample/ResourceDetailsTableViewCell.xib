@@ -29,14 +29,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hVE-vA-OWn">
-                                <rect key="frame" x="177" y="54" width="131" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES"/>
-                                <segments>
-                                    <segment title="Stop"/>
-                                    <segment title="Observe"/>
-                                </segments>
-                            </segmentedControl>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" adjustsFontForContentSizeCategory="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="FUP-Je-KiP">
                                 <rect key="frame" x="4" y="3" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
@@ -51,17 +43,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iC-tq-qE8">
-                                <rect key="frame" x="4" y="54" width="70" height="29"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                <state key="normal" title="Get">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7q-8F-zk5">
-                                <rect key="frame" x="93" y="54" width="70" height="29"/>
+                                <rect key="frame" x="101" y="60" width="106" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -77,9 +60,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="contentView" destination="H2p-sc-9uM" id="MHv-nm-BGN"/>
-                <outlet property="getBtn" destination="6iC-tq-qE8" id="C2a-4r-kTH"/>
                 <outlet property="mybgView" destination="8fM-ya-tdO" id="Et2-QE-5Xz"/>
-                <outlet property="observeSwitch" destination="hVE-vA-OWn" id="waQ-yi-a3C"/>
                 <outlet property="putBtn" destination="u7q-8F-zk5" id="eL7-1D-Uok"/>
                 <outlet property="typeLabel" destination="FUP-Je-KiP" id="y1h-LV-wzi"/>
                 <outlet property="valueLabel" destination="U2Q-qW-z8E" id="ge6-2P-kv5"/>

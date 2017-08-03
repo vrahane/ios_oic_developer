@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DeviceListViewController.h"
 #import "iotivity_itf.h"
+#import "DummyViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +22,9 @@
     // Override point for customization after application launch.
     // Application launch.
 
-    DeviceListViewController *dlvc = [[DeviceListViewController alloc] init];
-    
+//    DeviceListViewController *dlvc = [[DeviceListViewController alloc] init];
+    DummyViewController *dlvc = [[DummyViewController alloc] initWithNibName:@"DummyViewController" bundle:nil];
+  
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dlvc];
     [nvc setNavigationBarHidden:YES];
     self.window.rootViewController = nvc;

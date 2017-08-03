@@ -23,6 +23,7 @@
 @property (nonatomic) NSMutableArray *resourceArrayValue;
 
 @property (nonatomic, copy) NSString *resourceInterface;
+@property (nonatomic, copy) NSString *resourceType;
 
 @property (nonatomic) OCResourceHandle resourceHandle;
 

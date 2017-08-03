@@ -11,5 +11,7 @@
 @interface DeviceListViewController : UIViewController
 
 @property (nonatomic, strong) NSString *uuid;
+@property (nonatomic, strong) NSMutableArray *peripheralList;
+@property (nonatomic, strong) NSMutableArray *dataFromIP;
 
 @end

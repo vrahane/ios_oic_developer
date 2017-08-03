@@ -9,14 +9,17 @@
 #import "DeviceListViewController.h"
 #import "DeviceCell.h"
 #import "DeviceViewController.h"
+#import "DeviceDetailsViewController.h"
 #import "iotivity_itf.h"
+#import <iotivity-csdk/octypes.h>
 
 @interface DeviceListViewController () <UITableViewDelegate, UITableViewDataSource,UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *scanButton;
 @property (weak, nonatomic) IBOutlet UITableView *deviceList;
-
+@property (nonatomic) bool isFromIP;
 @property (strong, nonatomic) NSMutableArray *devices;
+@property (strong, nonatomic) Peripheral *peripheralPassed;
 
 @end
 
@@ -53,6 +56,10 @@
     [[iotivity_itf shared] discovery_end];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    _isFromIP = false;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -65,13 +72,9 @@
 }
 
 
-- (void)listUpdated
+- (void)getResourceDetails
 {
-    // async notification from another thread, reload devicelist view from UI thread
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [_deviceList reloadData];
-        
-    }];
+   
 }
 
 #pragma mark - DeviceList Table Methods
@@ -79,7 +82,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[iotivity_itf shared] device_count];
+    return [_peripheralList count];
 }
 
 
@@ -89,12 +92,10 @@
                                      :@"DeviceCell"
                                      forIndexPath:indexPath];
     
-    Peripheral *p;
-    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
     
     
-    cell.deviceNameLabel.text = p.uuid;
-    self.uuid = p.uuid;
+    cell.deviceNameLabel.text = _peripheralList[indexPath.row];
+    self.uuid = _peripheralList[indexPath.row];
     
     cell.selectionStyle = 0;
     cell.layer.cornerRadius = 8.0f;
@@ -118,20 +119,62 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DeviceViewController *dvc = [[DeviceViewController alloc] init];
-    //Peripheral *
+//    DeviceViewController *dvc = [[DeviceViewController alloc] init];
+//    //Peripheral *
+//    
+//    Peripheral *p = [[iotivity_itf shared] platformDetails];
+//    dvc.manufacturerName = p.manufacturerName;
+//    dvc.platformId = p.platformID;
+//    
+//    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
+//    
+//    
+//    
+//    dvc.peripheral = p;
+//    
+//    [self.navigationController pushViewController:dvc animated:YES];
     
-    Peripheral *p = [[iotivity_itf shared] platformDetails];
-    dvc.manufacturerName = p.manufacturerName;
-    dvc.platformId = p.platformID;
+    DeviceCell *cell = [_deviceList cellForRowAtIndexPath:indexPath];
+    _uuid = cell.deviceNameLabel.text;
     
-    p = [[iotivity_itf shared] deviceWithIdx:[indexPath row]];
+    for (Peripheral *p in _dataFromIP) {
+        if ([p.uuid isEqualToString:_uuid]) {
+            _isFromIP = true;
+            _peripheralPassed = [[Peripheral alloc] initWithUuid:p.uuid];
+            _peripheralPassed = p;
+        }
+    }
+    
+    if (_isFromIP == true) {
+        DeviceViewController *dvc = [[DeviceViewController alloc] initWithNibName:@"DeviceViewController" bundle:nil];
+        dvc.peripheral = _peripheralPassed;
+        [self.navigationController pushViewController:dvc animated:true];
+    } else {
+        [[iotivity_itf shared] discover_allDevices:self andAddress:_uuid];
+    }
     
     
+}
+
+- (void) listUpdated {
     
-    dvc.peripheral = p;
+    NSMutableArray *peripheralArr = [[iotivity_itf shared] devices_found];
     
-    [self.navigationController pushViewController:dvc animated:YES];
+    for (Peripheral *per in peripheralArr) {
+        if([per.uuid isEqualToString:_uuid]) {
+            _peripheralPassed = [[Peripheral alloc] initWithUuid:per.uuid];
+            _peripheralPassed = per;
+            break;
+        }
+    }
+    
+    DeviceViewController *dvc = [[DeviceViewController alloc] initWithNibName:@"DeviceViewController" bundle:nil];
+    dvc.peripheral = _peripheralPassed;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.navigationController pushViewController:dvc animated:true];
+    });
+    
+
 }
 
 @end

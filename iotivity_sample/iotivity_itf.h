@@ -16,11 +16,11 @@
 
 + (instancetype)shared;
 - (int)discovery_start:(id)delegate;
-- (int) discover_deviceDetails:(OCDevAddr *)devAddr;
+- (int) discover_deviceDetails:(id)delegate and:(OCDevAddr)devAddr;
 - (int) discovery_resource:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 - (int) discovery_humidity:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 - (int) discovery_temperature:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
-
+- (int) discover_allDevices: (id) delegate andAddress : (NSString *)address;
 - (int) get_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr) devAddr;
 
 - (int) set_generic:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
@@ -33,6 +33,8 @@
 
 - (void)discovery_end;
 
+- (int) obtain_platform_details: (id) delegate andAddress : (OCDevAddr)address;
+
 - (NSUInteger)device_count;
 - (Peripheral *)deviceWithIdx:(NSInteger)index;
 - (Peripheral *)platformDetails;
@@ -42,6 +44,7 @@
 - (Peripheral *)lightDetails;
 - (Peripheral *)resourceDetails;
 - (Peripheral *)interfaceDetails;
+- (NSMutableArray *)devices_found;
 
 @end
 

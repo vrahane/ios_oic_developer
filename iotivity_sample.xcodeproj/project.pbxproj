@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		72366ED31ED4B6EF00BD1D28 /* iotivity-csdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD9E38FB1ED0BFDD00EFA8A4 /* iotivity-csdk.framework */; };
 		72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */; };
+		72368E571F327D3300B681D8 /* DeviceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72368E551F327D3300B681D8 /* DeviceDetailsViewController.m */; };
+		72368E581F327D3300B681D8 /* DeviceDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72368E561F327D3300B681D8 /* DeviceDetailsViewController.xib */; };
+		725970791F2A974C00533A21 /* DummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725970771F2A974C00533A21 /* DummyViewController.m */; };
+		7259707A1F2A974C00533A21 /* DummyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725970781F2A974C00533A21 /* DummyViewController.xib */; };
+		7259707C1F2A9CB200533A21 /* mynewtlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7259707B1F2A9CB200533A21 /* mynewtlogo.png */; };
 		72C5F8F21EF31C5E00CC20D5 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 72C5F8F11EF31C5E00CC20D5 /* ios */; };
 		72CE410D1EFB26E600640431 /* ResourceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */; };
 		72CE410E1EFB26E600640431 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE40FD1EFB26E600640431 /* DetailViewController.m */; };
@@ -61,6 +66,13 @@
 
 /* Begin PBXFileReference section */
 		72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceListViewController.xib; sourceTree = "<group>"; };
+		72368E541F327D3300B681D8 /* DeviceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceDetailsViewController.h; sourceTree = "<group>"; };
+		72368E551F327D3300B681D8 /* DeviceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceDetailsViewController.m; sourceTree = "<group>"; };
+		72368E561F327D3300B681D8 /* DeviceDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeviceDetailsViewController.xib; sourceTree = "<group>"; };
+		725970761F2A974C00533A21 /* DummyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyViewController.h; sourceTree = "<group>"; };
+		725970771F2A974C00533A21 /* DummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyViewController.m; sourceTree = "<group>"; };
+		725970781F2A974C00533A21 /* DummyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DummyViewController.xib; sourceTree = "<group>"; };
+		7259707B1F2A9CB200533A21 /* mynewtlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mynewtlogo.png; sourceTree = "<group>"; };
 		72C5F8F11EF31C5E00CC20D5 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
 		72CE40F91EFB26E600640431 /* ResourceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsViewController.h; sourceTree = "<group>"; };
 		72CE40FA1EFB26E600640431 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
@@ -166,6 +178,7 @@
 		AD2297B81ECA2A8200467CF0 /* iotivity_sample */ = {
 			isa = PBXGroup;
 			children = (
+				7259707B1F2A9CB200533A21 /* mynewtlogo.png */,
 				ADE3DE1A1ECBD2FD0084364C /* ResourceCell.h */,
 				ADE3DE1B1ECBD2FD0084364C /* ResourceCell.m */,
 				ADE3DE1C1ECBD2FD0084364C /* ResourceCell.xib */,
@@ -176,17 +189,21 @@
 				AD2297C71ECA2A8200467CF0 /* LaunchScreen.storyboard */,
 				AD2297CA1ECA2A8200467CF0 /* Info.plist */,
 				AD2297B91ECA2A8200467CF0 /* Supporting Files */,
+				72CE40FA1EFB26E600640431 /* DeviceViewController.h */,
 				72CE411A1EFB277F00640431 /* DeviceViewController.m */,
+				72CE40FF1EFB26E600640431 /* DeviceViewController.xib */,
 				AD2298001ECA467600467CF0 /* DeviceListViewController.h */,
 				AD2298011ECA467600467CF0 /* DeviceListViewController.m */,
-				72CE411C1EFB27BA00640431 /* ResourceDetailsViewController.m */,
+				72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */,
 				72CE40F91EFB26E600640431 /* ResourceDetailsViewController.h */,
-				72CE40FA1EFB26E600640431 /* DeviceViewController.h */,
+				72CE411C1EFB27BA00640431 /* ResourceDetailsViewController.m */,
+				72CE410C1EFB26E600640431 /* ResourceDetailsViewController.xib */,
+				72CE410A1EFB26E600640431 /* ResourceDetailsTableViewCell.h */,
+				72CE410B1EFB26E600640431 /* ResourceDetailsTableViewCell.m */,
 				72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */,
 				72CE40FC1EFB26E600640431 /* DetailViewController.h */,
 				72CE40FD1EFB26E600640431 /* DetailViewController.m */,
 				72CE40FE1EFB26E600640431 /* DetailViewController.xib */,
-				72CE40FF1EFB26E600640431 /* DeviceViewController.xib */,
 				72CE41001EFB26E600640431 /* HumidityViewController.h */,
 				72CE41011EFB26E600640431 /* HumidityViewController.m */,
 				72CE41021EFB26E600640431 /* HumidityViewController.xib */,
@@ -197,10 +214,6 @@
 				72CE41071EFB26E600640431 /* NewtManagerViewController.m */,
 				72CE41081EFB26E600640431 /* NewtManagerViewController.xib */,
 				72CE41091EFB26E600640431 /* PeripheralResource.m */,
-				72CE410A1EFB26E600640431 /* ResourceDetailsTableViewCell.h */,
-				72CE410B1EFB26E600640431 /* ResourceDetailsTableViewCell.m */,
-				72CE410C1EFB26E600640431 /* ResourceDetailsViewController.xib */,
-				72366EDE1ED79E7E00BD1D28 /* DeviceListViewController.xib */,
 				AD22980F1ECA50B500467CF0 /* iotivity_itf.h */,
 				AD2298101ECA50B500467CF0 /* iotivity_itf.m */,
 				ADE3DE0D1ECBA7360084364C /* Peripheral.h */,
@@ -208,6 +221,12 @@
 				AD22980A1ECA4CA600467CF0 /* DeviceCell.h */,
 				AD22980B1ECA4CA600467CF0 /* DeviceCell.m */,
 				AD22980C1ECA4CA600467CF0 /* DeviceCell.xib */,
+				725970761F2A974C00533A21 /* DummyViewController.h */,
+				725970771F2A974C00533A21 /* DummyViewController.m */,
+				725970781F2A974C00533A21 /* DummyViewController.xib */,
+				72368E541F327D3300B681D8 /* DeviceDetailsViewController.h */,
+				72368E551F327D3300B681D8 /* DeviceDetailsViewController.m */,
+				72368E561F327D3300B681D8 /* DeviceDetailsViewController.xib */,
 			);
 			path = iotivity_sample;
 			sourceTree = "<group>";
@@ -356,9 +375,12 @@
 			files = (
 				72366EDF1ED79E7E00BD1D28 /* DeviceListViewController.xib in Resources */,
 				AD2297C91ECA2A8200467CF0 /* LaunchScreen.storyboard in Resources */,
+				72368E581F327D3300B681D8 /* DeviceDetailsViewController.xib in Resources */,
 				72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */,
 				72CE41141EFB26E600640431 /* LightViewController.xib in Resources */,
+				7259707A1F2A974C00533A21 /* DummyViewController.xib in Resources */,
 				72C5F8F21EF31C5E00CC20D5 /* ios in Resources */,
+				7259707C1F2A9CB200533A21 /* mynewtlogo.png in Resources */,
 				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
 				72CE410F1EFB26E600640431 /* DetailViewController.xib in Resources */,
 				72CE41161EFB26E600640431 /* NewtManagerViewController.xib in Resources */,
@@ -403,8 +425,10 @@
 				ADE3DE0F1ECBA7360084364C /* Peripheral.m in Sources */,
 				72CE41111EFB26E600640431 /* HumidityViewController.m in Sources */,
 				AD2298111ECA50B500467CF0 /* iotivity_itf.m in Sources */,
+				725970791F2A974C00533A21 /* DummyViewController.m in Sources */,
 				AD22980D1ECA4CA600467CF0 /* DeviceCell.m in Sources */,
 				72CE411D1EFB27BA00640431 /* ResourceDetailsViewController.m in Sources */,
+				72368E571F327D3300B681D8 /* DeviceDetailsViewController.m in Sources */,
 				72CE411B1EFB277F00640431 /* DeviceViewController.m in Sources */,
 				72CE41171EFB26E600640431 /* PeripheralResource.m in Sources */,
 			);

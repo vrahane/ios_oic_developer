@@ -12,6 +12,7 @@
 #import "ResourceCell.h"
 #import "HumidityViewController.h"
 #import "ResourceDetailsViewController.h"
+#import "NewtManagerViewController.h"
 #import "iotivity_itf.h"
 #include <iotivity-csdk/octypes.h>
 #include <iotivity-csdk/ocstack.h>
@@ -25,7 +26,7 @@ UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *manufacturerLabel;
 @property (weak, nonatomic) IBOutlet UITableView *resourceList;
 @property (strong, nonatomic) NSMutableArray *peripheralResources;
-
+@property (strong, nonatomic) PeripheralResource *pResource;
 @property (nonatomic, strong) NSString *uri;
 @property (nonatomic) uint8_t index;
 @end
@@ -48,6 +49,7 @@ OCDevAddr *devAddr;
     _resourceList.delegate = self;
     _resourceList.dataSource = self;
     _peripheralResources = [[NSMutableArray alloc] initWithArray:peripheral.resources];
+    _pResource = [[PeripheralResource alloc] init];
     NSLog(@"%s", peripheral.devAddr.addr);
     
     NSLog(@"%lu",(unsigned long)[_peripheralResources count]);
@@ -86,6 +88,7 @@ OCDevAddr *devAddr;
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:true];
+    [[iotivity_itf shared] discover_deviceDetails:self and:peripheral.devAddr];
 }
 
 - (IBAction)backButtonPressed:(id)sender {
@@ -105,7 +108,7 @@ OCDevAddr *devAddr;
     
     cell.selectionStyle = 0;
     
-    PeripheralResource *pr = _peripheralResources[indexPath.row];
+    _pResource = _peripheralResources[indexPath.row];
     cell.layer.cornerRadius = 8.0f;
     cell.uriLabel.clipsToBounds = true;
     cell.uriLabel.layer.cornerRadius = 7.0f;
@@ -115,7 +118,7 @@ OCDevAddr *devAddr;
     [cell.uriLabel.layer setShadowOpacity:0.20f];
     [cell.uriLabel.layer setShadowRadius:2.0f];
     [cell.uriLabel.layer setShadowOffset:CGSizeMake(0.0f, 1.0f)];
-    cell.uriLabel.text = pr.uri;
+    cell.uriLabel.text = _pResource.uri;
 
     return cell;
 }
@@ -123,10 +126,18 @@ OCDevAddr *devAddr;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    PeripheralResource *pr = _peripheralResources[indexPath.row];
-    self.uri = pr.uri;
-    self.index = (uint8_t) indexPath.row;
-    [[iotivity_itf shared] get_generic:self andURI:pr.uri andDevAddr: peripheral.devAddr];
+    //*** NEED TO MAKE THIS PR GLOBAL ***//
+    _pResource = _peripheralResources[indexPath.row];
+    if ([_pResource.uri containsString:@"omgr"]) {
+        NewtManagerViewController *nvc = [[NewtManagerViewController alloc] initWithNibName:@"NewtManagerViewController" bundle:nil];
+        [self.navigationController pushViewController:nvc animated:true];
+        
+    } else {
+        _pResource = _peripheralResources[indexPath.row];
+        self.uri = _pResource.uri;
+        self.index = (uint8_t) indexPath.row;
+        [[iotivity_itf shared] get_generic:self andURI:_pResource.uri andDevAddr: peripheral.devAddr];
+    }
 }
 
 -(void) getResourceDetails {
@@ -153,7 +164,8 @@ OCDevAddr *devAddr;
     rvc.peripheral = pr;
     rvc.navigationTitle = self.uri;
     rvc.resourceIndex = self.index;
-
+    rvc.resourceType = _pResource.resourceType;
+    rvc.interface = _pResource.resourceInterface;
 }
 
 -(void)interfaceData {
@@ -176,5 +188,11 @@ OCDevAddr *devAddr;
     }
 }
 
+- (void) listUpdated {
+    
+    Peripheral *p = [[iotivity_itf shared] platformDetails];
+    _manufacturerLabel.text = p.manufacturerName;
+    _nameLabel.text = p.platformID;
+}
 
 @end

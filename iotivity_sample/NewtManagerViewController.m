@@ -43,8 +43,28 @@
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 0;
+    return 6;
 }
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+   
+    if (row == 0) {
+        return @"echo";
+    } else if (row == 1) {
+        return @"console echo";
+    } else if (row == 2) {
+        return @"task stats";
+    } else if (row == 3) {
+        return @"mp stats";
+    } else if (row == 4) {
+        return @"date-time";
+    } else if (row == 5) {
+        return @"reset";
+    }
+    return nil;
+}
+
+
 //buildHeader(int op, int group, int sequence, int id)
 - (uint8_t *) buildHeader : (int) op andGroup : (int)group andSeq : (int)mSeq andID : (int)id1 {
     uint8_t *retVal = malloc(sizeof(uint8_t) * 8);

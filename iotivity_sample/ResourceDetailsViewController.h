@@ -25,6 +25,8 @@
 @property (nonatomic) OCDevAddr devAddr;
 @property (nonatomic) OCDoHandle handle;
 
+@property (strong, nonatomic) NSString *interface;
+@property (strong, nonatomic) NSString *resourceType;
 
 //Pop Up Menu
 @property (strong, nonatomic) IBOutlet UIView *backgroundPopup;

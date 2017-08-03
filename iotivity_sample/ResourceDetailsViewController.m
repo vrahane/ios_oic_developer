@@ -16,6 +16,7 @@
 
 @interface ResourceDetailsViewController ()
 @property (nonatomic) Peripheral *pr;
+
 @end
 
 @implementation ResourceDetailsViewController
@@ -69,9 +70,21 @@
 {
     ResourceDetailsTableViewCell *cell = (ResourceDetailsTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ResourceDetailsTableViewCell" forIndexPath:indexPath];
     
+    if ([self.interface containsString:@"rw"]) {
+        
+        cell.putBtn.hidden = false;
+        cell.getBtn.hidden = false;
+        cell.observeSwitch.hidden = true;
+    } else {
+        cell.putBtn.hidden = true;
+        cell.getBtn.hidden = true;
+        cell.observeSwitch.hidden = false;
+    }
+    
+    
     [cell.getBtn addTarget:self action:@selector(getClicked:) forControlEvents:UIControlEventTouchUpInside];
     [cell.putBtn addTarget:self action:@selector(putclicked:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.observeSwitch addTarget:self action:@selector(observeStateChanged:) forControlEvents:UIControlEventValueChanged];
+    //[cell.observeSwitch addTarget:self action:@selector(observeStateChanged:) forControlEvents:UIControlEventValueChanged];
     
     cell.getBtn.tag = indexPath.row;
     cell.putBtn.tag = indexPath.row;
@@ -205,9 +218,11 @@
     [self.backgroundPopup removeFromSuperview];
 }
 
-- (void)observeStateChanged: (UISegmentedControl *)sender {
+- (IBAction) observeStateChanged: (id)sender {
     
-    NSString *title = [sender titleForSegmentAtIndex:sender.selectedSegmentIndex];
+    UISegmentedControl *segment = (UISegmentedControl *)sender;
+    
+    NSString *title = [segment titleForSegmentAtIndex:segment.selectedSegmentIndex];
 
     if ([title  isEqual: @"Observe"]) {
         [[iotivity_itf shared] observe_light:self andURI:self.navigationTitle andDevAddr:peripheral.devAddr];
