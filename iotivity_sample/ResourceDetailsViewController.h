@@ -20,7 +20,6 @@
 @property (strong, nonatomic) Peripheral *peripheral;
 
 -(void) getResourceDetails;
--(void) getInterfaceData;
 
 @property (nonatomic) OCDevAddr devAddr;
 @property (nonatomic) OCDoHandle handle;

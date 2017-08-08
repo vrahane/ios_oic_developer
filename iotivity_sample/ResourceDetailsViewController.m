@@ -160,34 +160,6 @@
     [resourceList reloadData];
 }
 
--(void)getInterfaceData {
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        [self interfaceData];
-    }];
-}
-
--(void)interfaceData {
-    Peripheral *pr;
-    pr = [[iotivity_itf shared] interfaceDetails];
-
-    for (int i = 0; i < [pr.resources count]; i++) {
-        PeripheralResource *per = pr.resources[i];
-        for (int j = 0;j < [peripheral.resources count]; j++) {
-            PeripheralResource *p = peripheral.resources[j];
-            if([p.resourceName isEqualToString:per.resourceName]){
-                p.resourceInterface = per.resourceInterface;
-                [peripheral.resources replaceObjectAtIndex:j withObject:p];
-            }
-        }
-    }
-    for(int i = 0; i < [peripheral.resources count]; i++){
-        PeripheralResource *pr = peripheral.resources[i];
-        NSLog(@"%@",pr.resourceInterface);
-    }
-}
-
-
-
 
 - (void)putclicked : (UIButton *)sender {
     

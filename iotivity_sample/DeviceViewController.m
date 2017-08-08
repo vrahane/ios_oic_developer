@@ -8,9 +8,7 @@
 
 #import "DeviceViewController.h"
 #import "DetailViewController.h"
-#import "LightViewController.h"
 #import "ResourceCell.h"
-#import "HumidityViewController.h"
 #import "ResourceDetailsViewController.h"
 #import "NewtManagerViewController.h"
 #import "iotivity_itf.h"
@@ -165,26 +163,6 @@ OCDevAddr *devAddr;
     rvc.resourceIndex = self.index;
     rvc.resourceType = _pResource.resourceType;
     rvc.interface = _pResource.resourceInterface;
-}
-
--(void)interfaceData {
-    Peripheral *pr;
-    pr = [[iotivity_itf shared] interfaceDetails];
-    
-    for (int i = 0; i < [pr.resources count]; i++) {
-        PeripheralResource *per = pr.resources[i];
-        for (int j = 0;j < [peripheral.resources count]; j++) {
-            PeripheralResource *p = peripheral.resources[j];
-            if([p.resourceName isEqualToString:per.resourceName]){
-                p.resourceInterface = per.resourceInterface;
-                [peripheral.resources replaceObjectAtIndex:j withObject:p];
-            }
-        }
-    }
-    for(int i = 0; i < [peripheral.resources count]; i++){
-        PeripheralResource *pr = peripheral.resources[i];
-        NSLog(@"%@",pr.resourceInterface);
-    }
 }
 
 @end

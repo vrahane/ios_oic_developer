@@ -12,28 +12,29 @@
 #import <iotivity-csdk/octypes.h>
 #import <iotivity-csdk/ocpayload.h>
 
-//
-// Newt Manager Op Codes
-//
+
+/*Uncomment the Constants as required*/
+
+/* Newt Manager Op Codes */
+
 static int NMGR_OP_READ                     = 0;
-static int NMGR_OP_READ_RSP                 = 1;
+//static int NMGR_OP_READ_RSP                 = 1;
 static int NMGR_OP_WRITE                    = 2;
-static int NMGR_OP_WRITE_RSP                = 3;
+//static int NMGR_OP_WRITE_RSP                = 3;
 
-//
-// Newt Manager groups
-//
+/* Newt Manager groups */
+
 static int NMGR_GROUP_DEFAULT 	            = 0;
-static int NMGR_GROUP_IMAGE 		        = 1;
-static int NMGR_GROUP_STATS 		        = 2;
-static int NMGR_GROUP_CONFIG 		        = 3;
-static int NMGR_GROUP_LOGS                  = 4;
-static int NMGR_GROUP_CRASH 		        = 5;
-static int NMGR_GROUP_PERUSER 	            = 64;
+//static int NMGR_GROUP_IMAGE 		        = 1;
+//static int NMGR_GROUP_STATS 		        = 2;
+//static int NMGR_GROUP_CONFIG 		        = 3;
+//static int NMGR_GROUP_LOGS                  = 4;
+//static int NMGR_GROUP_CRASH 		        = 5;
+//static int NMGR_GROUP_PERUSER 	            = 64;
 
-//
-// Newt Manager default group command subcommand IDs
-//
+
+/* Newt Manager default group command subcommand IDs */
+
 static int NMGR_DEFAULT_ID_ECHO             = 0;
 static int NMGR_DEFAULT_ID_CONS_ECHO_CTRL   = 1;
 static int NMGR_DEFAULT_ID_TASKSTAT         = 2;
@@ -41,23 +42,22 @@ static int NMGR_DEFAULT_ID_MPSTAT           = 3;
 static int NMGR_DEFAULT_ID_DATETIME_STR     = 4;
 static int NMGR_DEFAULT_ID_RESET            = 5;
 
-//
-// Newt Manager stats group command IDs
-//
-static int NMGR_STATS_ID_READ              = 0;
-static int NMGR_STATS_ID_LIST              = 1;
 
-//
-// Newt manager image group command IDs
-//
-static int NMGR_IMAGE_ID_LIST		        = 0;
-static int NMGR_IMAGE_ID_UPLOAD             = 1;
-static int NMGR_IMAGE_ID_BOOT		        = 2;
-static int NMGR_IMAGE_ID_FILE		        = 3;
-static int NMGR_IMAGE_ID_LIST2		        = 4;
-static int NMGR_IMAGE_ID_BOOT2		        = 5;
-static int NMGR_IMAGE_ID_CORELIST 	        = 6;
-static int NMGR_IMAGE_ID_CORELOAD 	        = 7;
+/* Newt Manager stats group command IDs */
+
+//static int NMGR_STATS_ID_READ              = 0;
+//static int NMGR_STATS_ID_LIST              = 1;
+
+/* Newt manager image group command IDs */
+
+//static int NMGR_IMAGE_ID_LIST		        = 0;
+//static int NMGR_IMAGE_ID_UPLOAD             = 1;
+//static int NMGR_IMAGE_ID_BOOT		        = 2;
+//static int NMGR_IMAGE_ID_FILE		        = 3;
+//static int NMGR_IMAGE_ID_LIST2		        = 4;
+//static int NMGR_IMAGE_ID_BOOT2		        = 5;
+//static int NMGR_IMAGE_ID_CORELIST 	        = 6;
+//static int NMGR_IMAGE_ID_CORELOAD 	        = 7;
 
 static NSString *mHeaderKey = @"_h";
 static int mSeq = 0;
