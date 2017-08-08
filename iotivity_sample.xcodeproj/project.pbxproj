@@ -14,6 +14,8 @@
 		725970791F2A974C00533A21 /* DummyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 725970771F2A974C00533A21 /* DummyViewController.m */; };
 		7259707A1F2A974C00533A21 /* DummyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 725970781F2A974C00533A21 /* DummyViewController.xib */; };
 		7259707C1F2A9CB200533A21 /* mynewtlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7259707B1F2A9CB200533A21 /* mynewtlogo.png */; };
+		7287DFF31F38E83F00C3C720 /* NewtMgrTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7287DFF11F38E83F00C3C720 /* NewtMgrTableViewCell.m */; };
+		7287DFF41F38E83F00C3C720 /* NewtMgrTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7287DFF21F38E83F00C3C720 /* NewtMgrTableViewCell.xib */; };
 		72C5F8F21EF31C5E00CC20D5 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 72C5F8F11EF31C5E00CC20D5 /* ios */; };
 		72CE410D1EFB26E600640431 /* ResourceDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CE40FB1EFB26E600640431 /* ResourceDetailsTableViewCell.xib */; };
 		72CE410E1EFB26E600640431 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CE40FD1EFB26E600640431 /* DetailViewController.m */; };
@@ -73,6 +75,9 @@
 		725970771F2A974C00533A21 /* DummyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyViewController.m; sourceTree = "<group>"; };
 		725970781F2A974C00533A21 /* DummyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DummyViewController.xib; sourceTree = "<group>"; };
 		7259707B1F2A9CB200533A21 /* mynewtlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mynewtlogo.png; sourceTree = "<group>"; };
+		7287DFF01F38E83F00C3C720 /* NewtMgrTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewtMgrTableViewCell.h; sourceTree = "<group>"; };
+		7287DFF11F38E83F00C3C720 /* NewtMgrTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewtMgrTableViewCell.m; sourceTree = "<group>"; };
+		7287DFF21F38E83F00C3C720 /* NewtMgrTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewtMgrTableViewCell.xib; sourceTree = "<group>"; };
 		72C5F8F11EF31C5E00CC20D5 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ios; path = iotivity_sample/iotivity/out/ios; sourceTree = "<group>"; };
 		72CE40F91EFB26E600640431 /* ResourceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceDetailsViewController.h; sourceTree = "<group>"; };
 		72CE40FA1EFB26E600640431 /* DeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceViewController.h; sourceTree = "<group>"; };
@@ -227,6 +232,9 @@
 				72368E541F327D3300B681D8 /* DeviceDetailsViewController.h */,
 				72368E551F327D3300B681D8 /* DeviceDetailsViewController.m */,
 				72368E561F327D3300B681D8 /* DeviceDetailsViewController.xib */,
+				7287DFF01F38E83F00C3C720 /* NewtMgrTableViewCell.h */,
+				7287DFF11F38E83F00C3C720 /* NewtMgrTableViewCell.m */,
+				7287DFF21F38E83F00C3C720 /* NewtMgrTableViewCell.xib */,
 			);
 			path = iotivity_sample;
 			sourceTree = "<group>";
@@ -379,6 +387,7 @@
 				72CE41101EFB26E600640431 /* DeviceViewController.xib in Resources */,
 				72CE41141EFB26E600640431 /* LightViewController.xib in Resources */,
 				7259707A1F2A974C00533A21 /* DummyViewController.xib in Resources */,
+				7287DFF41F38E83F00C3C720 /* NewtMgrTableViewCell.xib in Resources */,
 				72C5F8F21EF31C5E00CC20D5 /* ios in Resources */,
 				7259707C1F2A9CB200533A21 /* mynewtlogo.png in Resources */,
 				ADE3DE1E1ECBD2FD0084364C /* ResourceCell.xib in Resources */,
@@ -416,6 +425,7 @@
 			files = (
 				AD2298031ECA467600467CF0 /* DeviceListViewController.m in Sources */,
 				72CE41131EFB26E600640431 /* LightViewController.m in Sources */,
+				7287DFF31F38E83F00C3C720 /* NewtMgrTableViewCell.m in Sources */,
 				ADE3DE1D1ECBD2FD0084364C /* ResourceCell.m in Sources */,
 				72CE41151EFB26E600640431 /* NewtManagerViewController.m in Sources */,
 				AD2297BE1ECA2A8200467CF0 /* AppDelegate.m in Sources */,

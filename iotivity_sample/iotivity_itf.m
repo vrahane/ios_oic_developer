@@ -11,6 +11,7 @@
 #import "DeviceDetailsViewController.h"
 #import "ResourceDetailsViewController.h"
 #import "DeviceListViewController.h"
+#import "NewtManagerViewController.h"
 #import "PeripheralResource.h"
 #include <iotivity-csdk/octypes.h>
 #include <iotivity-csdk/ocstack.h>
@@ -550,7 +551,7 @@ interfaces_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 
 static OCStackApplicationResult
 set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
-
+    
     return OC_STACK_DELETE_TRANSACTION;
 
 }
@@ -562,7 +563,7 @@ set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 - (int) set_newt_manager:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload{
     OCStackResult rc;
     OCCallbackData cb = {
-        .cb = set_cb
+        .cb = newt_manager_cb
     };
     OCConnectivityType transport = CT_ADAPTER_IP | CT_ADAPTER_GATT_BTLE;
     
@@ -575,11 +576,100 @@ set_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
 
 static OCStackApplicationResult
 newt_manager_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp){
+    iotivity_itf *itf = [iotivity_itf shared];
+    
+    itf.peripheralObject = [[Peripheral alloc] initWithUuid:@"NewtMgr"];
+    NSMutableArray *arr = [[NSMutableArray alloc] init];
+
+    [itf.mutex lock];
+    if (rsp -> payload->type == PAYLOAD_TYPE_REPRESENTATION) {
+        OCRepPayload *representation_payload = (OCRepPayload *)rsp->payload;
+        OCRepPayloadValue *res;
+        for (res = representation_payload ->values; res; res = res->next) {
+            PeripheralResource *pr = [[PeripheralResource alloc] init];
+            pr.uri = [[NSString alloc] initWithFormat:@"%s", res->name];
+            pr.resourceName = [NSString stringWithUTF8String:res->name];
+            NSLog(@"%@",pr.resourceName);
+            
+            pr.type = res->type;
+            
+            if (res->type == OCREP_PROP_INT) {
+                pr.resourceIntegerValue = res->i;
+            }else if(res->type == OCREP_PROP_BOOL){
+                pr.resourceBoolValue = res->b;
+            }else if(res->type == OCREP_PROP_DOUBLE){
+                pr.resourceDoubleValue = res->d;
+            }else if(res->type == OCREP_PROP_STRING){
+                pr.resourceStringValue = [NSString stringWithUTF8String:res->str];
+            }else if(res->type == OCREP_PROP_ARRAY){
+                if(res->arr.type == OCREP_PROP_INT){
+                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                        NSNumber *number = [NSNumber numberWithLongLong:res->arr.iArray[i]];
+                        [arr addObject:number];
+                    }
+                    pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                }else if(res->arr.type == OCREP_PROP_DOUBLE){
+                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                        NSNumber *number = [NSNumber numberWithDouble:res->arr.dArray[i]];
+                        [arr addObject:number];
+                    }
+                    pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                }else if(res->arr.type == OCREP_PROP_STRING){
+                    for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                        NSString *string = [NSString stringWithUTF8String:res->arr.strArray[i]];
+                        [arr addObject:string];
+                    }
+                    pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                    if(res->arr.type == OCREP_PROP_BOOL){
+                        for(int i = 0; i < (int)res->ocByteStr.len; i++){
+                            bool b = res->arr.bArray[i];
+                            [arr addObject:[NSNumber numberWithBool:b]];
+                        }
+                        pr.resourceArrayValue = [[NSMutableArray alloc] initWithArray:arr];
+                    }
+                    
+                }
+                
+            }else if(res->type == OCREP_PROP_OBJECT) {
+                
+                [itf parseObject:res->obj and:itf.peripheralObject];
+            }
+            [itf.peripheralObject addPeripheralResource:pr];
+        }
+    }
+    
+    [itf.mutex unlock];
+    if (itf.discovery_watcher != (id)nil) {
+        [itf.discovery_watcher obtainData];
+    }
+
+    
+    [itf.mutex unlock];
     
     return OC_STACK_DELETE_TRANSACTION;
     
 }
 
+
+- (void) parseObject : (OCRepPayload *)object and:(Peripheral *)pObj{
+    while (object ->values ->next != NULL) {
+        if (object->values->type == OCREP_PROP_OBJECT) {
+            OCRepPayload *innerObj = object->values->obj;
+            while (innerObj->values->next!=NULL) {
+                PeripheralResource *pr = [[PeripheralResource alloc] init];
+                OCRepPayloadValue *innerObjValue = innerObj->values;
+                pr.resourceName = [NSString stringWithUTF8String:innerObjValue->name];
+                pr.type = innerObjValue->type;
+                if (pr.type == OCREP_PROP_INT) {
+                    pr.resourceIntegerValue = innerObjValue->i;
+                }
+                innerObj->values = innerObj->values->next;
+                [pObj addPeripheralResource:pr];
+            }
+        }
+        object->values = object->values->next;
+    }
+}
 
 /*=================================== NEWT MANAGER========================================*/
 
@@ -865,6 +955,19 @@ observe_light_cb(void *ctx, OCDoHandle handle, OCClientResponse *rsp)
     
     return pObj;
     
+}
+
+- (Peripheral *)newtMgrDetails {
+    Peripheral *pObj = [[Peripheral alloc] initWithUuid:@"PeripheralObject"];;
+    [_mutex lock];
+    
+    [pObj.resources addObjectsFromArray:_peripheralObject.resources];
+    pObj = _peripheralObject;
+    
+    [_mutex unlock];
+    
+    return pObj;
+
 }
 
 -(Peripheral *)interfaceDetails

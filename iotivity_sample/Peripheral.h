@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *uuid;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, strong) NSMutableArray *resources;
+@property (nonatomic, strong) NSMutableArray *resourceHeader;
 @property (nonatomic) OCDevAddr devAddr;
 @property (nonatomic) OCDoHandle handle;
 @property (nonatomic, copy) NSString *platformID;

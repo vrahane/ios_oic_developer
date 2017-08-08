@@ -8,6 +8,7 @@
 
 #import "DeviceDetailsViewController.h"
 #import "ResourceDetailsViewController.h"
+#import "NewtManagerViewController.h"
 #import "ResourceCell.h"
 #import "Peripheral.h"
 #import "iotivity_itf.h"
@@ -91,8 +92,13 @@
     ResourceCell *cell = [_resourceList cellForRowAtIndexPath:indexPath];
     NSLog(@"%@",cell.uriLabel.text);
     _pResource = _peripheralResources[indexPath.row];
-
-    [[iotivity_itf shared] get_generic:self andURI:cell.uriLabel.text andDevAddr:_peripheral.devAddr];
+    if ([cell.uriLabel.text containsString:@"omgr"]) {
+        NewtManagerViewController *nvc = [[NewtManagerViewController alloc] initWithNibName:@"NewtManagerViewController" bundle:nil];
+        nvc.devAddr = _peripheral.devAddr;
+        [self.navigationController pushViewController:nvc animated:true];
+    } else {
+        [[iotivity_itf shared] get_generic:self andURI:cell.uriLabel.text andDevAddr:_peripheral.devAddr];
+    }
 }
 
 - (void) getResourceDetails {

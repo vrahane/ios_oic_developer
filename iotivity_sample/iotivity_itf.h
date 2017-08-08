@@ -30,7 +30,7 @@
 - (int) observe_light:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr;
 
 - (int) cancel_observer:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andHandle:(OCDoHandle)handle;
-
+- (int) set_newt_manager:(id)delegate andURI:(NSString *)uri andDevAddr:(OCDevAddr)devAddr andPayLoad:(OCRepPayload *) payload;
 - (void)discovery_end;
 
 - (int) obtain_platform_details: (id) delegate andAddress : (OCDevAddr)address;
@@ -45,6 +45,7 @@
 - (Peripheral *)resourceDetails;
 - (Peripheral *)interfaceDetails;
 - (NSMutableArray *)devices_found;
+- (Peripheral *)newtMgrDetails;
 
 @end
 

@@ -163,6 +163,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.navigationController pushViewController:dvc animated:true];
     });
-    }
+}
 
 @end

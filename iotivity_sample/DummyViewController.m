@@ -12,8 +12,10 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #define CA_GATT_SERVICE_UUID "ADE3D529-C784-4F63-A987-EB69F70EE816"
+#define CA_GATT_SERVICE_UUID2 "FE18"
 
 static CBUUID* g_OICGattServiceUUID = NULL;
+static CBUUID* g_OICGattServiceUUID2 = NULL;
 bool timeOut = false;
 
 @interface DummyViewController () <CBPeripheralDelegate, CBCentralManagerDelegate>
@@ -32,7 +34,8 @@ bool timeOut = false;
 #pragma mark - Bluetooth Init
     _centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     g_OICGattServiceUUID = [CBUUID UUIDWithString:@CA_GATT_SERVICE_UUID];
-    _servicesToScanFor = @[g_OICGattServiceUUID];
+    g_OICGattServiceUUID2 = [CBUUID UUIDWithString:@CA_GATT_SERVICE_UUID2];
+    _servicesToScanFor = @[g_OICGattServiceUUID, g_OICGattServiceUUID2];
     _CBPeripheralList = [[NSMutableArray alloc] init];
     _uuidList = [[NSMutableArray alloc] init];
     _dataFromIP = [[NSMutableArray alloc] init];
@@ -89,7 +92,7 @@ bool timeOut = false;
 
 
 - (void) startTimer {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(stopTimer) userInfo:nil repeats:nil];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(stopTimer) userInfo:nil repeats:nil];
 }
 
 - (void) stopTimer {
@@ -126,7 +129,7 @@ bool timeOut = false;
 }
 
 - (void) timeOutTimer {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(timeOut) userInfo:nil repeats:nil];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(timeOut) userInfo:nil repeats:nil];
 }
 
 - (void) timeOut {
